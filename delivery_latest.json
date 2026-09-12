@@ -1,0 +1,510 @@
+{
+  "generatedAt": "2026-09-12T21:34:12.726401+05:30",
+  "previousTradingDate": "2026-09-10",
+  "currentTradingDate": "2026-09-11",
+  "total": 50,
+  "pass": 50,
+  "fail": 0,
+  "rows": [
+    {
+      "symbol": "ADANIENT",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 670265.0,
+      "currentDeliveryQty": 767389.0,
+      "deliveryRatio": 1.1449038813006795,
+      "currentDeliveryPercent": 47.55,
+      "status": "PASS"
+    },
+    {
+      "symbol": "ADANIPORTS",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 1788095.0,
+      "currentDeliveryQty": 911385.0,
+      "deliveryRatio": 0.5096960731952161,
+      "currentDeliveryPercent": 61.38,
+      "status": "PASS"
+    },
+    {
+      "symbol": "APOLLOHOSP",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 211627.0,
+      "currentDeliveryQty": 112548.0,
+      "deliveryRatio": 0.5318224990195013,
+      "currentDeliveryPercent": 61.09,
+      "status": "PASS"
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 386119.0,
+      "currentDeliveryQty": 291750.0,
+      "deliveryRatio": 0.7555960727133345,
+      "currentDeliveryPercent": 54.05,
+      "status": "PASS"
+    },
+    {
+      "symbol": "AXISBANK",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 2693612.0,
+      "currentDeliveryQty": 2301302.0,
+      "deliveryRatio": 0.8543554157020388,
+      "currentDeliveryPercent": 57.75,
+      "status": "PASS"
+    },
+    {
+      "symbol": "BAJAJ-AUTO",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 54096.0,
+      "currentDeliveryQty": 119990.0,
+      "deliveryRatio": 2.2180937592428274,
+      "currentDeliveryPercent": 64.81,
+      "status": "PASS"
+    },
+    {
+      "symbol": "BAJAJFINSV",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 340361.0,
+      "currentDeliveryQty": 368606.0,
+      "deliveryRatio": 1.0829854184233798,
+      "currentDeliveryPercent": 52.03,
+      "status": "PASS"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 2542676.0,
+      "currentDeliveryQty": 3001489.0,
+      "deliveryRatio": 1.1804449328188098,
+      "currentDeliveryPercent": 64.25,
+      "status": "PASS"
+    },
+    {
+      "symbol": "BEL",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 4742141.0,
+      "currentDeliveryQty": 4236659.0,
+      "deliveryRatio": 0.8934063748842559,
+      "currentDeliveryPercent": 61.42,
+      "status": "PASS"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 2997223.0,
+      "currentDeliveryQty": 2571458.0,
+      "deliveryRatio": 0.8579468394577247,
+      "currentDeliveryPercent": 71.18,
+      "status": "PASS"
+    },
+    {
+      "symbol": "CIPLA",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 491363.0,
+      "currentDeliveryQty": 931899.0,
+      "deliveryRatio": 1.8965591629813396,
+      "currentDeliveryPercent": 62.08,
+      "status": "PASS"
+    },
+    {
+      "symbol": "COALINDIA",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 5549633.0,
+      "currentDeliveryQty": 1637981.0,
+      "deliveryRatio": 0.2951512289191015,
+      "currentDeliveryPercent": 47.38,
+      "status": "PASS"
+    },
+    {
+      "symbol": "DRREDDY",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 1254660.0,
+      "currentDeliveryQty": 802205.0,
+      "deliveryRatio": 0.6393803899064289,
+      "currentDeliveryPercent": 38.16,
+      "status": "PASS"
+    },
+    {
+      "symbol": "EICHERMOT",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 152577.0,
+      "currentDeliveryQty": 205609.0,
+      "deliveryRatio": 1.3475753226239866,
+      "currentDeliveryPercent": 62.66,
+      "status": "PASS"
+    },
+    {
+      "symbol": "ETERNAL",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 9296932.0,
+      "currentDeliveryQty": 11476840.0,
+      "deliveryRatio": 1.2344760615652561,
+      "currentDeliveryPercent": 57.46,
+      "status": "PASS"
+    },
+    {
+      "symbol": "GRASIM",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 732117.0,
+      "currentDeliveryQty": 251846.0,
+      "deliveryRatio": 0.34399692945253285,
+      "currentDeliveryPercent": 63.08,
+      "status": "PASS"
+    },
+    {
+      "symbol": "HCLTECH",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 954103.0,
+      "currentDeliveryQty": 965924.0,
+      "deliveryRatio": 1.012389647658586,
+      "currentDeliveryPercent": 49.59,
+      "status": "PASS"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 17074185.0,
+      "currentDeliveryQty": 13408691.0,
+      "deliveryRatio": 0.7853195335531389,
+      "currentDeliveryPercent": 47.31,
+      "status": "PASS"
+    },
+    {
+      "symbol": "HDFCLIFE",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 2017590.0,
+      "currentDeliveryQty": 2311499.0,
+      "deliveryRatio": 1.1456733032974984,
+      "currentDeliveryPercent": 62.15,
+      "status": "PASS"
+    },
+    {
+      "symbol": "HINDALCO",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 1222332.0,
+      "currentDeliveryQty": 2466205.0,
+      "deliveryRatio": 2.017622871691161,
+      "currentDeliveryPercent": 56.75,
+      "status": "PASS"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 783609.0,
+      "currentDeliveryQty": 543363.0,
+      "deliveryRatio": 0.6934108720037672,
+      "currentDeliveryPercent": 60.65,
+      "status": "PASS"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 7526499.0,
+      "currentDeliveryQty": 4097434.0,
+      "deliveryRatio": 0.5444010555239561,
+      "currentDeliveryPercent": 63.26,
+      "status": "PASS"
+    },
+    {
+      "symbol": "INDIGO",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 523205.0,
+      "currentDeliveryQty": 455795.0,
+      "deliveryRatio": 0.8711594881547385,
+      "currentDeliveryPercent": 53.12,
+      "status": "PASS"
+    },
+    {
+      "symbol": "INFY",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 5250417.0,
+      "currentDeliveryQty": 3109903.0,
+      "deliveryRatio": 0.592315429422082,
+      "currentDeliveryPercent": 56.59,
+      "status": "PASS"
+    },
+    {
+      "symbol": "ITC",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 10373726.0,
+      "currentDeliveryQty": 5735433.0,
+      "deliveryRatio": 0.5528807103638558,
+      "currentDeliveryPercent": 58.39,
+      "status": "PASS"
+    },
+    {
+      "symbol": "JIOFIN",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 4619948.0,
+      "currentDeliveryQty": 10244224.0,
+      "deliveryRatio": 2.2173894597947856,
+      "currentDeliveryPercent": 50.88,
+      "status": "PASS"
+    },
+    {
+      "symbol": "JSWSTEEL",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 656505.0,
+      "currentDeliveryQty": 756071.0,
+      "deliveryRatio": 1.1516606880374103,
+      "currentDeliveryPercent": 53.87,
+      "status": "PASS"
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 4998529.0,
+      "currentDeliveryQty": 9203380.0,
+      "deliveryRatio": 1.8412176862432927,
+      "currentDeliveryPercent": 68.41,
+      "status": "PASS"
+    },
+    {
+      "symbol": "LT",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 684483.0,
+      "currentDeliveryQty": 525168.0,
+      "deliveryRatio": 0.7672476891317973,
+      "currentDeliveryPercent": 50.54,
+      "status": "PASS"
+    },
+    {
+      "symbol": "M&M",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 1248888.0,
+      "currentDeliveryQty": 616640.0,
+      "deliveryRatio": 0.4937512411040862,
+      "currentDeliveryPercent": 52.96,
+      "status": "PASS"
+    },
+    {
+      "symbol": "MARUTI",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 148868.0,
+      "currentDeliveryQty": 278193.0,
+      "deliveryRatio": 1.8687226267565897,
+      "currentDeliveryPercent": 61.44,
+      "status": "PASS"
+    },
+    {
+      "symbol": "MAXHEALTH",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 1635253.0,
+      "currentDeliveryQty": 1302769.0,
+      "deliveryRatio": 0.7966773337214486,
+      "currentDeliveryPercent": 58.79,
+      "status": "PASS"
+    },
+    {
+      "symbol": "NESTLEIND",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 382546.0,
+      "currentDeliveryQty": 609191.0,
+      "deliveryRatio": 1.5924646970560403,
+      "currentDeliveryPercent": 56.15,
+      "status": "PASS"
+    },
+    {
+      "symbol": "NTPC",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 4844608.0,
+      "currentDeliveryQty": 2789575.0,
+      "deliveryRatio": 0.5758102616352035,
+      "currentDeliveryPercent": 69.03,
+      "status": "PASS"
+    },
+    {
+      "symbol": "ONGC",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 6096147.0,
+      "currentDeliveryQty": 8490694.0,
+      "deliveryRatio": 1.392796794434255,
+      "currentDeliveryPercent": 35.06,
+      "status": "PASS"
+    },
+    {
+      "symbol": "POWERGRID",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 7693067.0,
+      "currentDeliveryQty": 5563533.0,
+      "deliveryRatio": 0.7231879041219841,
+      "currentDeliveryPercent": 54.86,
+      "status": "PASS"
+    },
+    {
+      "symbol": "RELIANCE",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 5049468.0,
+      "currentDeliveryQty": 4061266.0,
+      "deliveryRatio": 0.8042958188862668,
+      "currentDeliveryPercent": 54.5,
+      "status": "PASS"
+    },
+    {
+      "symbol": "SBILIFE",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 566452.0,
+      "currentDeliveryQty": 143868.0,
+      "deliveryRatio": 0.2539809198308065,
+      "currentDeliveryPercent": 56.15,
+      "status": "PASS"
+    },
+    {
+      "symbol": "SBIN",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 2251291.0,
+      "currentDeliveryQty": 3903299.0,
+      "deliveryRatio": 1.7338047369265013,
+      "currentDeliveryPercent": 53.86,
+      "status": "PASS"
+    },
+    {
+      "symbol": "SHRIRAMFIN",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 1638476.0,
+      "currentDeliveryQty": 1573415.0,
+      "deliveryRatio": 0.9602917589271982,
+      "currentDeliveryPercent": 57.19,
+      "status": "PASS"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 780836.0,
+      "currentDeliveryQty": 896962.0,
+      "deliveryRatio": 1.1487200897499603,
+      "currentDeliveryPercent": 71.97,
+      "status": "PASS"
+    },
+    {
+      "symbol": "TATACONSUM",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 628362.0,
+      "currentDeliveryQty": 462783.0,
+      "deliveryRatio": 0.7364910672510432,
+      "currentDeliveryPercent": 58.13,
+      "status": "PASS"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 12722193.0,
+      "currentDeliveryQty": 13969094.0,
+      "deliveryRatio": 1.0980099107127206,
+      "currentDeliveryPercent": 50.34,
+      "status": "PASS"
+    },
+    {
+      "symbol": "TCS",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 1244751.0,
+      "currentDeliveryQty": 1221983.0,
+      "deliveryRatio": 0.9817087915575083,
+      "currentDeliveryPercent": 50.96,
+      "status": "PASS"
+    },
+    {
+      "symbol": "TECHM",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 477907.0,
+      "currentDeliveryQty": 787592.0,
+      "deliveryRatio": 1.6480026448660514,
+      "currentDeliveryPercent": 43.57,
+      "status": "PASS"
+    },
+    {
+      "symbol": "TITAN",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 198808.0,
+      "currentDeliveryQty": 164874.0,
+      "deliveryRatio": 0.8293127037141362,
+      "currentDeliveryPercent": 52.36,
+      "status": "PASS"
+    },
+    {
+      "symbol": "TMPV",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 3440392.0,
+      "currentDeliveryQty": 2937083.0,
+      "deliveryRatio": 0.853705914907371,
+      "currentDeliveryPercent": 42.5,
+      "status": "PASS"
+    },
+    {
+      "symbol": "TRENT",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 288301.0,
+      "currentDeliveryQty": 324663.0,
+      "deliveryRatio": 1.1261251261702179,
+      "currentDeliveryPercent": 54.2,
+      "status": "PASS"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 167707.0,
+      "currentDeliveryQty": 95831.0,
+      "deliveryRatio": 0.5714192013452032,
+      "currentDeliveryPercent": 64.97,
+      "status": "PASS"
+    },
+    {
+      "symbol": "WIPRO",
+      "previousDate": "2026-09-10",
+      "currentDate": "2026-09-11",
+      "previousDeliveryQty": 3985186.0,
+      "currentDeliveryQty": 3277153.0,
+      "deliveryRatio": 0.8223337630916098,
+      "currentDeliveryPercent": 45.78,
+      "status": "PASS"
+    }
+  ]
+}
