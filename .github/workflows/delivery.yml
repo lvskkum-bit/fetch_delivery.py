@@ -26,21 +26,21 @@ jobs:
       - name: Install requests
         run: pip install requests
 
-      -      - name: Fetch NSE delivery
+           - name: Fetch NSE delivery
         run: python fetch_delivery.py
 
       - name: Fetch current NIFTY50 constituents
         run: python fetch_nifty50_constituents.py
 
-      - name: Commit delivery cache
+      - name: Commit cache files
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add delivery_latest.json
+          git add delivery_latest.json nifty50_latest.json
 
           git diff --cached --quiet && exit 0
 
-          git commit -m "Update NSE delivery cache"
+          git commit -m "Update NSE delivery and NIFTY50 cache"
 
           git push
