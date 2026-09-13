@@ -26,8 +26,11 @@ jobs:
       - name: Install requests
         run: pip install requests
 
-      - name: Fetch NSE delivery
+      -      - name: Fetch NSE delivery
         run: python fetch_delivery.py
+
+      - name: Fetch current NIFTY50 constituents
+        run: python fetch_nifty50_constituents.py
 
       - name: Commit delivery cache
         run: |
