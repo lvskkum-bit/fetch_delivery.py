@@ -26,8 +26,7 @@ jobs:
       - name: Install requests
         run: pip install requests
 
-              - name: Install requests
-        run: pip install requests
+        
 
       - name: Fetch NSE delivery
         run: python fetch_delivery.py
