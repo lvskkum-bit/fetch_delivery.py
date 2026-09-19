@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-NIFTY50 ENRICHMENT 50/50 DRY-RUN + MASTER-C PARITY AUDIT v1.0
+NIFTY50 ENRICHMENT 50/50 DRY-RUN + MASTER-C PARITY AUDIT v1.1
 
 SAFE / READ-ONLY CONTRACT
 -------------------------
@@ -41,7 +41,7 @@ from typing import Any, Dict, List, Tuple
 import requests
 
 
-VERSION = "NIFTY50-ENRICHMENT-DRYRUN-v1.0"
+VERSION = "NIFTY50-ENRICHMENT-DRYRUN-v1.1"
 
 INPUT_JSON = Path(
     os.environ.get("NIFTY50_INPUT_JSON", "nifty50_latest.json")
@@ -65,6 +65,7 @@ EXPECTED_STOCKS = 50
 
 NSE_HOME = "https://www.nseindia.com/"
 NSE_QUOTE_API = "https://www.nseindia.com/api/quote-equity"
+NSE_QUOTE_PAGE = "https://www.nseindia.com/get-quotes/equity"
 
 REQUEST_TIMEOUT = 20
 MAX_ATTEMPTS = 3
@@ -284,19 +285,75 @@ def validate_membership_payload(
     return symbols, constituent_map
 
 
+def best_effort_nse_warmup(
+    session: requests.Session,
+    symbol: str = "RELIANCE",
+) -> None:
+    """
+    Best-effort cookie/session warm-up only.
+
+    IMPORTANT:
+    - A 403 from NSE homepage/quote page is NOT treated as a fatal error.
+    - The real evidence gate is the quote-equity API response itself.
+    """
+    warmup_urls = [
+        NSE_HOME,
+        NSE_QUOTE_PAGE,
+    ]
+
+    for url in warmup_urls:
+        try:
+            if url == NSE_QUOTE_PAGE:
+                response = session.get(
+                    url,
+                    params={"symbol": symbol},
+                    timeout=REQUEST_TIMEOUT,
+                    allow_redirects=True,
+                )
+            else:
+                response = session.get(
+                    url,
+                    timeout=REQUEST_TIMEOUT,
+                    allow_redirects=True,
+                )
+
+            log(
+                "NSE WARMUP HTTP = "
+                f"{response.status_code} | {url}"
+            )
+
+        except Exception as exc:
+            log(
+                "NSE WARMUP WARNING = "
+                f"{url} | {exc}"
+            )
+
+
 def build_nse_session() -> requests.Session:
+    """
+    v1.1 correction:
+    The previous version aborted when NSE homepage returned HTTP 403.
+    GitHub-hosted runners can receive 403 at the homepage even before
+    the actual quote API is tested.
+
+    This version:
+    - creates the session,
+    - performs only best-effort warm-up,
+    - NEVER fails solely because the homepage returns 403,
+    - lets fetch_industry_info() test the real quote-equity endpoint.
+    """
     session = requests.Session()
     session.headers.update(HEADERS)
 
-    response = session.get(
-        NSE_HOME,
-        timeout=REQUEST_TIMEOUT,
+    log(
+        "NSE SESSION MODE = "
+        "BEST-EFFORT WARMUP; HOMEPAGE 403 IS NON-FATAL"
     )
 
-    if response.status_code != 200:
-        raise RuntimeError(
-            f"NSE HOME SESSION INIT FAIL HTTP={response.status_code}"
-        )
+    best_effort_nse_warmup(
+        session,
+        "RELIANCE",
+    )
 
     return session
 
@@ -311,19 +368,46 @@ def fetch_industry_info(
     for attempt in range(1, MAX_ATTEMPTS + 1):
 
         try:
+            request_headers = {
+                "Accept": "application/json,text/plain,*/*",
+                "Referer": (
+                    "https://www.nseindia.com/get-quotes/equity"
+                    f"?symbol={symbol}"
+                ),
+            }
+
             response = session.get(
                 NSE_QUOTE_API,
                 params={"symbol": symbol},
+                headers=request_headers,
                 timeout=REQUEST_TIMEOUT,
+                allow_redirects=True,
             )
 
             code = response.status_code
 
-            if code == 401 or code == 403:
-                # Refresh cookies/session once before retry.
-                session.get(
-                    NSE_HOME,
-                    timeout=REQUEST_TIMEOUT,
+            log(
+                f"{symbol} | NSE API HTTP = {code} "
+                f"| ATTEMPT={attempt}/{MAX_ATTEMPTS}"
+            )
+
+            # A blocked homepage is no longer fatal. If the actual API
+            # says 401/403, warm up again and retry the API.
+            if code in (401, 403):
+                last_error = f"HTTP={code}"
+
+                if attempt < MAX_ATTEMPTS:
+                    best_effort_nse_warmup(
+                        session,
+                        symbol,
+                    )
+                    time.sleep(
+                        0.75 * attempt
+                    )
+                    continue
+
+                raise RuntimeError(
+                    last_error
                 )
 
             if code != 200:
@@ -331,7 +415,14 @@ def fetch_industry_info(
                     f"HTTP={code}"
                 )
 
-            data = response.json()
+            try:
+                data = response.json()
+            except Exception as exc:
+                preview = response.text[:200]
+                raise RuntimeError(
+                    "Invalid JSON from quote-equity | "
+                    f"{exc} | PREVIEW={preview!r}"
+                ) from exc
 
             industry_info = data.get("industryInfo")
 
