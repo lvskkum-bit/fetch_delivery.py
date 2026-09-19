@@ -1,0 +1,49 @@
+name: NIFTY50 Enrichment Dry Run Audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dry-run-audit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      - name: Run NIFTY50 enrichment dry-run audit
+        id: audit
+        continue-on-error: true
+        run: |
+          python NIFTY50_ENRICHMENT_50_50_DRY_RUN_AUDIT.py
+
+      - name: Upload dry-run audit files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: nifty50-enrichment-dry-run-audit
+          path: |
+            nifty50_enriched_dry_run.json
+            nifty50_enrichment_audit.json
+          if-no-files-found: warn
+          retention-days: 7
+
+      - name: Final audit status
+        if: steps.audit.outcome == 'failure'
+        run: |
+          echo "Dry-run audit failed or requires review."
+          echo "Production nifty50_latest.json was NOT modified."
+          exit 1
