@@ -1,9 +1,10 @@
-import csv
-import io
 import json
-from datetime import datetime, timezone
+import os
+from datetime import date, datetime, timezone
 
 import requests
+
+from phase3_mapping_contract import build_nifty50_source_payload
 
 
 URL = "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv"
@@ -39,93 +40,17 @@ def main():
 
     response.raise_for_status()
 
-    text = response.content.decode(
-        "utf-8-sig",
-        errors="replace"
+    source_as_of_date = os.environ.get(
+        "NIFTY50_SOURCE_AS_OF_DATE",
+        date.today().isoformat(),
     )
-
-    reader = csv.DictReader(
-        io.StringIO(text)
+    fetched_at_utc = datetime.now(timezone.utc).isoformat()
+    output = build_nifty50_source_payload(
+        response.content,
+        URL,
+        source_as_of_date,
+        fetched_at_utc,
     )
-
-    rows = []
-    symbols = []
-
-    for row in reader:
-
-        symbol = str(
-            row.get("Symbol", "")
-        ).strip().upper()
-
-        if not symbol:
-            continue
-
-        symbols.append(symbol)
-
-        rows.append({
-            "symbol": symbol,
-            "company_name": str(
-                row.get("Company Name", "")
-            ).strip(),
-
-            "industry": str(
-                row.get("Industry", "")
-            ).strip(),
-
-            "series": str(
-                row.get("Series", "")
-            ).strip(),
-
-            "isin": str(
-                row.get("ISIN Code", "")
-            ).strip()
-        })
-
-
-    unique_symbols = sorted(set(symbols))
-
-    duplicate_count = (
-        len(symbols) -
-        len(unique_symbols)
-    )
-
-    print("RAW ROWS =", len(rows))
-    print("UNIQUE SYMBOLS =", len(unique_symbols))
-    print("DUPLICATES =", duplicate_count)
-
-
-    if len(unique_symbols) != 50:
-
-        raise RuntimeError(
-            "NIFTY50 AUDIT FAIL — "
-            "EXPECTED 50 UNIQUE SYMBOLS, FOUND "
-            + str(len(unique_symbols))
-        )
-
-
-    if duplicate_count != 0:
-
-        raise RuntimeError(
-            "NIFTY50 AUDIT FAIL — DUPLICATES FOUND"
-        )
-
-
-    output = {
-        "source": "NSE Indices — NIFTY 50 Index Constituent",
-        "source_url": URL,
-
-        "fetched_at_utc": datetime.now(
-            timezone.utc
-        ).isoformat(),
-
-        "count": len(unique_symbols),
-
-        "symbols": unique_symbols,
-
-        "constituents": rows,
-
-        "status": "PASS"
-    }
 
 
     with open(
@@ -144,7 +69,9 @@ def main():
 
     print("====================================")
     print("OUTPUT =", OUTPUT_FILE)
-    print("COUNT =", len(unique_symbols))
+    print("COUNT =", output["count"])
+    print("SOURCE AS OF =", output["source_as_of_date"])
+    print("SOURCE CHECKSUM =", output["source_checksum"])
     print("STATUS = PASS — 50/50")
     print("====================================")
 
