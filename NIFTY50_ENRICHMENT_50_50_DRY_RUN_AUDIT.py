@@ -40,6 +40,8 @@ from typing import Any, Dict, List, Tuple
 
 import requests
 
+from phase3_mapping_contract import validate_classification_50
+
 
 VERSION = "NIFTY50-ENRICHMENT-DRYRUN-v1.1"
 
@@ -488,9 +490,9 @@ def build_dry_run_payload(
         old = deepcopy(constituent_map[symbol])
         cls = classifications[symbol]
 
-        # Existing legacy 'industry' is intentionally preserved.
+        # Phase 3 four-tier names are additive in this dry-run artifact.
         old["sector"] = cls["sector"]
-        old["nse_industry"] = cls["nse_industry"]
+        old["industry"] = cls["nse_industry"]
         old["basic_industry"] = cls["basic_industry"]
 
         out_rows.append(old)
@@ -529,7 +531,9 @@ def audit_parity(
     for symbol in symbols:
 
         legacy_industry = str(
-            constituent_map[symbol].get("industry") or ""
+            constituent_map[symbol].get("macro_sector")
+            or constituent_map[symbol].get("industry")
+            or ""
         ).strip()
 
         nse_sector = classifications[symbol]["sector"]
@@ -844,6 +848,24 @@ def main() -> int:
                 f"NSE INDUSTRY NONBLANK FAIL: "
                 f"{industry_nonblank}/50"
             )
+
+        validate_classification_50(
+            [
+                {
+                    "symbol": symbol,
+                    "macro_sector": str(
+                        constituent_map[symbol].get("macro_sector")
+                        or constituent_map[symbol].get("industry")
+                        or ""
+                    ).strip(),
+                    "sector": classifications[symbol]["sector"],
+                    "industry": classifications[symbol]["nse_industry"],
+                    "basic_industry": classifications[symbol]["basic_industry"],
+                }
+                for symbol in symbols
+            ],
+            set(symbols),
+        )
 
         parity = audit_parity(
             symbols,
