@@ -1,0 +1,10 @@
+{
+  "schema_version": "phase3-index-eligibility-v1",
+  "eligible_types": ["SECTORAL", "THEMATIC"],
+  "excluded_types": ["BROAD_MARKET", "STRATEGY", "FACTOR", "DEBT", "FIXED_INCOME", "COMMODITY"],
+  "type_priority": {
+    "SECTORAL": 2,
+    "THEMATIC": 1
+  },
+  "broad_indices_excluded_from_primary": ["NIFTY 50"]
+}
