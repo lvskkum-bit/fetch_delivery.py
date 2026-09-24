@@ -269,3 +269,124 @@ def validate_classification_50(
                 _mapping_fail(code, f"blank {field} for {row.get('symbol')}")
 
     return {"status": "PASS", "count": EXPECTED_STOCKS}
+
+
+def classify_index(index_row: dict[str, Any], rules: dict[str, Any]) -> str:
+    index_type = str(index_row.get("index_type") or "").strip().upper()
+    eligible = {str(value).upper() for value in rules.get("eligible_types", [])}
+    excluded = {str(value).upper() for value in rules.get("excluded_types", [])}
+    if index_type in excluded:
+        return "EXCLUDED"
+    if index_type == "SECTORAL" and index_type in eligible:
+        return "ELIGIBLE_SECTORAL"
+    if index_type == "THEMATIC" and index_type in eligible:
+        return "ELIGIBLE_THEMATIC"
+    return "EXCLUDED"
+
+
+def resolve_memberships(
+    symbol: str,
+    active_indices: list[dict[str, Any]],
+    constituent_sets: dict[str, set[str]],
+    rules: dict[str, Any],
+) -> list[str]:
+    normalized_symbol = str(symbol).strip().upper()
+    memberships = []
+    for index_row in active_indices:
+        if classify_index(index_row, rules) == "EXCLUDED":
+            continue
+        name = str(index_row.get("name") or "").strip()
+        constituents = {
+            str(value).strip().upper()
+            for value in constituent_sets.get(name, set())
+        }
+        if normalized_symbol in constituents:
+            memberships.append(name)
+    memberships = sorted(set(memberships))
+    if not memberships:
+        _mapping_fail(
+            "MEMBERSHIP_REVIEW_REQUIRED",
+            f"no eligible membership for {normalized_symbol}",
+        )
+    return memberships
+
+
+def choose_primary_index(
+    memberships: list[str],
+    weights: dict[str, dict[str, float]],
+    metadata: dict[str, dict[str, Any]],
+    symbol: str,
+    rules: dict[str, Any],
+) -> dict[str, Any]:
+    normalized_symbol = str(symbol).strip().upper()
+    type_priority = {
+        str(key).upper(): int(value)
+        for key, value in rules.get("type_priority", {}).items()
+    }
+    candidates = []
+    for index_name in memberships:
+        index_meta = metadata.get(index_name, {})
+        index_type = str(index_meta.get("index_type") or "").strip().upper()
+        if index_type not in {"SECTORAL", "THEMATIC"}:
+            continue
+        raw_weight = weights.get(index_name, {}).get(normalized_symbol)
+        if raw_weight is None:
+            continue
+        candidates.append(
+            {
+                "index": index_name,
+                "weight": float(raw_weight),
+                "type_priority": type_priority.get(index_type, 0),
+                "specificity_rank": int(index_meta.get("specificity_rank") or 0),
+            }
+        )
+    if not candidates:
+        _mapping_fail(
+            "WEIGHT_REVIEW_REQUIRED",
+            f"no verified eligible weight for {normalized_symbol}",
+        )
+    candidates.sort(
+        key=lambda item: (
+            -item["weight"],
+            -item["type_priority"],
+            -item["specificity_rank"],
+            item["index"],
+        )
+    )
+    chosen = candidates[0]
+    return {
+        "primary_sector_index": chosen["index"],
+        "primary_weight": chosen["weight"],
+        "verification_status": "VERIFIED",
+    }
+
+
+def apply_weight_freshness(
+    current: dict[str, Any],
+    last_known_good: dict[str, Any] | None,
+    is_new: bool,
+    expected_month: str,
+) -> dict[str, Any]:
+    current_month = str(current.get("weight_as_of_month") or "").strip()
+    if current_month == expected_month:
+        result = dict(current)
+        result["verification_status"] = "VERIFIED"
+        return result
+
+    if not is_new and last_known_good:
+        return {
+            **last_known_good,
+            "verification_status": "WEIGHT_SOURCE_STALE",
+            "review_reason": (
+                f"expected weight month {expected_month}; found {current_month or 'blank'}"
+            ),
+        }
+
+    return {
+        "primary_sector_index": "",
+        "primary_weight": None,
+        "verification_status": "REVIEW_REQUIRED + WAIT",
+        "review_reason": (
+            f"new stock requires verified weight month {expected_month}"
+        ),
+    }
