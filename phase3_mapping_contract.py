@@ -27,6 +27,18 @@ class SourceContractError(ValueError):
         self.code = code
 
 
+class MappingContractError(ValueError):
+    """A stable, machine-readable mapping-contract failure."""
+
+    def __init__(self, code: str, message: str):
+        super().__init__(f"{code}: {message}")
+        self.code = code
+
+
+def _mapping_fail(code: str, message: str) -> None:
+    raise MappingContractError(code, message)
+
+
 def _fail(code: str, message: str) -> None:
     raise SourceContractError(code, message)
 
@@ -190,3 +202,70 @@ def build_nifty50_source_payload(
     payload["source_checksum"] = canonical_sha256(payload)
     validate_nifty50_source_payload(payload, expected_source_date=source_as_of_date)
     return payload
+
+
+def extract_classification(
+    constituent: dict[str, Any], quote_payload: dict[str, Any]
+) -> dict[str, str]:
+    if not isinstance(quote_payload, dict):
+        _mapping_fail(
+            "CLASSIFICATION_RESPONSE_TYPE", "quote response must be an object"
+        )
+
+    symbol = str(constituent.get("symbol") or "").strip().upper()
+    response_symbol = str(
+        (quote_payload.get("info") or {}).get("symbol") or symbol
+    ).strip().upper()
+    if response_symbol != symbol:
+        _mapping_fail(
+            "CLASSIFICATION_SYMBOL_MISMATCH",
+            f"expected {symbol}, received {response_symbol}",
+        )
+
+    industry_info = quote_payload.get("industryInfo")
+    if not isinstance(industry_info, dict):
+        _mapping_fail(
+            "CLASSIFICATION_RESPONSE_TYPE", "industryInfo must be an object"
+        )
+
+    return {
+        "symbol": symbol,
+        "macro_sector": str(constituent.get("macro_sector") or "").strip(),
+        "sector": str(industry_info.get("sector") or "").strip(),
+        "industry": str(industry_info.get("industry") or "").strip(),
+        "basic_industry": str(
+            industry_info.get("basicIndustry") or ""
+        ).strip(),
+    }
+
+
+def validate_classification_50(
+    rows: list[dict[str, Any]], expected_symbols: set[str]
+) -> dict[str, Any]:
+    if len(rows) != EXPECTED_STOCKS:
+        _mapping_fail(
+            "CLASSIFICATION_COUNT_50", f"expected 50 rows, found {len(rows)}"
+        )
+
+    symbols = [str(row.get("symbol") or "").strip().upper() for row in rows]
+    if len(set(symbols)) != EXPECTED_STOCKS:
+        _mapping_fail(
+            "CLASSIFICATION_SYMBOL_UNIQUE", "classification symbols not unique"
+        )
+    if set(symbols) != {str(symbol).strip().upper() for symbol in expected_symbols}:
+        _mapping_fail(
+            "CLASSIFICATION_SYMBOL_SET", "classification symbol set mismatch"
+        )
+
+    gates = (
+        ("macro_sector", "CLASSIFICATION_MACRO_SECTOR"),
+        ("sector", "CLASSIFICATION_SECTOR"),
+        ("industry", "CLASSIFICATION_INDUSTRY"),
+        ("basic_industry", "CLASSIFICATION_BASIC_INDUSTRY"),
+    )
+    for field, code in gates:
+        for row in rows:
+            if not str(row.get(field) or "").strip():
+                _mapping_fail(code, f"blank {field} for {row.get('symbol')}")
+
+    return {"status": "PASS", "count": EXPECTED_STOCKS}
