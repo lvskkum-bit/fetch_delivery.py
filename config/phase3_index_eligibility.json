@@ -2,6 +2,15 @@
   "schema_version": "phase3-index-eligibility-v1",
   "eligible_types": ["SECTORAL", "THEMATIC"],
   "excluded_types": ["BROAD_MARKET", "STRATEGY", "FACTOR", "DEBT", "FIXED_INCOME", "COMMODITY"],
+  "excluded_names": [
+    "NIFTY SHARIAH 25",
+    "NIFTY50 SHARIAH",
+    "NIFTY500 SHARIAH",
+    "NIFTY100 ESG",
+    "NIFTY100 ENHANCED ESG",
+    "NIFTY100 ESG SECTOR LEADERS"
+  ],
+  "excluded_name_reason": "OUT_OF_SCOPE_COMPLIANCE_ESG_NOT_USED_FOR_SECTOR_OR_INDUSTRY_TREND",
   "type_priority": {
     "SECTORAL": 2,
     "THEMATIC": 1
