@@ -272,9 +272,15 @@ def validate_classification_50(
 
 
 def classify_index(index_row: dict[str, Any], rules: dict[str, Any]) -> str:
+    index_name = str(index_row.get("name") or "").strip().upper()
     index_type = str(index_row.get("index_type") or "").strip().upper()
     eligible = {str(value).upper() for value in rules.get("eligible_types", [])}
     excluded = {str(value).upper() for value in rules.get("excluded_types", [])}
+    excluded_names = {
+        str(value).strip().upper() for value in rules.get("excluded_names", [])
+    }
+    if index_name in excluded_names:
+        return "EXCLUDED"
     if index_type in excluded:
         return "EXCLUDED"
     if index_type == "SECTORAL" and index_type in eligible:
