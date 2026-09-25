@@ -1,0 +1,3487 @@
+{
+  "schema_version": "phase3-primary-sector-weight-v1",
+  "status": "PASS",
+  "scope_lock": "SECTOR_AND_INDUSTRY_TREND_INDICES_ONLY",
+  "weight_as_of_date": "2026-08-31",
+  "generated_at_utc": "2026-09-25T12:56:43Z",
+  "official_factsheet_count": 79,
+  "nifty50_symbol_count": 50,
+  "verified_primary_index_count": 50,
+  "review_required_count": 0,
+  "primary_weight_gate": {
+    "status": "PASS",
+    "count": 50
+  },
+  "method": "Highest exact August-2026 weight; a non-top-10 membership is bounded by that official factsheet's tenth weight and cannot win unless the bound is below the exact winner.",
+  "production_write": false,
+  "sources": [
+    {
+      "index_name": "Nifty Auto",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_auto.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "9de5eb5ec7402b4c2cc71b643bf977b701a9bf59e5fbbd9ecdb34d95d98ffe03",
+      "unlisted_weight_upper_bound": 3.91
+    },
+    {
+      "index_name": "Nifty Bank",
+      "factsheet_url": "https://www.niftyindices.com//Factsheet/ind_nifty_bank.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "f4643b46eae6deeaa0405095274d490b92298fedcdc83b0d3af05b2af30bbd6b",
+      "unlisted_weight_upper_bound": 3.48
+    },
+    {
+      "index_name": "Nifty Capital Goods",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Capital_Goods.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "603ba1f3dbbe090d18542181bb853c57c7a28fd5a0ff99fdba9ebc694e7ab00d",
+      "unlisted_weight_upper_bound": 3.55
+    },
+    {
+      "index_name": "Nifty Cement",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Cement.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "c5410119ee4246439cfbd16f9706702cbb336d59afa5fb11203d933c197d28fa",
+      "unlisted_weight_upper_bound": 1.84
+    },
+    {
+      "index_name": "Nifty Chemicals",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Chemicals.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "f7ff7eb402a532ee00794f73e9c72209519e9cb2b8203ac7fc3ee5876d18575a",
+      "unlisted_weight_upper_bound": 3.61
+    },
+    {
+      "index_name": "Nifty Commercial & Transport Services",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Commercial_and_Transport_Services.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "8c1e798070a4d70af7537fd79e70dbe306190a26ce489ad5ed62ff165a474c04",
+      "unlisted_weight_upper_bound": 2.62
+    },
+    {
+      "index_name": "Nifty Construction",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Construction.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "1151a7fec89fff512d6a2a1ea8f982d8c967aa4bcbfce6781f9d2fc1e02f83e6",
+      "unlisted_weight_upper_bound": 3.71
+    },
+    {
+      "index_name": "Nifty Consumer Durables",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_nifty_consumer_durables.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "17e3803717febe3a080a7266500242ec5cc83e71fb1d9de1df674ebca50918b0",
+      "unlisted_weight_upper_bound": 2.76
+    },
+    {
+      "index_name": "Nifty Consumer Services",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Consumer_Services.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "8bfdbec690a3e7b0d13287f54e08ac6dfc5fe70eba0a0220cabc137e2dfcebcb",
+      "unlisted_weight_upper_bound": 2.4
+    },
+    {
+      "index_name": "Nifty Financial Services",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_Nifty_Financial_Services.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "8232d73de9368c490b1551472e93ca7546df4e0bab6dd398e3d7d2404b42a676",
+      "unlisted_weight_upper_bound": 2.48
+    },
+    {
+      "index_name": "Nifty Financial Services 25/50",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_FinServ_25_50.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "7de54a3b1624ca34c80ffa1944a71746331a5daf3631151c19a914dd2b4dd376",
+      "unlisted_weight_upper_bound": 4.0
+    },
+    {
+      "index_name": "Nifty Financial Services Ex-Bank",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyFinancialServicesExBank.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "796f363167c619f4a88e142b5b35715f65d6d43597d1c261d91a9a7b46b40484",
+      "unlisted_weight_upper_bound": 3.57
+    },
+    {
+      "index_name": "Nifty FMCG",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_FMCG.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "b73ca2f0e6746abc62b77f46a046aa8329878de801cdbb8584307b3de8346b1a",
+      "unlisted_weight_upper_bound": 3.71
+    },
+    {
+      "index_name": "Nifty Healthcare",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Healthcare_Index.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "c88f1e9715340dd2caeb582edc13d9c34bbcd488c16fe73338ee6c6777617209",
+      "unlisted_weight_upper_bound": 4.09
+    },
+    {
+      "index_name": "Nifty Hospitals",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Hospitals.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "d00d16ba43d7719d2113974ebea67b0dfa9c422a19fde800f7680a5c10de06ea",
+      "unlisted_weight_upper_bound": 1.92
+    },
+    {
+      "index_name": "Nifty Housing Finance",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Housing_Finance.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "3b4666ff0f777ff2377e89945ef1b1bedf24a0b3d307c0cb9946a7626abd3b07",
+      "unlisted_weight_upper_bound": 2.95
+    },
+    {
+      "index_name": "Nifty Insurance",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Insurance.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "f95f8bdef1df69f98dbb676b1d635456bb69da78046770e5ad9a48e6874485f2",
+      "unlisted_weight_upper_bound": 1.61
+    },
+    {
+      "index_name": "Nifty IT",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_it.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "61b9c357978982dc7d2f103bc899ce129b6f892ccf530b81fb29e000f3a9da07",
+      "unlisted_weight_upper_bound": 3.04
+    },
+    {
+      "index_name": "Nifty Media",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_media.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "33596e56513a4d634a788d0116938025718768e0e98a1743311a68be88af78e9",
+      "unlisted_weight_upper_bound": 1.13
+    },
+    {
+      "index_name": "Nifty Metal",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_metal.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "0e5afff06b94122d9e75c0163665ab6e046c98cfe46b31b9d4834d52748c2ad8",
+      "unlisted_weight_upper_bound": 3.58
+    },
+    {
+      "index_name": "Nifty MidSmall Financial Services",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyMidSmallFinancialSevices.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "a27b8bd6ea29c62da03fb8e48068c9dc5bc141a88abde9afb0c2f90379e07814",
+      "unlisted_weight_upper_bound": 3.56
+    },
+    {
+      "index_name": "Nifty MidSmall Healthcare",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyMidSmallHealthCare.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "13446d42d8a2f3d0e649479cc1d707d1ecdb6fbdc8aed4fb636a4d710de6de88",
+      "unlisted_weight_upper_bound": 3.45
+    },
+    {
+      "index_name": "Nifty MidSmall IT & Telecom",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyMidSmallITAndTelecom.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "d109950037b2af0d13ea6e6dfc3407075ed42ec098ae0eab976a440eea4886b1",
+      "unlisted_weight_upper_bound": 2.8
+    },
+    {
+      "index_name": "Nifty NBFC",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_NBFC.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "d59d73cf87de5edf4effc1cc0fe08786cfdc8a0483aa3ec00d805a1be0c3c1e5",
+      "unlisted_weight_upper_bound": 3.03
+    },
+    {
+      "index_name": "Nifty Oil & Gas",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_nifty_oil_and_gas.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "fc4daed24bdca055a3df7c37aff298a4d4bf7dcf1f20a58c72127193c033950b",
+      "unlisted_weight_upper_bound": 2.62
+    },
+    {
+      "index_name": "Nifty Pharma",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_pharma.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "200d031c8de00fd82d35bfa38c9cec0bc1beb7f891c59b18485308282f2d3bac",
+      "unlisted_weight_upper_bound": 3.08
+    },
+    {
+      "index_name": "Nifty Power",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Power.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "8467fa98d6f55128d3953370ecb885f75378fb0277731273bcd0cc34278f2738",
+      "unlisted_weight_upper_bound": 1.54
+    },
+    {
+      "index_name": "Nifty Private Bank",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_private_bank.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "3d83c68f5f38ca401703513acbf4316fba2a04ca12f077a72635ea27771b19d8",
+      "unlisted_weight_upper_bound": 1.0
+    },
+    {
+      "index_name": "Nifty PSU Bank",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_psu_bank.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "cf3fc6567be37a0a18494dda4db66c29de495eb4869c26c995a76b9502caa802",
+      "unlisted_weight_upper_bound": 1.29
+    },
+    {
+      "index_name": "Nifty Realty",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_realty.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "fc501ad4e30746c76377b8598a7a2fc14a5a886793a9227f1ab9353720411b0d",
+      "unlisted_weight_upper_bound": 2.5
+    },
+    {
+      "index_name": "Nifty REITs & Realty",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_REITs_and_Realty.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "ee9d79ced3ee682b054b2904f8e263c566cede789abb9ada4a5efd5954703530",
+      "unlisted_weight_upper_bound": 5.04
+    },
+    {
+      "index_name": "Nifty Retail",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Retail.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "350ff8c108087f971bd7b6b65b50416d5a4e5960baebb8a8a700a8ecead064ad",
+      "unlisted_weight_upper_bound": 2.04
+    },
+    {
+      "index_name": "Nifty Telecommunications",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Telecommunications.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "f3af8826e534a8cd9dd2a41e1a58c9ce11968f787ee280190452a6e8fc1b9407",
+      "unlisted_weight_upper_bound": 1.05
+    },
+    {
+      "index_name": "Nifty500 Healthcare",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty500Healthcare.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "7e209b10854601865dd84f12e4b6a8bd59faf4bdeaa1f8f873f83bc8f2f37da8",
+      "unlisted_weight_upper_bound": 3.37
+    },
+    {
+      "index_name": "Nifty AI Catalysts",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_AI_Catalysts.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "493f03cea2c266d4568bb4d469fd10232028b4e7d815fd0f80e95ee1dcfdc608",
+      "unlisted_weight_upper_bound": 2.94
+    },
+    {
+      "index_name": "Nifty Capital Markets",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyCapitalMarkets.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "5a46d6aae47cefdd6905b907555691757da3daed6c449ded8e4eda1171afad1c",
+      "unlisted_weight_upper_bound": 3.7
+    },
+    {
+      "index_name": "Nifty Commodities",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_commodities.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "d8cb2639bb301f3b1a41b8543f3ea5795ef83f353bac7b82d9dc218f6d5f7c99",
+      "unlisted_weight_upper_bound": 3.94
+    },
+    {
+      "index_name": "Nifty Conglomerate 50",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyConglomerate50.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "ff8da0e753d38dbe4f91f693e2af9d7ea98e3a637769a49429e3a0b49efa25ef",
+      "unlisted_weight_upper_bound": 3.47
+    },
+    {
+      "index_name": "Nifty Core Housing",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Nifty_Core_Housing_Factsheet.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "0c3a76faca8bc150343422644465eff9b55c3c34c5bd295d487fd08e990b4a24",
+      "unlisted_weight_upper_bound": 3.03
+    },
+    {
+      "index_name": "Nifty CPSE",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_Nifty_CPSE.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "2662970967297f2ee9b38b14a4ff500c2b60a3311829eebe7830913798781340",
+      "unlisted_weight_upper_bound": 1.34
+    },
+    {
+      "index_name": "Nifty Energy",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_energy.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "aabb90dd2075af45fa2745a654e3bb6653df3bb9a9a2bd299e2a47c9082dcfd1",
+      "unlisted_weight_upper_bound": 3.4
+    },
+    {
+      "index_name": "Nifty EV & New Age Automotive",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyEVNewAgeAutomotive.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "3753031633c11d4eab7d72147d9ec45314cb9f61b504fc4a5640a70ab9a1b80d",
+      "unlisted_weight_upper_bound": 3.65
+    },
+    {
+      "index_name": "Nifty Housing",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyHousing.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "3130e3f20c10415de353bf957392097ce16c79841ffab2bae4e067e7eee97249",
+      "unlisted_weight_upper_bound": 3.04
+    },
+    {
+      "index_name": "Nifty India Consumption",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_Nifty_India_Consumption.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "2a499f4535679004ba379b7304f1520e451a106e917cbe3931b8f02d34a461e2",
+      "unlisted_weight_upper_bound": 3.48
+    },
+    {
+      "index_name": "Nifty India Corporate Group Index - Aditya Birla Group",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_NIFTY_ADITYA_BIRLA_GROUP.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "b3b56db37c24cdaf7b7e44cfe0a258874ae207759bcb17f1ece161e739e55e82",
+      "unlisted_weight_upper_bound": 0.56
+    },
+    {
+      "index_name": "Nifty India Corporate Group Index - Mahindra Group",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_NIFTY_MAHINDRA_GROUP.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "51d553fc8915dd2bba3021173746e1f25d5fa71218e0e6a1b563e4fe5594ebb3",
+      "unlisted_weight_upper_bound": 0.04
+    },
+    {
+      "index_name": "Nifty India Corporate Group Index - Tata Group",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Ind_NIFTY_TATA_GROUP.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "bd9aa4ae0d2498c91c04496844ad7f0c667c2a3d4d8d0f2abc95ef4aa082ca9c",
+      "unlisted_weight_upper_bound": 3.82
+    },
+    {
+      "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Ind_NIFTY_TATA_GROUP_25_Cap.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "a65fabd0b2bd1aad11de27251c00a070a218a80b7fc98ead98e445362aa0a63f",
+      "unlisted_weight_upper_bound": 2.51
+    },
+    {
+      "index_name": "Nifty India Defence",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyIndiaDefence.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "1374bbc644e52591c5ba8400bc1a458e4569f7a2439b6b1fd809704f6cc23261",
+      "unlisted_weight_upper_bound": 2.91
+    },
+    {
+      "index_name": "Nifty India Defence Equal Weight",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_India_Defence_Equal_Weight.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "2dd0c95bb223cf65514c1e1f49e3b026a233265340835d50324da55e04c2bcf9",
+      "unlisted_weight_upper_bound": 5.15
+    },
+    {
+      "index_name": "Nifty India Digital",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyIndiaDigital.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "3baf2bccaea1aa9a1e42c7577cc91146b95d6895e27af29552df8e71d566fff7",
+      "unlisted_weight_upper_bound": 3.92
+    },
+    {
+      "index_name": "Nifty India Infrastructure & Logistics",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_India_Infrastructure_and_Logistics.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "67ded40c11ca3b00ff72b57c4436a9a55ddd098d0e5defdf4e4c60a7093dce15",
+      "unlisted_weight_upper_bound": 3.04
+    },
+    {
+      "index_name": "Nifty India Internet",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_India_Internet.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "32c862bd35bc711a04cff985f634a0d93f1a2d14835769fd6531225f6353b3ae",
+      "unlisted_weight_upper_bound": 2.71
+    },
+    {
+      "index_name": "Nifty India Manufacturing",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_India_Manufacturing_Index.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "2baa064dfdd9a24b669fbf8e81c3c66c962f073023944e4dc6fb579b19ea62c3",
+      "unlisted_weight_upper_bound": 2.78
+    },
+    {
+      "index_name": "Nifty India New Age Consumption",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyIndiaNewAgeConsumption.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "ca2992a10f1075e8a65666e8b91fdebf9ea54e9d6f564c983839eceeaed0828e",
+      "unlisted_weight_upper_bound": 2.88
+    },
+    {
+      "index_name": "Nifty India Railways PSU",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyIndiaRailwaysPSU.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "fd3197d82524f06ec11c724963f3b44c33b25f92164caad96bf40366ad1e9cf2",
+      "unlisted_weight_upper_bound": 2.73
+    },
+    {
+      "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyIndiaSelect5CorporateGroupsMAATR.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "719f3265c9ae087a205102a48b4e3df09d7c33891ffc699a63a5f4d7cd249358",
+      "unlisted_weight_upper_bound": 3.63
+    },
+    {
+      "index_name": "Nifty India Tourism",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyIndiaTourism.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "dab0452cec4b44ef81f46547b81a958c420aacd76c16212d967c443c0215e9a3",
+      "unlisted_weight_upper_bound": 2.55
+    },
+    {
+      "index_name": "Nifty Infrastructure",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_infra.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "90539a1ab8da426703d350b5ad5dc250d254bb01ac77878cdf26155a945bee34",
+      "unlisted_weight_upper_bound": 2.45
+    },
+    {
+      "index_name": "Nifty IPO",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyIPO.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "60f539ab71c393d40ea26ebdf06aae48487bdfb870fc490584f1c662c6229923",
+      "unlisted_weight_upper_bound": 0.08
+    },
+    {
+      "index_name": "Nifty Midcap Liquid 15",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Nifty_midcap_liquid_15.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "ffef9675ee1efc933b46eee54834e79422c4005cfb87128ef1c5c6d11eecb6ea",
+      "unlisted_weight_upper_bound": 6.11
+    },
+    {
+      "index_name": "Nifty MidSmall India Consumption",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_MidSmall_Sector_Indices.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "ea32a389fc800b7a3ddc38c95c487d4157039e42b8854d06737ca0bfb1e5372b",
+      "unlisted_weight_upper_bound": 3.8
+    },
+    {
+      "index_name": "Nifty MNC",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_mnc.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "94c71bd7c9e3f9ccf86fe4be6125679dc2fd0077ea16ebdd4cd7f1e74c18b925",
+      "unlisted_weight_upper_bound": 4.11
+    },
+    {
+      "index_name": "Nifty Mobility",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Mobility_Total_Returns_Index.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "474ce379d733dddc6d027555db10b2770777b529bf1ca02ad3fd20570643b66c",
+      "unlisted_weight_upper_bound": 4.53
+    },
+    {
+      "index_name": "Nifty Non-Cyclical Consumer",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyNonCyclicalConsumer.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "91a79818fbe8a11feb7ee357db5edd852d650877d61837ddfef3624e9a216995",
+      "unlisted_weight_upper_bound": 2.89
+    },
+    {
+      "index_name": "Nifty PSE",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_pse.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "b3d28e06643432ab5c5835bfe9a2b62c5765ea71b7ca19d0564ade2fec8c165e",
+      "unlisted_weight_upper_bound": 4.08
+    },
+    {
+      "index_name": "Nifty REITs & InvITs",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_REITs_InvITs.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "74dbaaeef589700258531445d8c01fff7c9637b77c0b14f89434d2a6bf92425e",
+      "unlisted_weight_upper_bound": 2.28
+    },
+    {
+      "index_name": "Nifty REITs & InvITs 90:10",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_REITs_and_InvITs_9010.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "fed3f4cc87bd5a13696a52afda0f3af9989e28c382aed956fbe02587f7e31cd5",
+      "unlisted_weight_upper_bound": 0.75
+    },
+    {
+      "index_name": "Nifty Rural",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyRural.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "eaef89506d2938f9ea98ace6b1a411a74da3ea0d9c230f1c5fc5ab4b4ab026a1",
+      "unlisted_weight_upper_bound": 2.64
+    },
+    {
+      "index_name": "Nifty Services Sector",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/ind_nifty_services_sector.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "656640636005e1322c76fb467d2c09f0e8e5ba65692a7776d931d4acf2f41f88",
+      "unlisted_weight_upper_bound": 3.47
+    },
+    {
+      "index_name": "Nifty Small Finance Banks & Microfinance Institutions",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Small_Finance_Banks_Microfinance_Instituti.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "66200f7ad97528052072941f0f3c994125fadc8ccff7987d3488ff8923e74366",
+      "unlisted_weight_upper_bound": 3.22
+    },
+    {
+      "index_name": "Nifty SME Emerge",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NIFTY_SME_EMERGE_Index.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "3ea591a95fa98a3e449f81c617130520fd2fd46e3f381163ecb041155cadef47",
+      "unlisted_weight_upper_bound": 0.03
+    },
+    {
+      "index_name": "Nifty Sugar & Ethanol",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Sugar_and_Ethanol.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "6190a348d50071d2ba1b384fa09e28ea76f70f566ab813f43a8596f888f226c1",
+      "unlisted_weight_upper_bound": 4.76
+    },
+    {
+      "index_name": "Nifty Transportation & Logistics",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_NiftyTransportationAndLogistics.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "b43b77b51aaa214eecd9cbcddfa4e666a15a37a9bea6d8c6ff7fa8076a874775",
+      "unlisted_weight_upper_bound": 3.57
+    },
+    {
+      "index_name": "Nifty Waves",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty_Waves.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "7118829e914983681dad519c14ab45fe6a783c64bd1efb5e60a794e6b65c6f30",
+      "unlisted_weight_upper_bound": 4.64
+    },
+    {
+      "index_name": "Nifty100 Liquid 15",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Nifty100_Liquid_15.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "8568175e43e474e7aac58bfe115486782b99efb4d7bb72d9c9f83187c830050a",
+      "unlisted_weight_upper_bound": 3.77
+    },
+    {
+      "index_name": "Nifty500 Ahimsa",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty500_Ahimsa.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "27c44f09609458d1b0d080cf6f10a2322884954a80b430f8f4fd5f28b7f0c510",
+      "unlisted_weight_upper_bound": 0.1
+    },
+    {
+      "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Nifty500_Multicap_India_Manufacturing_50_30_20.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "27fb295b949bbd4d8b857618cefc6c3678936406795777b04398961646673ab5",
+      "unlisted_weight_upper_bound": 2.52
+    },
+    {
+      "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Nifty500_Multicap_Infrastructure_50_30_20.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "factsheet_sha256": "a843549a44b8628ed967693da6f839733c40f8d808fe2a09e4df845d4423b81a",
+      "unlisted_weight_upper_bound": 2.07
+    }
+  ],
+  "rows": [
+    {
+      "symbol": "ADANIENT",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty Conglomerate 50",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Metal",
+        "Nifty100 Liquid 15",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.94
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.63
+        },
+        {
+          "index_name": "Nifty Metal",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.69
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.77
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty Metal",
+      "primary_weight": 9.69,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ADANIPORTS",
+      "all_applicable_indices": [
+        "Nifty Commercial & Transport Services",
+        "Nifty Conglomerate 50",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Mobility",
+        "Nifty Services Sector",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Commercial & Transport Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 17.48
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.64
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.18
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.14
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.98
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty Transportation & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.56
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.07
+        }
+      ],
+      "primary_sector_index": "Nifty Commercial & Transport Services",
+      "primary_weight": 17.48,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "APOLLOHOSP",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty Hospitals",
+        "Nifty India Consumption",
+        "Nifty Infrastructure",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.88
+        },
+        {
+          "index_name": "Nifty Hospitals",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.82
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.48
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.45
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.5
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.07
+        }
+      ],
+      "primary_sector_index": "Nifty Hospitals",
+      "primary_weight": 20.82,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "all_applicable_indices": [
+        "Nifty Core Housing",
+        "Nifty Housing",
+        "Nifty India Consumption",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Core Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 11.61
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.44
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.52
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.13
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty Core Housing",
+      "primary_weight": 11.61,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "AXISBANK",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.2
+        },
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.51
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.3
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.04
+        },
+        {
+          "index_name": "Nifty Private Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 19.0
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.46
+        }
+      ],
+      "primary_sector_index": "Nifty Private Bank",
+      "primary_weight": 19.0,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BAJAJ-AUTO",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty Conglomerate 50",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Auto",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.45
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.66
+        },
+        {
+          "index_name": "Nifty EV & New Age Automotive",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.13
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.94
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.11
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.79
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.84
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.64
+        },
+        {
+          "index_name": "Nifty Transportation & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.35
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.81
+        }
+      ],
+      "primary_sector_index": "Nifty Auto",
+      "primary_weight": 10.45,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BAJAJFINSV",
+      "all_applicable_indices": [
+        "Nifty Conglomerate 50",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty Services Sector"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.65
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.2
+        },
+        {
+          "index_name": "Nifty Financial Services Ex-Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.44
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        }
+      ],
+      "primary_sector_index": "Nifty Financial Services Ex-Bank",
+      "primary_weight": 6.44,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "all_applicable_indices": [
+        "Nifty Conglomerate 50",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty NBFC",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.73
+        },
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.83
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.89
+        },
+        {
+          "index_name": "Nifty Financial Services Ex-Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 15.6
+        },
+        {
+          "index_name": "Nifty NBFC",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.07
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.7
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.14
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.01
+        }
+      ],
+      "primary_sector_index": "Nifty NBFC",
+      "primary_weight": 20.07,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BEL",
+      "all_applicable_indices": [
+        "Nifty CPSE",
+        "Nifty Capital Goods",
+        "Nifty India Defence",
+        "Nifty India Defence Equal Weight",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Manufacturing",
+        "Nifty India Railways PSU",
+        "Nifty PSE",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty CPSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 21.21
+        },
+        {
+          "index_name": "Nifty Capital Goods",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.49
+        },
+        {
+          "index_name": "Nifty India Defence",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 19.51
+        },
+        {
+          "index_name": "Nifty India Defence Equal Weight",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 5.15
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.59
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.43
+        },
+        {
+          "index_name": "Nifty India Railways PSU",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.1
+        },
+        {
+          "index_name": "Nifty PSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 12.35
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.72
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.1
+        }
+      ],
+      "primary_sector_index": "Nifty CPSE",
+      "primary_weight": 21.21,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty India Consumption",
+        "Nifty India Digital",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India New Age Consumption",
+        "Nifty Infrastructure",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty Telecommunications",
+        "Nifty100 Liquid 15",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.0
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.41
+        },
+        {
+          "index_name": "Nifty India Digital",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.37
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.95
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.49
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.73
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.55
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.62
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.05
+        },
+        {
+          "index_name": "Nifty Telecommunications",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 21.76
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.21
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.67
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.68
+        }
+      ],
+      "primary_sector_index": "Nifty Telecommunications",
+      "primary_weight": 21.76,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "CIPLA",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty India Manufacturing",
+        "Nifty Pharma",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.82
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.78
+        },
+        {
+          "index_name": "Nifty Pharma",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.83
+        },
+        {
+          "index_name": "Nifty500 Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.62
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.52
+        }
+      ],
+      "primary_sector_index": "Nifty Pharma",
+      "primary_weight": 7.83,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "COALINDIA",
+      "all_applicable_indices": [
+        "Nifty CPSE",
+        "Nifty Commodities",
+        "Nifty Energy",
+        "Nifty PSE",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty CPSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.4
+        },
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.62
+        },
+        {
+          "index_name": "Nifty Energy",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.58
+        },
+        {
+          "index_name": "Nifty PSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.01
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty CPSE",
+      "primary_weight": 14.4,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "DRREDDY",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty India Manufacturing",
+        "Nifty Pharma",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.05
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.78
+        },
+        {
+          "index_name": "Nifty Pharma",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.95
+        },
+        {
+          "index_name": "Nifty500 Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.99
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.52
+        }
+      ],
+      "primary_sector_index": "Nifty Pharma",
+      "primary_weight": 6.95,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "EICHERMOT",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Auto",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.53
+        },
+        {
+          "index_name": "Nifty EV & New Age Automotive",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.65
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.48
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.78
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.09
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.58
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty Transportation & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.18
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.52
+        }
+      ],
+      "primary_sector_index": "Nifty Auto",
+      "primary_weight": 8.53,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ETERNAL",
+      "all_applicable_indices": [
+        "Nifty Consumer Services",
+        "Nifty India Consumption",
+        "Nifty India Digital",
+        "Nifty India Internet",
+        "Nifty India New Age Consumption",
+        "Nifty Mobility",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Retail",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Consumer Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 23.88
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.96
+        },
+        {
+          "index_name": "Nifty India Digital",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.45
+        },
+        {
+          "index_name": "Nifty India Internet",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 21.6
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.95
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.54
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.14
+        },
+        {
+          "index_name": "Nifty Retail",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 23.87
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.47
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.54
+        }
+      ],
+      "primary_sector_index": "Nifty Consumer Services",
+      "primary_weight": 23.88,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "GRASIM",
+      "all_applicable_indices": [
+        "Nifty Cement",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Core Housing",
+        "Nifty Housing",
+        "Nifty India Corporate Group Index - Aditya Birla Group",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Rural",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Cement",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 16.64
+        },
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.1
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.47
+        },
+        {
+          "index_name": "Nifty Core Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 12.31
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.71
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Aditya Birla Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.15
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.94
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.6
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.4
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.23
+        }
+      ],
+      "primary_sector_index": "Nifty India Corporate Group Index - Aditya Birla Group",
+      "primary_weight": 20.15,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HCLTECH",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty IT",
+        "Nifty India Digital",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.63
+        },
+        {
+          "index_name": "Nifty IT",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 11.44
+        },
+        {
+          "index_name": "Nifty India Digital",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.78
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 1.42
+        }
+      ],
+      "primary_sector_index": "Nifty IT",
+      "primary_weight": 11.44,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 17.02
+        },
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 17.26
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 16.76
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.31
+        },
+        {
+          "index_name": "Nifty Private Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 18.65
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 15.87
+        }
+      ],
+      "primary_sector_index": "Nifty Private Bank",
+      "primary_weight": 18.65,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HDFCLIFE",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty Insurance",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.48
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 4.0
+        },
+        {
+          "index_name": "Nifty Financial Services Ex-Bank",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.57
+        },
+        {
+          "index_name": "Nifty Insurance",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 17.25
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty Insurance",
+      "primary_weight": 17.25,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HINDALCO",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty India Corporate Group Index - Aditya Birla Group",
+        "Nifty India Manufacturing",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Metal",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.21
+        },
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.06
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.01
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Aditya Birla Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.05
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.4
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.48
+        },
+        {
+          "index_name": "Nifty Metal",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 17.26
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 1.51
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.07
+        }
+      ],
+      "primary_sector_index": "Nifty India Corporate Group Index - Aditya Birla Group",
+      "primary_weight": 20.05,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "all_applicable_indices": [
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty MNC",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty FMCG",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 18.43
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.12
+        },
+        {
+          "index_name": "Nifty MNC",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.91
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.46
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.43
+        }
+      ],
+      "primary_sector_index": "Nifty FMCG",
+      "primary_weight": 18.43,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.86
+        },
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 15.07
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 19.85
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.01
+        },
+        {
+          "index_name": "Nifty Private Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 22.09
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 15.23
+        }
+      ],
+      "primary_sector_index": "Nifty Private Bank",
+      "primary_weight": 22.09,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "INDIGO",
+      "all_applicable_indices": [
+        "Nifty Commercial & Transport Services",
+        "Nifty India Consumption",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India New Age Consumption",
+        "Nifty India Tourism",
+        "Nifty Infrastructure",
+        "Nifty Mobility",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Services Sector",
+        "Nifty Transportation & Logistics",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Commercial & Transport Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 19.99
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.48
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.67
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.59
+        },
+        {
+          "index_name": "Nifty India Tourism",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.27
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.17
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.03
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.06
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty Transportation & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.6
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.77
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.08
+        }
+      ],
+      "primary_sector_index": "Nifty India Tourism",
+      "primary_weight": 20.27,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "INFY",
+      "all_applicable_indices": [
+        "Nifty IT",
+        "Nifty India Digital",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty IT",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 28.87
+        },
+        {
+          "index_name": "Nifty India Digital",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.08
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.81
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.09
+        }
+      ],
+      "primary_sector_index": "Nifty IT",
+      "primary_weight": 28.87,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ITC",
+      "all_applicable_indices": [
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty FMCG",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 26.0
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.23
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.71
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.85
+        }
+      ],
+      "primary_sector_index": "Nifty FMCG",
+      "primary_weight": 26.0,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "JIOFIN",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Services Sector"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.48
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.0
+        },
+        {
+          "index_name": "Nifty Financial Services Ex-Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.36
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.63
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        }
+      ],
+      "primary_sector_index": "Nifty Financial Services Ex-Bank",
+      "primary_weight": 4.36,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "JSWSTEEL",
+      "all_applicable_indices": [
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Housing",
+        "Nifty India Manufacturing",
+        "Nifty Metal",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.89
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.54
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.84
+        },
+        {
+          "index_name": "Nifty Metal",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.4
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.56
+        }
+      ],
+      "primary_sector_index": "Nifty Metal",
+      "primary_weight": 14.4,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.88
+        },
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.63
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.73
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.04
+        },
+        {
+          "index_name": "Nifty Private Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.75
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.51
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.82
+        }
+      ],
+      "primary_sector_index": "Nifty Private Bank",
+      "primary_weight": 20.75,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "LT",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty Conglomerate 50",
+        "Nifty Construction",
+        "Nifty Housing",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty Infrastructure",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.96
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.33
+        },
+        {
+          "index_name": "Nifty Construction",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 21.01
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.83
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.97
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 12.65
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.31
+        }
+      ],
+      "primary_sector_index": "Nifty Construction",
+      "primary_weight": 21.01,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "M&M",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty Conglomerate 50",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Mahindra Group",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Auto",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 22.79
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.99
+        },
+        {
+          "index_name": "Nifty EV & New Age Automotive",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.99
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.6
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Mahindra Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 63.03
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.13
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.98
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 12.91
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.98
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.77
+        },
+        {
+          "index_name": "Nifty Transportation & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 13.86
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.02
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.13
+        }
+      ],
+      "primary_sector_index": "Nifty India Corporate Group Index - Mahindra Group",
+      "primary_weight": 63.03,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "MARUTI",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty MNC",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty100 Liquid 15",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Auto",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 13.75
+        },
+        {
+          "index_name": "Nifty EV & New Age Automotive",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.62
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.19
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.09
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.76
+        },
+        {
+          "index_name": "Nifty MNC",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.99
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.62
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.48
+        },
+        {
+          "index_name": "Nifty Transportation & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.36
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.62
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 1.82
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.69
+        }
+      ],
+      "primary_sector_index": "Nifty Auto",
+      "primary_weight": 13.75,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "MAXHEALTH",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty Hospitals",
+        "Nifty India Consumption",
+        "Nifty Infrastructure",
+        "Nifty MidSmall India Consumption",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.67
+        },
+        {
+          "index_name": "Nifty Hospitals",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 19.32
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.48
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.45
+        },
+        {
+          "index_name": "Nifty MidSmall India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.8
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.5
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.07
+        }
+      ],
+      "primary_sector_index": "Nifty Hospitals",
+      "primary_weight": 19.32,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "NESTLEIND",
+      "all_applicable_indices": [
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty MNC",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty FMCG",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 11.33
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.48
+        },
+        {
+          "index_name": "Nifty MNC",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.27
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.59
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        }
+      ],
+      "primary_sector_index": "Nifty FMCG",
+      "primary_weight": 11.33,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "NTPC",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty CPSE",
+        "Nifty Commodities",
+        "Nifty Energy",
+        "Nifty Housing",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Railways PSU",
+        "Nifty Infrastructure",
+        "Nifty PSE",
+        "Nifty Power",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.94
+        },
+        {
+          "index_name": "Nifty CPSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 19.41
+        },
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.45
+        },
+        {
+          "index_name": "Nifty Energy",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.71
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.75
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.71
+        },
+        {
+          "index_name": "Nifty India Railways PSU",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.34
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.15
+        },
+        {
+          "index_name": "Nifty PSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 12.92
+        },
+        {
+          "index_name": "Nifty Power",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.51
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.05
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 1.6
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.73
+        }
+      ],
+      "primary_sector_index": "Nifty Power",
+      "primary_weight": 20.51,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ONGC",
+      "all_applicable_indices": [
+        "Nifty CPSE",
+        "Nifty Commodities",
+        "Nifty Energy",
+        "Nifty India Railways PSU",
+        "Nifty Infrastructure",
+        "Nifty Oil & Gas",
+        "Nifty PSE",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty CPSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 13.47
+        },
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.32
+        },
+        {
+          "index_name": "Nifty Energy",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.77
+        },
+        {
+          "index_name": "Nifty India Railways PSU",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.1
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.45
+        },
+        {
+          "index_name": "Nifty Oil & Gas",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.85
+        },
+        {
+          "index_name": "Nifty PSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.49
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.07
+        }
+      ],
+      "primary_sector_index": "Nifty Oil & Gas",
+      "primary_weight": 14.85,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "POWERGRID",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty CPSE",
+        "Nifty Energy",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty Infrastructure",
+        "Nifty PSE",
+        "Nifty Power",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.94
+        },
+        {
+          "index_name": "Nifty CPSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 17.85
+        },
+        {
+          "index_name": "Nifty Energy",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.39
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.36
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.19
+        },
+        {
+          "index_name": "Nifty PSE",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.93
+        },
+        {
+          "index_name": "Nifty Power",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 18.82
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.1
+        }
+      ],
+      "primary_sector_index": "Nifty Power",
+      "primary_weight": 18.82,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "RELIANCE",
+      "all_applicable_indices": [
+        "Nifty Commodities",
+        "Nifty EV & New Age Automotive",
+        "Nifty Energy",
+        "Nifty India Manufacturing",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Mobility",
+        "Nifty Oil & Gas",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap India Manufacturing 50:30:20",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.0
+        },
+        {
+          "index_name": "Nifty EV & New Age Automotive",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.65
+        },
+        {
+          "index_name": "Nifty Energy",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.24
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.66
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.58
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.08
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.53
+        },
+        {
+          "index_name": "Nifty Oil & Gas",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 32.6
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.31
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.46
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.91
+        }
+      ],
+      "primary_sector_index": "Nifty Oil & Gas",
+      "primary_weight": 32.6,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SBILIFE",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty Insurance",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.48
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 4.0
+        },
+        {
+          "index_name": "Nifty Financial Services Ex-Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.31
+        },
+        {
+          "index_name": "Nifty Insurance",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 18.49
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty Insurance",
+      "primary_weight": 18.49,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SBIN",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty PSU Bank",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.27
+        },
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.42
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.51
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.04
+        },
+        {
+          "index_name": "Nifty PSU Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 33.96
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.27
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.4
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 13.94
+        }
+      ],
+      "primary_sector_index": "Nifty PSU Bank",
+      "primary_weight": 33.96,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SHRIRAMFIN",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty NBFC",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Financial Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.85
+        },
+        {
+          "index_name": "Nifty Financial Services 25/50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.99
+        },
+        {
+          "index_name": "Nifty Financial Services Ex-Bank",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.56
+        },
+        {
+          "index_name": "Nifty NBFC",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.5
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.94
+        }
+      ],
+      "primary_sector_index": "Nifty NBFC",
+      "primary_weight": 20.5,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty India Manufacturing",
+        "Nifty Pharma",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 18.08
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.86
+        },
+        {
+          "index_name": "Nifty Pharma",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.77
+        },
+        {
+          "index_name": "Nifty500 Healthcare",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.9
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.39
+        }
+      ],
+      "primary_sector_index": "Nifty Pharma",
+      "primary_weight": 20.77,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TATACONSUM",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.23
+        },
+        {
+          "index_name": "Nifty FMCG",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.13
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.48
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Tata Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.82
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.63
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.89
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty FMCG",
+      "primary_weight": 7.13,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty AI Catalysts",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Housing",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Manufacturing",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Metal",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 14.05
+        },
+        {
+          "index_name": "Nifty AI Catalysts",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.96
+        },
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.31
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.16
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.64
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Tata Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.56
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.52
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.63
+        },
+        {
+          "index_name": "Nifty Metal",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 17.89
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 1.57
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.19
+        }
+      ],
+      "primary_sector_index": "Nifty Metal",
+      "primary_weight": 17.89,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TCS",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Conglomerate 50",
+        "Nifty IT",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Digital",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 22.59
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.68
+        },
+        {
+          "index_name": "Nifty IT",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 20.26
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Tata Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 32.3
+        },
+        {
+          "index_name": "Nifty India Digital",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 7.51
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.92
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.58
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.52
+        }
+      ],
+      "primary_sector_index": "Nifty India Corporate Group Index - Tata Group",
+      "primary_weight": 32.3,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TECHM",
+      "all_applicable_indices": [
+        "Nifty Conglomerate 50",
+        "Nifty IT",
+        "Nifty India Corporate Group Index - Mahindra Group",
+        "Nifty India Digital",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty IT",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 10.52
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Mahindra Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 24.64
+        },
+        {
+          "index_name": "Nifty India Digital",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.48
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.55
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty India Corporate Group Index - Mahindra Group",
+      "primary_weight": 24.64,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TITAN",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Conglomerate 50",
+        "Nifty Consumer Durables",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Non-Cyclical Consumer"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 19.43
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.75
+        },
+        {
+          "index_name": "Nifty Consumer Durables",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 35.25
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.18
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Tata Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 16.86
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.49
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.23
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 9.0
+        }
+      ],
+      "primary_sector_index": "Nifty Consumer Durables",
+      "primary_weight": 35.25,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TMPV",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Auto",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.95
+        },
+        {
+          "index_name": "Nifty Auto",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.02
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Tata Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.23
+        },
+        {
+          "index_name": "Nifty India Manufacturing",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.78
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.88
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.63
+        },
+        {
+          "index_name": "Nifty Mobility",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 4.53
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.64
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.77
+        },
+        {
+          "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 2.52
+        }
+      ],
+      "primary_sector_index": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+      "primary_weight": 5.95,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TRENT",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Conglomerate 50",
+        "Nifty Consumer Services",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty MidSmall India Consumption",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Retail",
+        "Nifty100 Liquid 15"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 8.84
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty Consumer Services",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 11.83
+        },
+        {
+          "index_name": "Nifty India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.48
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Tata Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.71
+        },
+        {
+          "index_name": "Nifty India New Age Consumption",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.42
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.63
+        },
+        {
+          "index_name": "Nifty MidSmall India Consumption",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.8
+        },
+        {
+          "index_name": "Nifty Non-Cyclical Consumer",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.09
+        },
+        {
+          "index_name": "Nifty Retail",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 16.54
+        },
+        {
+          "index_name": "Nifty100 Liquid 15",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.77
+        }
+      ],
+      "primary_sector_index": "Nifty Retail",
+      "primary_weight": 16.54,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "all_applicable_indices": [
+        "Nifty Cement",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Core Housing",
+        "Nifty Housing",
+        "Nifty India Corporate Group Index - Aditya Birla Group",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Rural",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty Cement",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 15.47
+        },
+        {
+          "index_name": "Nifty Commodities",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 6.5
+        },
+        {
+          "index_name": "Nifty Conglomerate 50",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.7
+        },
+        {
+          "index_name": "Nifty Core Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 13.11
+        },
+        {
+          "index_name": "Nifty Housing",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.02
+        },
+        {
+          "index_name": "Nifty India Corporate Group Index - Aditya Birla Group",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 29.64
+        },
+        {
+          "index_name": "Nifty India Infrastructure & Logistics",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 4.19
+        },
+        {
+          "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.97
+        },
+        {
+          "index_name": "Nifty Infrastructure",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 3.62
+        },
+        {
+          "index_name": "Nifty Rural",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.67
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 1.4
+        },
+        {
+          "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 2.38
+        }
+      ],
+      "primary_sector_index": "Nifty India Corporate Group Index - Aditya Birla Group",
+      "primary_weight": 29.64,
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "WIPRO",
+      "all_applicable_indices": [
+        "Nifty IT",
+        "Nifty India Digital",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "weight_comparisons": [
+        {
+          "index_name": "Nifty IT",
+          "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
+          "weight": 5.09
+        },
+        {
+          "index_name": "Nifty India Digital",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.92
+        },
+        {
+          "index_name": "Nifty Services Sector",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 3.47
+        },
+        {
+          "index_name": "Nifty500 Ahimsa",
+          "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
+          "weight_upper_bound": 0.1
+        }
+      ],
+      "primary_sector_index": "Nifty IT",
+      "primary_weight": 5.09,
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "source_checksum": "b636868ecc1ca14f91789b8348a784d98d2ba8c48116f9fe63a9e6e859ff1850"
+}

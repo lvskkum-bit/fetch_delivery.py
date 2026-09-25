@@ -5,10 +5,13 @@ from phase3_mapping_contract import (
     apply_weight_freshness,
     choose_primary_index,
     classify_index,
+    extract_factsheet_weight_evidence,
     extract_classification,
+    choose_primary_index_from_weight_evidence,
     resolve_memberships,
     validate_classification_50,
     validate_memberships_50,
+    validate_primary_weights_50,
 )
 
 
@@ -231,3 +234,101 @@ def test_new_stock_with_stale_weight_is_wait():
     )
     assert result["verification_status"] == "REVIEW_REQUIRED + WAIT"
     assert result["primary_sector_index"] == ""
+
+
+def test_extracts_august_factsheet_weights_and_top_ten_floor():
+    text = """
+    August 31, 2026
+    Top constituents by weightage
+    Company’s Name                         Weight(%)
+    HDFC Bank Ltd.                              17.02
+    ICICI Bank Ltd.                             14.86
+    Axis Bank Ltd.                               9.20
+    Bank of Baroda                               3.48
+    ## Based on Price Return Index.
+    """
+    result = extract_factsheet_weight_evidence(
+        text,
+        {"HDFCBANK": "HDFC Bank Ltd.", "AXISBANK": "Axis Bank Ltd."},
+    )
+    assert result == {
+        "as_of_date": "2026-08-31",
+        "verified_weights": {"HDFCBANK": 17.02, "AXISBANK": 9.2},
+        "unlisted_weight_upper_bound": 3.48,
+    }
+
+
+def test_extracts_weight_when_sector_table_shares_the_same_line():
+    text = """
+    August 31, 2026
+    Top constituents by weightage
+    Construction 10.49                   Reliance Industries Ltd. 9.91
+    Power 9.99                           Bharti Airtel Ltd. 9.68
+    NTPC Ltd. 2.73
+    ## Based on Price Return Index.
+    """
+    result = extract_factsheet_weight_evidence(
+        text,
+        {"RELIANCE": "Reliance Industries Ltd.", "BHARTIARTL": "Bharti Airtel Ltd."},
+    )
+    assert result["verified_weights"] == {"RELIANCE": 9.91, "BHARTIARTL": 9.68}
+    assert result["unlisted_weight_upper_bound"] == 2.73
+
+
+def test_primary_is_verified_when_exact_winner_beats_every_unknown_upper_bound():
+    result = choose_primary_index_from_weight_evidence(
+        symbol="ABC",
+        memberships=["Nifty Sector", "Nifty Theme", "Nifty Other"],
+        evidence={
+            "Nifty Sector": {"verified_weights": {"ABC": 12.5}, "unlisted_weight_upper_bound": 4.0},
+            "Nifty Theme": {"verified_weights": {}, "unlisted_weight_upper_bound": 8.0},
+            "Nifty Other": {"verified_weights": {"ABC": 7.0}, "unlisted_weight_upper_bound": 3.0},
+        },
+    )
+    assert result["primary_sector_index"] == "Nifty Sector"
+    assert result["primary_weight"] == 12.5
+    assert result["verification_status"] == "VERIFIED"
+
+
+def test_primary_waits_when_unknown_upper_bound_can_equal_or_beat_winner():
+    with pytest.raises(MappingContractError) as caught:
+        choose_primary_index_from_weight_evidence(
+            symbol="ABC",
+            memberships=["Nifty Sector", "Nifty Theme"],
+            evidence={
+                "Nifty Sector": {"verified_weights": {"ABC": 8.0}, "unlisted_weight_upper_bound": 4.0},
+                "Nifty Theme": {"verified_weights": {}, "unlisted_weight_upper_bound": 8.0},
+            },
+        )
+    assert caught.value.code == "WEIGHT_REVIEW_REQUIRED"
+
+
+def test_primary_weight_audit_requires_50_unique_verified_rows():
+    rows = [
+        {
+            "symbol": f"SYM{i:02d}",
+            "primary_sector_index": "Nifty Test",
+            "primary_weight": 1.0,
+            "verification_status": "VERIFIED",
+        }
+        for i in range(50)
+    ]
+    assert validate_primary_weights_50(
+        rows, {f"SYM{i:02d}" for i in range(50)}
+    ) == {"status": "PASS", "count": 50}
+
+
+def test_primary_weight_audit_rejects_wait_or_blank_rows():
+    rows = [
+        {
+            "symbol": f"SYM{i:02d}",
+            "primary_sector_index": "Nifty Test",
+            "primary_weight": 1.0,
+            "verification_status": "VERIFIED",
+        }
+        for i in range(50)
+    ]
+    rows[3]["verification_status"] = "REVIEW_REQUIRED + WAIT"
+    with pytest.raises(MappingContractError) as caught:
+        validate_primary_weights_50(rows, {f"SYM{i:02d}" for i in range(50)})
+    assert caught.value.code == "PRIMARY_WEIGHT_NOT_VERIFIED"

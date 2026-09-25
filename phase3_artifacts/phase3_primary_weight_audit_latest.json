@@ -1,0 +1,32 @@
+{
+  "schema_version": "phase3-primary-sector-weight-audit-v1",
+  "status": "PASS",
+  "weight_as_of_date": "2026-08-31",
+  "factsheet_source_gate": {
+    "status": "PASS",
+    "expected": 79,
+    "actual": 79
+  },
+  "symbol_count_gate": {
+    "status": "PASS",
+    "expected": 50,
+    "actual": 50
+  },
+  "unique_symbol_gate": {
+    "status": "PASS",
+    "expected": 50,
+    "actual": 50
+  },
+  "primary_index_gate": {
+    "status": "PASS",
+    "count": 50
+  },
+  "verified_primary_weights": 50,
+  "blank_primary_indices": 0,
+  "review_required_count": 0,
+  "failed_symbols": [],
+  "input_artifact": "nifty50_primary_sector_weights_latest.json",
+  "input_checksum": "b636868ecc1ca14f91789b8348a784d98d2ba8c48116f9fe63a9e6e859ff1850",
+  "production_write": false,
+  "audit_checksum": "0a54f237736d5c0b954d505f991035b588bf2419219666db4b21178672b7fd28"
+}

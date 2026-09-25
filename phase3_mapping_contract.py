@@ -6,6 +6,7 @@ import csv
 import hashlib
 import io
 import json
+import re
 from datetime import date, datetime
 from typing import Any
 from urllib.parse import urlparse
@@ -388,6 +389,136 @@ def choose_primary_index(
         "primary_weight": chosen["weight"],
         "verification_status": "VERIFIED",
     }
+
+
+def _normalize_company_name(value: str) -> str:
+    return re.sub(
+        r"[^a-z0-9]",
+        "",
+        str(value).lower().replace("limited", "ltd"),
+    )
+
+
+def extract_factsheet_weight_evidence(
+    factsheet_text: str,
+    company_names_by_symbol: dict[str, str],
+) -> dict[str, Any]:
+    if not isinstance(factsheet_text, str):
+        _mapping_fail("WEIGHT_SOURCE_TYPE", "factsheet text must be a string")
+
+    date_match = re.search(
+        r"\b(August)\s+(31),\s+(2026)\b", factsheet_text, re.IGNORECASE
+    )
+    if not date_match:
+        _mapping_fail("WEIGHT_SOURCE_DATE", "August 31, 2026 not found")
+
+    marker = factsheet_text.lower().find("top constituents by weightage")
+    if marker < 0:
+        _mapping_fail("WEIGHT_SOURCE_TABLE", "top constituents table not found")
+    section = factsheet_text[marker:]
+    end = section.find("## Based")
+    if end >= 0:
+        section = section[:end]
+
+    weighted_lines: list[tuple[str, float]] = []
+    for line in section.splitlines():
+        match = re.match(r"^\s*(.+?)\s+([0-9]+(?:\.[0-9]+)?)\s*$", line)
+        if match and not any(
+            label in match.group(1).lower()
+            for label in ("weight", "p/e", "p/b", "dividend")
+        ):
+            weighted_lines.append((match.group(1).strip(), float(match.group(2))))
+
+    if not weighted_lines:
+        _mapping_fail("WEIGHT_SOURCE_TABLE", "no constituent weights found")
+
+    verified_weights: dict[str, float] = {}
+    for symbol, company_name in company_names_by_symbol.items():
+        normalized_name = _normalize_company_name(company_name)
+        for raw_name, weight in weighted_lines:
+            if normalized_name in _normalize_company_name(raw_name):
+                verified_weights[str(symbol).strip().upper()] = weight
+                break
+
+    return {
+        "as_of_date": "2026-08-31",
+        "verified_weights": verified_weights,
+        "unlisted_weight_upper_bound": weighted_lines[-1][1],
+    }
+
+
+def choose_primary_index_from_weight_evidence(
+    symbol: str,
+    memberships: list[str],
+    evidence: dict[str, dict[str, Any]],
+) -> dict[str, Any]:
+    normalized_symbol = str(symbol).strip().upper()
+    exact: list[tuple[float, str]] = []
+    unknown_bounds: list[tuple[float, str]] = []
+    for index_name in memberships:
+        index_evidence = evidence.get(index_name)
+        if not isinstance(index_evidence, dict):
+            _mapping_fail(
+                "WEIGHT_REVIEW_REQUIRED",
+                f"missing official weight evidence for {index_name}",
+            )
+        weights = index_evidence.get("verified_weights") or {}
+        if normalized_symbol in weights:
+            exact.append((float(weights[normalized_symbol]), index_name))
+        else:
+            bound = index_evidence.get("unlisted_weight_upper_bound")
+            if bound is None:
+                _mapping_fail(
+                    "WEIGHT_REVIEW_REQUIRED",
+                    f"missing unlisted-weight bound for {index_name}",
+                )
+            unknown_bounds.append((float(bound), index_name))
+
+    if not exact:
+        _mapping_fail(
+            "WEIGHT_REVIEW_REQUIRED",
+            f"no exact verified weight for {normalized_symbol}",
+        )
+    exact.sort(key=lambda item: (-item[0], item[1]))
+    winner_weight, winner_index = exact[0]
+    maximum_unknown = max(unknown_bounds, default=(0.0, ""))
+    if maximum_unknown[0] >= winner_weight:
+        _mapping_fail(
+            "WEIGHT_REVIEW_REQUIRED",
+            f"unknown weight in {maximum_unknown[1]} can equal or exceed winner",
+        )
+    return {
+        "primary_sector_index": winner_index,
+        "primary_weight": winner_weight,
+        "verification_status": "VERIFIED",
+    }
+
+
+def validate_primary_weights_50(
+    rows: list[dict[str, Any]], expected_symbols: set[str]
+) -> dict[str, Any]:
+    if len(rows) != EXPECTED_STOCKS:
+        _mapping_fail("PRIMARY_WEIGHT_COUNT_50", "primary rows must equal 50")
+    symbols = [str(row.get("symbol") or "").strip().upper() for row in rows]
+    if len(set(symbols)) != EXPECTED_STOCKS:
+        _mapping_fail("PRIMARY_WEIGHT_SYMBOL_UNIQUE", "primary symbols not unique")
+    if set(symbols) != {str(value).strip().upper() for value in expected_symbols}:
+        _mapping_fail("PRIMARY_WEIGHT_SYMBOL_SET", "primary symbol set mismatch")
+    for row in rows:
+        if row.get("verification_status") != "VERIFIED":
+            _mapping_fail(
+                "PRIMARY_WEIGHT_NOT_VERIFIED",
+                f"weight is not verified for {row.get('symbol')}",
+            )
+        if not str(row.get("primary_sector_index") or "").strip():
+            _mapping_fail(
+                "PRIMARY_INDEX_BLANK", f"blank primary index for {row.get('symbol')}"
+            )
+        if row.get("primary_weight") is None:
+            _mapping_fail(
+                "PRIMARY_WEIGHT_BLANK", f"blank primary weight for {row.get('symbol')}"
+            )
+    return {"status": "PASS", "count": EXPECTED_STOCKS}
 
 
 def apply_weight_freshness(
