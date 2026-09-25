@@ -4,9 +4,9 @@
   "source_as_of_date": "2026-09-24",
   "generated_at_utc": "2026-09-25T05:29:30Z",
   "eligibility": "Official Nifty Indices Sectoral + Thematic only; broad/strategy/factor/debt/fixed-income excluded",
-  "official_index_catalog_count": 86,
+  "official_index_catalog_count": 85,
   "verified_constituent_source_count": 79,
-  "missing_constituent_source_count": 7,
+  "missing_constituent_source_count": 6,
   "nifty50_symbol_count": 50,
   "nifty50_unique_symbol_count": 50,
   "rows_with_one_or_more_verified_memberships": 50,
@@ -20,51 +20,56 @@
     {
       "index_name": "Nifty Shariah 25",
       "index_type": "THEMATIC",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-shariah25",
-      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
-      "page_sha256": "837f9763ad9468f670d91911b9c4e6e6814e9bd6e43788f2c756322d208673d8"
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY%20SHARIAH%2025.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 26,
+      "source_sha256": "beb42918ff8ed4017585fd37303c143ed9064ebc5a6b3c70a136867c28efa6d3"
     },
     {
       "index_name": "Nifty100 Enhanced ESG",
       "index_type": "THEMATIC",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-100-enhanced-esg",
-      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
-      "page_sha256": "8fb2360802ed854a979f36ba47784c7019bf28dec4dba4750618c7c717fc0a13"
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY100%20ENH%20ESG.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 84,
+      "source_sha256": "48c6cdfc15ff4d93c5a2edcbff3549218a98625e80a049b13de0a2513529b2b5"
     },
     {
       "index_name": "Nifty100 ESG",
       "index_type": "THEMATIC",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty100-esg",
-      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
-      "page_sha256": "40461e2ad77f5bfa4ffde87ac4738d1678e1f500c7d95e92cb6ef70c357ed39c"
-    },
-    {
-      "index_name": "Nifty100 ESG Sector Leaders",
-      "index_type": "THEMATIC",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty100-esg-sector-leaders",
-      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
-      "page_sha256": "bc61dab9eb9917014b36c9984bd92885fe91c25c8a42f330bab0580f460e8302"
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY100%20ESG.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 86,
+      "source_sha256": "4ec78a4c7d3848094ea0ac9b2a82082dddbd934c07df4f228c89730c26024241"
     },
     {
       "index_name": "Nifty50 Shariah",
       "index_type": "THEMATIC",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty50-shariah",
-      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
-      "page_sha256": "b9b7148d7fd7c6128bef504fc9d8fc197c44c346c3bd457243598ea6e94649fe"
-    },
-    {
-      "index_name": "Nifty500 Ahimsa Select",
-      "index_type": "THEMATIC",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty500-ahimsa-select",
-      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
-      "page_sha256": "804890213191145a9b469af9be444084b93df3fe4c09fc79204bdf8c07bfa2ec"
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY50%20SHARIAH.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 18,
+      "source_sha256": "7861a6f70199cfdff504142c2aa377cde008ced12a6ced215cbc727d4f75226a"
     },
     {
       "index_name": "Nifty500 Shariah",
       "index_type": "THEMATIC",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty500-shariah",
-      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
-      "page_sha256": "73240df252bdb9079505277f6f98dc887cb0affa24f2ad5e31cd267d8d8b9bec"
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY500%20SHARIAH.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 206,
+      "source_sha256": "6cd275dd81156eec03ddb6454779d098c569d0648d2564ebd14cf08661af59d1"
+    },
+    {
+      "index_name": "Nifty100 ESG Sector Leaders",
+      "index_type": "THEMATIC",
+      "reason": "NO_OFFICIAL_FULL_CONSTITUENT_DOWNLOAD",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty100-esg-sector-leaders",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty100_ESG_Sector_Leaders.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "page_sha256": "bc61dab9eb9917014b36c9984bd92885fe91c25c8a42f330bab0580f460e8302"
     }
   ],
   "verified_sources": [
@@ -1504,5 +1509,9 @@
       "verified_index_count": 4,
       "verification_status": "SOURCE_UNIVERSE_PARTIAL"
     }
-  ]
+  ],
+  "catalog_verification_date": "2026-09-25",
+  "catalog_correction": "Nifty500 Ahimsa Select excluded: absent from current official Thematic Indices catalog and official detail page returns 404",
+  "complete_all_applicable_rows": 0,
+  "blocked_all_applicable_rows": 50
 }
