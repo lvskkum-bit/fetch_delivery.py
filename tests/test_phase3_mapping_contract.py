@@ -8,6 +8,7 @@ from phase3_mapping_contract import (
     extract_classification,
     resolve_memberships,
     validate_classification_50,
+    validate_memberships_50,
 )
 
 
@@ -141,6 +142,27 @@ def test_empty_eligible_membership_requires_review():
             {"NIFTY 50": {"XYZ"}},
             RULES,
         )
+    assert caught.value.code == "MEMBERSHIP_REVIEW_REQUIRED"
+
+
+def test_membership_audit_requires_exactly_50_unique_covered_symbols():
+    rows = [
+        {"symbol": f"SYM{i:02d}", "all_applicable_indices": ["NIFTY TEST"]}
+        for i in range(50)
+    ]
+    assert validate_memberships_50(
+        rows, {f"SYM{i:02d}" for i in range(50)}
+    ) == {"status": "PASS", "count": 50}
+
+
+def test_membership_audit_rejects_blank_applicable_indices():
+    rows = [
+        {"symbol": f"SYM{i:02d}", "all_applicable_indices": ["NIFTY TEST"]}
+        for i in range(50)
+    ]
+    rows[7]["all_applicable_indices"] = []
+    with pytest.raises(MappingContractError) as caught:
+        validate_memberships_50(rows, {f"SYM{i:02d}" for i in range(50)})
     assert caught.value.code == "MEMBERSHIP_REVIEW_REQUIRED"
 
 
