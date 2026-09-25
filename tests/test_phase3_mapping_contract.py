@@ -102,6 +102,14 @@ def test_html_or_error_payload_is_rejected():
 RULES = {
     "eligible_types": ["SECTORAL", "THEMATIC"],
     "excluded_types": ["BROAD_MARKET", "STRATEGY", "DEBT", "COMMODITY"],
+    "excluded_names": [
+        "NIFTY SHARIAH 25",
+        "NIFTY50 SHARIAH",
+        "NIFTY500 SHARIAH",
+        "NIFTY100 ESG",
+        "NIFTY100 ENHANCED ESG",
+        "NIFTY100 ESG SECTOR LEADERS",
+    ],
     "type_priority": {"SECTORAL": 2, "THEMATIC": 1},
 }
 
@@ -114,6 +122,8 @@ RULES = {
         ({"name": "NIFTY 50", "index_type": "BROAD_MARKET"}, "EXCLUDED"),
         ({"name": "NIFTY ALPHA 50", "index_type": "STRATEGY"}, "EXCLUDED"),
         ({"name": "NIFTY SDL", "index_type": "DEBT"}, "EXCLUDED"),
+        ({"name": "NIFTY100 ESG", "index_type": "THEMATIC"}, "EXCLUDED"),
+        ({"name": "NIFTY50 SHARIAH", "index_type": "THEMATIC"}, "EXCLUDED"),
     ],
 )
 def test_index_eligibility_is_explicit(row, expected):
