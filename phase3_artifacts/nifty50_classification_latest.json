@@ -1,0 +1,367 @@
+{
+  "schema_version": "nifty50-classification-v1",
+  "status": "PASS",
+  "source_as_of_date": "2026-09-25",
+  "sector_source_url": "https://nsearchives.nseindia.com/content/indices/ind_nifty50list.csv",
+  "basic_industry_source": "Official NSE individual equity quote pages",
+  "industry_structure_url": "https://nsearchives.nseindia.com/web/sites/default/files/inline-files/nse-indices_industry-classification-structure-2023-07.pdf",
+  "count": 50,
+  "sector_verified": 50,
+  "basic_industry_verified": 50,
+  "isin_verified": 50,
+  "production_sector_parity": 50,
+  "production_basic_industry_parity": 3,
+  "production_write": false,
+  "rows": [
+    {
+      "symbol": "ADANIENT",
+      "isin": "INE423A01024",
+      "sector": "Metals & Mining",
+      "basic_industry": "Trading - Minerals",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ADANIENT/Adani-Enterprises-Limited"
+    },
+    {
+      "symbol": "ADANIPORTS",
+      "isin": "INE742F01042",
+      "sector": "Services",
+      "basic_industry": "Port & Port services",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ADANIPORTS/Adani-Ports-and-Special-Economic-Zone-Limited"
+    },
+    {
+      "symbol": "APOLLOHOSP",
+      "isin": "INE437A01024",
+      "sector": "Healthcare",
+      "basic_industry": "Hospital",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/APOLLOHOSP/Apollo-Hospitals-Enterprise-Limited"
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "isin": "INE021A01026",
+      "sector": "Consumer Durables",
+      "basic_industry": "Paints",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ASIANPAINT/Asian-Paints-Limited"
+    },
+    {
+      "symbol": "AXISBANK",
+      "isin": "INE238A01034",
+      "sector": "Financial Services",
+      "basic_industry": "Private Sector Bank",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/AXISBANK/Axis-Bank-Limited"
+    },
+    {
+      "symbol": "BAJAJ-AUTO",
+      "isin": "INE917I01010",
+      "sector": "Automobile and Auto Components",
+      "basic_industry": "2/3 Wheelers",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/BAJAJ-AUTO/Bajaj-Auto-Limited"
+    },
+    {
+      "symbol": "BAJAJFINSV",
+      "isin": "INE918I01026",
+      "sector": "Financial Services",
+      "basic_industry": "Holding Company",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/BAJAJFINSV/Bajaj-Finserv-Limited"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "isin": "INE296A01032",
+      "sector": "Financial Services",
+      "basic_industry": "Non Banking Financial Company (NBFC)",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/BAJFINANCE/Bajaj-Finance-Limited"
+    },
+    {
+      "symbol": "BEL",
+      "isin": "INE263A01024",
+      "sector": "Capital Goods",
+      "basic_industry": "Aerospace & Defense",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/BEL/Bharat-Electronics-Limited"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "isin": "INE397D01024",
+      "sector": "Telecommunication",
+      "basic_industry": "Telecom - Cellular & Fixed line services",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/BHARTIARTL/Bharti-Airtel-Limited"
+    },
+    {
+      "symbol": "CIPLA",
+      "isin": "INE059A01026",
+      "sector": "Healthcare",
+      "basic_industry": "Pharmaceuticals",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/CIPLA/Cipla-Limited"
+    },
+    {
+      "symbol": "COALINDIA",
+      "isin": "INE522F01014",
+      "sector": "Oil Gas & Consumable Fuels",
+      "basic_industry": "Coal",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/COALINDIA/Coal-India-Limited"
+    },
+    {
+      "symbol": "DRREDDY",
+      "isin": "INE089A01031",
+      "sector": "Healthcare",
+      "basic_industry": "Pharmaceuticals",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/DRREDDY/Dr.-Reddy's-Laboratories-Limited"
+    },
+    {
+      "symbol": "EICHERMOT",
+      "isin": "INE066A01021",
+      "sector": "Automobile and Auto Components",
+      "basic_industry": "2/3 Wheelers",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/EICHERMOT/Eicher-Motors-Limited"
+    },
+    {
+      "symbol": "ETERNAL",
+      "isin": "INE758T01015",
+      "sector": "Consumer Services",
+      "basic_industry": "E-Retail/ E-Commerce",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ETERNAL/ETERNAL-LIMITED"
+    },
+    {
+      "symbol": "GRASIM",
+      "isin": "INE047A01021",
+      "sector": "Construction Materials",
+      "basic_industry": "Cement & Cement Products",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/GRASIM/Grasim-Industries-Limited"
+    },
+    {
+      "symbol": "HCLTECH",
+      "isin": "INE860A01027",
+      "sector": "Information Technology",
+      "basic_industry": "Computers - Software & Consulting",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/HCLTECH/HCL-Technologies-Limited"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "isin": "INE040A01034",
+      "sector": "Financial Services",
+      "basic_industry": "Private Sector Bank",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/HDFCBANK/HDFC-Bank-Limited"
+    },
+    {
+      "symbol": "HDFCLIFE",
+      "isin": "INE795G01014",
+      "sector": "Financial Services",
+      "basic_industry": "Life Insurance",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/HDFCLIFE/HDFC-Life-Insurance-Company-Limited"
+    },
+    {
+      "symbol": "HINDALCO",
+      "isin": "INE038A01020",
+      "sector": "Metals & Mining",
+      "basic_industry": "Aluminium",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/HINDALCO/Hindalco-Industries-Limited"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "isin": "INE030A01027",
+      "sector": "Fast Moving Consumer Goods",
+      "basic_industry": "Diversified FMCG",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/HINDUNILVR/Hindustan-Unilever-Limited"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "isin": "INE090A01021",
+      "sector": "Financial Services",
+      "basic_industry": "Private Sector Bank",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ICICIBANK/ICICI-Bank-Limited"
+    },
+    {
+      "symbol": "INDIGO",
+      "isin": "INE646L01027",
+      "sector": "Services",
+      "basic_industry": "Airline",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/INDIGO/InterGlobe-Aviation-Limited"
+    },
+    {
+      "symbol": "INFY",
+      "isin": "INE009A01021",
+      "sector": "Information Technology",
+      "basic_industry": "Computers - Software & Consulting",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/INFY/Infosys-Limited"
+    },
+    {
+      "symbol": "ITC",
+      "isin": "INE154A01025",
+      "sector": "Fast Moving Consumer Goods",
+      "basic_industry": "Diversified FMCG",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ITC/ITC-Limited"
+    },
+    {
+      "symbol": "JIOFIN",
+      "isin": "INE758E01017",
+      "sector": "Financial Services",
+      "basic_industry": "Investment Company",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/JIOFIN/Jio-Financial-Services-Limited"
+    },
+    {
+      "symbol": "JSWSTEEL",
+      "isin": "INE019A01038",
+      "sector": "Metals & Mining",
+      "basic_industry": "Iron & Steel",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/JSWSTEEL/JSW-Steel-Limited"
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "isin": "INE237A01036",
+      "sector": "Financial Services",
+      "basic_industry": "Private Sector Bank",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/KOTAKBANK/Kotak-Mahindra-Bank-Limited"
+    },
+    {
+      "symbol": "LT",
+      "isin": "INE018A01030",
+      "sector": "Construction",
+      "basic_industry": "Civil Construction",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/LT/Larsen-&-Toubro-Limited"
+    },
+    {
+      "symbol": "M&M",
+      "isin": "INE101A01026",
+      "sector": "Automobile and Auto Components",
+      "basic_industry": "Passenger Cars & Utility Vehicles",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/M%26M/Mahindra-&-Mahindra-Limited"
+    },
+    {
+      "symbol": "MARUTI",
+      "isin": "INE585B01010",
+      "sector": "Automobile and Auto Components",
+      "basic_industry": "Passenger Cars & Utility Vehicles",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/MARUTI/Maruti-Suzuki-India-Limited"
+    },
+    {
+      "symbol": "MAXHEALTH",
+      "isin": "INE027H01010",
+      "sector": "Healthcare",
+      "basic_industry": "Hospital",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/MAXHEALTH/Max-Healthcare-Institute-Limited"
+    },
+    {
+      "symbol": "NESTLEIND",
+      "isin": "INE239A01024",
+      "sector": "Fast Moving Consumer Goods",
+      "basic_industry": "Packaged Foods",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/NESTLEIND/Nestle-India-Limited"
+    },
+    {
+      "symbol": "NTPC",
+      "isin": "INE733E01010",
+      "sector": "Power",
+      "basic_industry": "Power Generation",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/NTPC/NTPC-Limited"
+    },
+    {
+      "symbol": "ONGC",
+      "isin": "INE213A01029",
+      "sector": "Oil Gas & Consumable Fuels",
+      "basic_industry": "Oil Exploration & Production",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ONGC/Oil-&-Natural-Gas-Corporation-Limited"
+    },
+    {
+      "symbol": "POWERGRID",
+      "isin": "INE752E01010",
+      "sector": "Power",
+      "basic_industry": "Power - Transmission",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/POWERGRID/Power-Grid-Corporation-of-India-Limited"
+    },
+    {
+      "symbol": "RELIANCE",
+      "isin": "INE002A01018",
+      "sector": "Oil Gas & Consumable Fuels",
+      "basic_industry": "Refineries & Marketing",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/RELIANCE/Reliance-Industries-Limited"
+    },
+    {
+      "symbol": "SBILIFE",
+      "isin": "INE123W01016",
+      "sector": "Financial Services",
+      "basic_industry": "Life Insurance",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/SBILIFE/SBI-Life-Insurance-Company-Limited"
+    },
+    {
+      "symbol": "SBIN",
+      "isin": "INE062A01020",
+      "sector": "Financial Services",
+      "basic_industry": "Public Sector Bank",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/SBIN/State-Bank-of-India"
+    },
+    {
+      "symbol": "SHRIRAMFIN",
+      "isin": "INE721A01047",
+      "sector": "Financial Services",
+      "basic_industry": "Non Banking Financial Company (NBFC)",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/SHRIRAMFIN/Shriram-Finance-Limited"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "isin": "INE044A01036",
+      "sector": "Healthcare",
+      "basic_industry": "Pharmaceuticals",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/SUNPHARMA/Sun-Pharmaceutical-Industries-Limited"
+    },
+    {
+      "symbol": "TATACONSUM",
+      "isin": "INE192A01025",
+      "sector": "Fast Moving Consumer Goods",
+      "basic_industry": "Tea & Coffee",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/TATACONSUM/TATA-CONSUMER-PRODUCTS-LIMITED"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "isin": "INE081A01020",
+      "sector": "Metals & Mining",
+      "basic_industry": "Iron & Steel",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/TATASTEEL/Tata-Steel-Limited"
+    },
+    {
+      "symbol": "TCS",
+      "isin": "INE467B01029",
+      "sector": "Information Technology",
+      "basic_industry": "Computers - Software & Consulting",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/TCS/Tata-Consultancy-Services-Limited"
+    },
+    {
+      "symbol": "TECHM",
+      "isin": "INE669C01036",
+      "sector": "Information Technology",
+      "basic_industry": "Computers - Software & Consulting",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/TECHM/Tech-Mahindra-Limited"
+    },
+    {
+      "symbol": "TITAN",
+      "isin": "INE280A01028",
+      "sector": "Consumer Durables",
+      "basic_industry": "Gems Jewellery And Watches",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/TITAN/Titan-Company-Limited"
+    },
+    {
+      "symbol": "TMPV",
+      "isin": "INE155A01022",
+      "sector": "Automobile and Auto Components",
+      "basic_industry": "Passenger Cars & Utility Vehicles",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/TMPV/Tata-Motors-Passenger-Vehicles-Limited"
+    },
+    {
+      "symbol": "TRENT",
+      "isin": "INE849A01020",
+      "sector": "Consumer Services",
+      "basic_industry": "Speciality Retail",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/TRENT/Trent-Limited"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "isin": "INE481G01011",
+      "sector": "Construction Materials",
+      "basic_industry": "Cement & Cement Products",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/ULTRACEMCO/UltraTech-Cement-Limited"
+    },
+    {
+      "symbol": "WIPRO",
+      "isin": "INE075A01022",
+      "sector": "Information Technology",
+      "basic_industry": "Computers - Software & Consulting",
+      "basic_industry_source_url": "https://www.nseindia.com/get-quote/equity/WIPRO/Wipro-Limited"
+    }
+  ]
+}
