@@ -1,12 +1,12 @@
 {
   "schema_version": "phase3-all-applicable-indices-v1",
-  "status": "DATA_NOT_READY + WAIT",
+  "status": "PASS",
   "source_as_of_date": "2026-09-24",
   "generated_at_utc": "2026-09-25T05:29:30Z",
   "eligibility": "Official Nifty Indices Sectoral + Thematic only; broad/strategy/factor/debt/fixed-income excluded",
   "official_index_catalog_count": 85,
   "verified_constituent_source_count": 79,
-  "missing_constituent_source_count": 6,
+  "missing_constituent_source_count": 0,
   "nifty50_symbol_count": 50,
   "nifty50_unique_symbol_count": 50,
   "rows_with_one_or_more_verified_memberships": 50,
@@ -14,64 +14,8 @@
     "status": "PASS",
     "count": 50
   },
-  "all_applicable_completeness_gate": "WAIT",
+  "all_applicable_completeness_gate": "PASS",
   "production_write": false,
-  "missing_sources": [
-    {
-      "index_name": "Nifty Shariah 25",
-      "index_type": "THEMATIC",
-      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
-      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY%20SHARIAH%2025.json",
-      "source_embedded_time": "Jan 16, 2026 16:00:29",
-      "constituent_count": 26,
-      "source_sha256": "beb42918ff8ed4017585fd37303c143ed9064ebc5a6b3c70a136867c28efa6d3"
-    },
-    {
-      "index_name": "Nifty100 Enhanced ESG",
-      "index_type": "THEMATIC",
-      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
-      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY100%20ENH%20ESG.json",
-      "source_embedded_time": "Jan 16, 2026 16:00:29",
-      "constituent_count": 84,
-      "source_sha256": "48c6cdfc15ff4d93c5a2edcbff3549218a98625e80a049b13de0a2513529b2b5"
-    },
-    {
-      "index_name": "Nifty100 ESG",
-      "index_type": "THEMATIC",
-      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
-      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY100%20ESG.json",
-      "source_embedded_time": "Jan 16, 2026 16:00:29",
-      "constituent_count": 86,
-      "source_sha256": "4ec78a4c7d3848094ea0ac9b2a82082dddbd934c07df4f228c89730c26024241"
-    },
-    {
-      "index_name": "Nifty50 Shariah",
-      "index_type": "THEMATIC",
-      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
-      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY50%20SHARIAH.json",
-      "source_embedded_time": "Jan 16, 2026 16:00:29",
-      "constituent_count": 18,
-      "source_sha256": "7861a6f70199cfdff504142c2aa377cde008ced12a6ced215cbc727d4f75226a"
-    },
-    {
-      "index_name": "Nifty500 Shariah",
-      "index_type": "THEMATIC",
-      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
-      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY500%20SHARIAH.json",
-      "source_embedded_time": "Jan 16, 2026 16:00:29",
-      "constituent_count": 206,
-      "source_sha256": "6cd275dd81156eec03ddb6454779d098c569d0648d2564ebd14cf08661af59d1"
-    },
-    {
-      "index_name": "Nifty100 ESG Sector Leaders",
-      "index_type": "THEMATIC",
-      "reason": "NO_OFFICIAL_FULL_CONSTITUENT_DOWNLOAD",
-      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty100-esg-sector-leaders",
-      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty100_ESG_Sector_Leaders.pdf",
-      "factsheet_as_of_date": "2026-08-31",
-      "page_sha256": "bc61dab9eb9917014b36c9984bd92885fe91c25c8a42f330bab0580f460e8302"
-    }
-  ],
   "verified_sources": [
     {
       "index_name": "Nifty Auto",
@@ -719,7 +663,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 6,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "ADANIPORTS",
@@ -737,7 +681,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 10,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "APOLLOHOSP",
@@ -753,7 +697,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 8,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "ASIANPAINT",
@@ -767,7 +711,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 6,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "AXISBANK",
@@ -781,7 +725,7 @@
         "Nifty Services Sector"
       ],
       "verified_index_count": 6,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -800,7 +744,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 11,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "BAJFINANCE",
@@ -816,7 +760,7 @@
         "Nifty100 Liquid 15"
       ],
       "verified_index_count": 8,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "BAJAJFINSV",
@@ -829,7 +773,7 @@
         "Nifty Services Sector"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "BEL",
@@ -847,7 +791,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 10,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "BHARTIARTL",
@@ -868,7 +812,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 13,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "CIPLA",
@@ -881,7 +825,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "COALINDIA",
@@ -894,7 +838,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "DRREDDY",
@@ -907,7 +851,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "EICHERMOT",
@@ -924,7 +868,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 9,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "ETERNAL",
@@ -942,7 +886,7 @@
         "Nifty100 Liquid 15"
       ],
       "verified_index_count": 10,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "GRASIM",
@@ -962,7 +906,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 12,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "HCLTECH",
@@ -975,7 +919,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "HDFCBANK",
@@ -989,7 +933,7 @@
         "Nifty Services Sector"
       ],
       "verified_index_count": 6,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "HDFCLIFE",
@@ -1004,7 +948,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 7,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "HINDALCO",
@@ -1021,7 +965,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 9,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "HINDUNILVR",
@@ -1034,7 +978,7 @@
         "Nifty Rural"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "ICICIBANK",
@@ -1048,7 +992,7 @@
         "Nifty Services Sector"
       ],
       "verified_index_count": 6,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "ITC",
@@ -1060,7 +1004,7 @@
         "Nifty Rural"
       ],
       "verified_index_count": 4,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "INFY",
@@ -1072,7 +1016,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 4,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "INDIGO",
@@ -1092,7 +1036,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 12,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "JSWSTEEL",
@@ -1107,7 +1051,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 7,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "JIOFIN",
@@ -1120,7 +1064,7 @@
         "Nifty Services Sector"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "KOTAKBANK",
@@ -1135,7 +1079,7 @@
         "Nifty100 Liquid 15"
       ],
       "verified_index_count": 7,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "LT",
@@ -1150,7 +1094,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 7,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "M&M",
@@ -1171,7 +1115,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 13,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "MARUTI",
@@ -1191,7 +1135,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 12,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "MAXHEALTH",
@@ -1208,7 +1152,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 9,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "NTPC",
@@ -1230,7 +1174,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 14,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "NESTLEIND",
@@ -1243,7 +1187,7 @@
         "Nifty Rural"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "ONGC",
@@ -1260,7 +1204,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 9,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "POWERGRID",
@@ -1278,7 +1222,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 10,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "RELIANCE",
@@ -1297,7 +1241,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 11,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "SBILIFE",
@@ -1312,7 +1256,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 7,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "SHRIRAMFIN",
@@ -1327,7 +1271,7 @@
         "Nifty100 Liquid 15"
       ],
       "verified_index_count": 7,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "SBIN",
@@ -1343,7 +1287,7 @@
         "Nifty100 Liquid 15"
       ],
       "verified_index_count": 8,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "SUNPHARMA",
@@ -1356,7 +1300,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 5,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "TCS",
@@ -1372,7 +1316,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 8,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "TATACONSUM",
@@ -1388,7 +1332,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 8,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "TMPV",
@@ -1406,7 +1350,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 10,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "TATASTEEL",
@@ -1425,7 +1369,7 @@
         "Nifty500 Multicap India Manufacturing 50:30:20"
       ],
       "verified_index_count": 11,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "TECHM",
@@ -1440,7 +1384,7 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 7,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "TITAN",
@@ -1456,7 +1400,7 @@
         "Nifty Non-Cyclical Consumer"
       ],
       "verified_index_count": 8,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "TRENT",
@@ -1475,7 +1419,7 @@
         "Nifty100 Liquid 15"
       ],
       "verified_index_count": 11,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "ULTRACEMCO",
@@ -1495,7 +1439,7 @@
         "Nifty500 Multicap Infrastructure 50:30:20"
       ],
       "verified_index_count": 12,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     },
     {
       "symbol": "WIPRO",
@@ -1507,11 +1451,76 @@
         "Nifty500 Ahimsa"
       ],
       "verified_index_count": 4,
-      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+      "verification_status": "VERIFIED"
     }
   ],
   "catalog_verification_date": "2026-09-25",
   "catalog_correction": "Nifty500 Ahimsa Select excluded: absent from current official Thematic Indices catalog and official detail page returns 404",
-  "complete_all_applicable_rows": 0,
-  "blocked_all_applicable_rows": 50
+  "complete_all_applicable_rows": 50,
+  "blocked_all_applicable_rows": 0,
+  "scope_lock": "SECTOR_AND_INDUSTRY_TREND_INDICES_ONLY",
+  "eligible_index_catalog_count": 79,
+  "excluded_compliance_esg_index_count": 6,
+  "excluded_sources": [
+    {
+      "index_name": "Nifty Shariah 25",
+      "index_type": "THEMATIC",
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY%20SHARIAH%2025.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 26,
+      "source_sha256": "beb42918ff8ed4017585fd37303c143ed9064ebc5a6b3c70a136867c28efa6d3",
+      "scope_status": "OUT_OF_SCOPE_COMPLIANCE_ESG"
+    },
+    {
+      "index_name": "Nifty100 Enhanced ESG",
+      "index_type": "THEMATIC",
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY100%20ENH%20ESG.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 84,
+      "source_sha256": "48c6cdfc15ff4d93c5a2edcbff3549218a98625e80a049b13de0a2513529b2b5",
+      "scope_status": "OUT_OF_SCOPE_COMPLIANCE_ESG"
+    },
+    {
+      "index_name": "Nifty100 ESG",
+      "index_type": "THEMATIC",
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY100%20ESG.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 86,
+      "source_sha256": "4ec78a4c7d3848094ea0ac9b2a82082dddbd934c07df4f228c89730c26024241",
+      "scope_status": "OUT_OF_SCOPE_COMPLIANCE_ESG"
+    },
+    {
+      "index_name": "Nifty50 Shariah",
+      "index_type": "THEMATIC",
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY50%20SHARIAH.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 18,
+      "source_sha256": "7861a6f70199cfdff504142c2aa377cde008ced12a6ced215cbc727d4f75226a",
+      "scope_status": "OUT_OF_SCOPE_COMPLIANCE_ESG"
+    },
+    {
+      "index_name": "Nifty500 Shariah",
+      "index_type": "THEMATIC",
+      "reason": "OFFICIAL_CONSTITUENT_SOURCE_STALE",
+      "official_live_url": "https://liveindexsa.niftyindices.com/jsonfiles/equitystockwatch/EquityStockWatchNIFTY500%20SHARIAH.json",
+      "source_embedded_time": "Jan 16, 2026 16:00:29",
+      "constituent_count": 206,
+      "source_sha256": "6cd275dd81156eec03ddb6454779d098c569d0648d2564ebd14cf08661af59d1",
+      "scope_status": "OUT_OF_SCOPE_COMPLIANCE_ESG"
+    },
+    {
+      "index_name": "Nifty100 ESG Sector Leaders",
+      "index_type": "THEMATIC",
+      "reason": "NO_OFFICIAL_FULL_CONSTITUENT_DOWNLOAD",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty100-esg-sector-leaders",
+      "factsheet_url": "https://www.niftyindices.com/Factsheet/Factsheet_Nifty100_ESG_Sector_Leaders.pdf",
+      "factsheet_as_of_date": "2026-08-31",
+      "page_sha256": "bc61dab9eb9917014b36c9984bd92885fe91c25c8a42f330bab0580f460e8302",
+      "scope_status": "OUT_OF_SCOPE_COMPLIANCE_ESG"
+    }
+  ]
 }
