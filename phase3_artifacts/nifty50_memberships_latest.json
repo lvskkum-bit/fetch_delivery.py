@@ -1,0 +1,1508 @@
+{
+  "schema_version": "phase3-all-applicable-indices-v1",
+  "status": "DATA_NOT_READY + WAIT",
+  "source_as_of_date": "2026-09-24",
+  "generated_at_utc": "2026-09-25T05:29:30Z",
+  "eligibility": "Official Nifty Indices Sectoral + Thematic only; broad/strategy/factor/debt/fixed-income excluded",
+  "official_index_catalog_count": 86,
+  "verified_constituent_source_count": 79,
+  "missing_constituent_source_count": 7,
+  "nifty50_symbol_count": 50,
+  "nifty50_unique_symbol_count": 50,
+  "rows_with_one_or_more_verified_memberships": 50,
+  "row_coverage_gate": {
+    "status": "PASS",
+    "count": 50
+  },
+  "all_applicable_completeness_gate": "WAIT",
+  "production_write": false,
+  "missing_sources": [
+    {
+      "index_name": "Nifty Shariah 25",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-shariah25",
+      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
+      "page_sha256": "837f9763ad9468f670d91911b9c4e6e6814e9bd6e43788f2c756322d208673d8"
+    },
+    {
+      "index_name": "Nifty100 Enhanced ESG",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-100-enhanced-esg",
+      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
+      "page_sha256": "8fb2360802ed854a979f36ba47784c7019bf28dec4dba4750618c7c717fc0a13"
+    },
+    {
+      "index_name": "Nifty100 ESG",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty100-esg",
+      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
+      "page_sha256": "40461e2ad77f5bfa4ffde87ac4738d1678e1f500c7d95e92cb6ef70c357ed39c"
+    },
+    {
+      "index_name": "Nifty100 ESG Sector Leaders",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty100-esg-sector-leaders",
+      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
+      "page_sha256": "bc61dab9eb9917014b36c9984bd92885fe91c25c8a42f330bab0580f460e8302"
+    },
+    {
+      "index_name": "Nifty50 Shariah",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty50-shariah",
+      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
+      "page_sha256": "b9b7148d7fd7c6128bef504fc9d8fc197c44c346c3bd457243598ea6e94649fe"
+    },
+    {
+      "index_name": "Nifty500 Ahimsa Select",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty500-ahimsa-select",
+      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
+      "page_sha256": "804890213191145a9b469af9be444084b93df3fe4c09fc79204bdf8c07bfa2ec"
+    },
+    {
+      "index_name": "Nifty500 Shariah",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty500-shariah",
+      "reason": "OFFICIAL_PAGE_HAS_NO_INDEX_CONSTITUENT_DOWNLOAD",
+      "page_sha256": "73240df252bdb9079505277f6f98dc887cb0affa24f2ad5e31cd267d8d8b9bec"
+    }
+  ],
+  "verified_sources": [
+    {
+      "index_name": "Nifty Auto",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-auto",
+      "constituent_url": "https://www.niftyindices.com//IndexConstituent/ind_niftyautolist.csv",
+      "constituent_sha256": "0c68e2cbf122b779d5717737382d544d7f706137687269804b425c605c93d7a7",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty Bank",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-bank",
+      "constituent_url": "https://www.niftyindices.com//IndexConstituent/ind_niftybanklist.csv",
+      "constituent_sha256": "eac5d4d5a1d9cfdbfceca604b274bcc999a1f1f36405263569cc2466ef55c64f",
+      "constituent_count": 14
+    },
+    {
+      "index_name": "Nifty Capital Goods",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-capital-goods",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyCapitalGoods_list.csv",
+      "constituent_sha256": "f6c70d38f8f7a56e3ecf8cdbc2064cc20c95fe0847259097ae955d2cfefbb202",
+      "constituent_count": 50
+    },
+    {
+      "index_name": "Nifty Cement",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-cement",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_NiftyCement_list.csv",
+      "constituent_sha256": "f9b8ce7ed0225c49a979f055a86335c8824a6b87100cca8e9f504816ee887ae1",
+      "constituent_count": 16
+    },
+    {
+      "index_name": "Nifty Chemicals",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-chemicals",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyChemicals_list.csv",
+      "constituent_sha256": "63e26ca6bb33b77a4d4be591ba2352efc2958bfc83e9e8263162d5ebd5ee13e5",
+      "constituent_count": 20
+    },
+    {
+      "index_name": "Nifty Commercial & Transport Services",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-commercial---transport-services",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyCommercialTransportServices_list.csv",
+      "constituent_sha256": "93f0ff6149bd3f65b5b7d84067346ac12320720b9e5af1e7e6cc8926761bab4e",
+      "constituent_count": 26
+    },
+    {
+      "index_name": "Nifty Construction",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-construction",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyConstruction_list.csv",
+      "constituent_sha256": "0b6e6dcea0c925fb8f6e4c11bafee102ce8d608c5fac3e4cdc28ed9540656f66",
+      "constituent_count": 23
+    },
+    {
+      "index_name": "Nifty Consumer Durables",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-consumer-durables-index",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyconsumerdurableslist.csv",
+      "constituent_sha256": "97c6302090a1bdcfdb85d01ee9536962813081989be1f6d5208cfaa4e87f2a50",
+      "constituent_count": 13
+    },
+    {
+      "index_name": "Nifty Consumer Services",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-consumer-services",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyConsumerServices_list.csv",
+      "constituent_sha256": "145a35a9340aecab4b1407a9819864b9ad90fe915efe4af766ea6af7254ff286",
+      "constituent_count": 46
+    },
+    {
+      "index_name": "Nifty Financial Services",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-financial-services",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyfinancelist.csv",
+      "constituent_sha256": "2940005fd8c544b7dc83bb937b2eaa68fba7686dfb291864783cbef6402ba57f",
+      "constituent_count": 20
+    },
+    {
+      "index_name": "Nifty Financial Services 25/50",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-financial-services-25-50-index",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyfinancialservices25-50list.csv",
+      "constituent_sha256": "2940005fd8c544b7dc83bb937b2eaa68fba7686dfb291864783cbef6402ba57f",
+      "constituent_count": 20
+    },
+    {
+      "index_name": "Nifty Financial Services Ex-Bank",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-financial--services-ex-bank",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyfinancialservicesexbank_list.csv",
+      "constituent_sha256": "afa50a42969b10879c82f7d12fb7722cfa96d92498bb9cb50a4fbf63d79333ce",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty FMCG",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-fmcg",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyfmcglist.csv",
+      "constituent_sha256": "66e6e108972bde449a20a7ffffec5d395f338fa7510e24c80e803c245323e686",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty Healthcare",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-healthcare-index",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyhealthcarelist.csv",
+      "constituent_sha256": "2e3ad6b253dc847120f303eb7384c0a7db345dc580783257f740c7c10092030c",
+      "constituent_count": 20
+    },
+    {
+      "index_name": "Nifty Hospitals",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-hospitals",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyHospitals_list.csv",
+      "constituent_sha256": "fdb263351e8977b0d19253a3d25f0329bf2de60db1d3e64aa5e19b6c8922f108",
+      "constituent_count": 13
+    },
+    {
+      "index_name": "Nifty Housing Finance",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-housing-finance",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyHousingFinance_list.csv",
+      "constituent_sha256": "113539f79baf26b4d4f4e437c9a0e939307e5366e1a969a65b47db2497ec4075",
+      "constituent_count": 10
+    },
+    {
+      "index_name": "Nifty Insurance",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-insurance",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyInsurance_list.csv",
+      "constituent_sha256": "16db7d113b585273b17bbaaddde63056c4134c36395d74364658ba3c7ad50d47",
+      "constituent_count": 12
+    },
+    {
+      "index_name": "Nifty IT",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-it",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyitlist.csv",
+      "constituent_sha256": "22d3781a4d27ac42fb4d6d537c54341ea6afa62fda02509375c4243671eb7d60",
+      "constituent_count": 10
+    },
+    {
+      "index_name": "Nifty Media",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-media",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymedialist.csv",
+      "constituent_sha256": "a0b0b0827c652e54c5a3db2259e1810a41c5528c4127f39cc5545997aa403a26",
+      "constituent_count": 10
+    },
+    {
+      "index_name": "Nifty Metal",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-metal",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymetallist.csv",
+      "constituent_sha256": "0596a027d970c4e9d4551ca1972ec0fd13e8724a27b41e9fa8aee9d9a6640cba",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty MidSmall Financial Services",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-midsmall--financial-services",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymidsmallfinancailservice_list.csv",
+      "constituent_sha256": "0900bea8b6e4bea2d13a6e18dc8f24460a27c6b35729b91822c72dd464aae30e",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty MidSmall Healthcare",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-midsmallhealthcare",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymidsmallhealthcare_list.csv",
+      "constituent_sha256": "0a2e79ef839901fcf56f8ab0e3428de77263fcb0b81bebd39f84eea35d900b5b",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty MidSmall IT & Telecom",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-midsmall--it-telecom",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymidsmallitAndtelecom_list.csv",
+      "constituent_sha256": "fea45fb1b2680ae3f47d9f0328cce030867a00a159b0bc043458876ccb475721",
+      "constituent_count": 20
+    },
+    {
+      "index_name": "Nifty NBFC",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-nbfc",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyNBFC_list.csv",
+      "constituent_sha256": "ae6abd5d8d6f363c201db903f4e602ad718a0b05bcea02c425b6632c16c39ebf",
+      "constituent_count": 19
+    },
+    {
+      "index_name": "Nifty Oil & Gas",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-oil-and-gas-index",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyoilgaslist.csv",
+      "constituent_sha256": "4a79a3c9a982be6595da0785c0651ee4958fcd57bb8f6b74c44d35fd6387912d",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty Pharma",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-pharma",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftypharmalist.csv",
+      "constituent_sha256": "9013c84ddc85388dae3554d0e0cef4c56114e622d72ca2b0fdb3e544137a9f89",
+      "constituent_count": 20
+    },
+    {
+      "index_name": "Nifty Power",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-power",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyPower_list.csv",
+      "constituent_sha256": "6035968bc03092deb994989897a8810b9a83e6bd3d658f8833b795d7accb24cc",
+      "constituent_count": 21
+    },
+    {
+      "index_name": "Nifty Private Bank",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-private-bank",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty_privatebanklist.csv",
+      "constituent_sha256": "082756a2101687020380fd7718a7c59afa9a76b5f753c7b6ff7320da1a083eb6",
+      "constituent_count": 10
+    },
+    {
+      "index_name": "Nifty PSU Bank",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-psu-bank",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftypsubanklist.csv",
+      "constituent_sha256": "2358aa7e864324e4798d3176fecddf2dd5f6829420a1c9c98e082fb59c4944c8",
+      "constituent_count": 12
+    },
+    {
+      "index_name": "Nifty Realty",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-realty",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyrealtylist.csv",
+      "constituent_sha256": "4ca77c907a374f8d7deaa1534012809a5049a8304554cd4a4411cec6aec0563b",
+      "constituent_count": 10
+    },
+    {
+      "index_name": "Nifty REITs & Realty",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-reits---realty",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyREITsRealty_list.csv",
+      "constituent_sha256": "b7117d2651a65162a817be42272acc7916e76ed7dd4cee0674a9dc7c7e53522f",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty Retail",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-retail",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyRetail_list.csv",
+      "constituent_sha256": "e9f27f683175027f12fdfcf6456d0d8011329ffb0acb38a2aa2f65967691cb85",
+      "constituent_count": 26
+    },
+    {
+      "index_name": "Nifty Telecommunications",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty-telecommunications",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyTelecommunications_list.csv",
+      "constituent_sha256": "27ea68a525ccc984b80756892870a461e1c7ab9394f9ceb54d230e5d3d3570ac",
+      "constituent_count": 13
+    },
+    {
+      "index_name": "Nifty500 Healthcare",
+      "index_type": "SECTORAL",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/sectoral-indices/nifty500-healthcare",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty500Healthcare_list.csv",
+      "constituent_sha256": "2ccde4c599261a39c7a80f3b45889c65554bffeaf0f89c0d23d28b1ece3efd37",
+      "constituent_count": 48
+    },
+    {
+      "index_name": "Nifty AI Catalysts",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-ai-catalysts",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyAICatalystslist.csv",
+      "constituent_sha256": "447fd9fe278a316d462aeec84c8f3093d6a9295a4bdb71a4942bcb6b990ce7ce",
+      "constituent_count": 48
+    },
+    {
+      "index_name": "Nifty Capital Markets",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-capital-markets",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyCapitalMarkets_list.csv",
+      "constituent_sha256": "0c3ff0f1c0404be7074afcf11db17489aad7683f3cdf7895d295cb53f7ff6d62",
+      "constituent_count": 17
+    },
+    {
+      "index_name": "Nifty Commodities",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-commodities",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftycommoditieslist.csv",
+      "constituent_sha256": "a420d608cd7aca1dc6727140fe35011529fb989dc3e1032200289333da2961bb",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty Conglomerate 50",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-conglomerate-50",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyConglomerate50_list.csv",
+      "constituent_sha256": "0f45a889c7bd968b2eda05fe51695d340c12d2c9294ba5e168ed898506c00fa2",
+      "constituent_count": 50
+    },
+    {
+      "index_name": "Nifty Core Housing",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-core--housing",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyCoreHousing_list.csv",
+      "constituent_sha256": "541d12313d01f5d6103c42edef6ed7c40737aa34b3ca52f9617c6200e42a6189",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty CPSE",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-cpse",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftycpselist.csv",
+      "constituent_sha256": "0bcbc63974280d4e0e50305fe657ab7023d00c5fe2a45ddf1d2da7c50bbbe46c",
+      "constituent_count": 11
+    },
+    {
+      "index_name": "Nifty Energy",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-energy",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyenergylist.csv",
+      "constituent_sha256": "65aeb062a400b57ff045a3ae101939ed704478b80dcdeefe9504a0432c3b4805",
+      "constituent_count": 40
+    },
+    {
+      "index_name": "Nifty EV & New Age Automotive",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-ev-new--age-automotive",
+      "constituent_url": "https://www.niftyindices.com/Index_Statistics/ind_niftyEv_NewAgeAutomotive_list.csv",
+      "constituent_sha256": "e4c3d83a72af373fd9b6003d391668edabdcfc28b797f5378417ab1d3e99e49d",
+      "constituent_count": 33
+    },
+    {
+      "index_name": "Nifty Housing",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty--housing",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyhousing_list.csv",
+      "constituent_sha256": "935a23fb19b62d50b698635ebc1c40d3c355c7da9ff818eafe3b90de32839ee6",
+      "constituent_count": 50
+    },
+    {
+      "index_name": "Nifty India Consumption",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-consumption",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyconsumptionlist.csv",
+      "constituent_sha256": "852f57b3a404c0972dadaa501c0e79771aa726b0868665f529bead83ea5c14ee",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty India Corporate Group Index - Aditya Birla Group",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-corporate-group-index---aditya-birla-group",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty_adityabirlalist.csv",
+      "constituent_sha256": "abcc3b695f29dd3d42cac23f61ca33ad6a34ed77b9ee9f2934dae4d05bd74167",
+      "constituent_count": 13
+    },
+    {
+      "index_name": "Nifty India Corporate Group Index - Mahindra Group",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-corporate-group-index---mahindra-group",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty_mahindralist.csv",
+      "constituent_sha256": "fe528d0493121370efde8356e24d0d4dbbad867c9998d5a11d7c7c9b4874c650",
+      "constituent_count": 9
+    },
+    {
+      "index_name": "Nifty India Corporate Group Index - Tata Group",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-corporate-group-index---tata-group",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty_tatalist.csv",
+      "constituent_sha256": "1a1a13bdc5cf1ef7748d3e23d5e787c6f06f10767a8367d6e368d25bb4d24f06",
+      "constituent_count": 23
+    },
+    {
+      "index_name": "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-corporate-group-index---tata-group-25-cap",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty_tata25caplist.csv",
+      "constituent_sha256": "441e48febc809d6050b5690b53c637ab41b9f57916fe0c3a2fb354a6cf0fc9e4",
+      "constituent_count": 10
+    },
+    {
+      "index_name": "Nifty India Defence",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-defence",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyindiadefence_list.csv",
+      "constituent_sha256": "44d2005db832ae7855b697b107544778f7d1ea83859c867113a573454a377d57",
+      "constituent_count": 19
+    },
+    {
+      "index_name": "Nifty India Defence Equal Weight",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-defence-equal-weight",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyIndiaDefenceEqualWeight_list.csv",
+      "constituent_sha256": "42edd98b10e4cd07a402740b5395bed29678a29bbe8e8a1462ba243b66fba3cc",
+      "constituent_count": 19
+    },
+    {
+      "index_name": "Nifty India Digital",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-digital",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyindiadigital_list.csv",
+      "constituent_sha256": "f87806eff1a11d45f1737853aa9a9d241b0da072d53a898efc046b6862c9c89f",
+      "constituent_count": 51
+    },
+    {
+      "index_name": "Nifty India Infrastructure & Logistics",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-infrastructure-logistics",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyIndiaInfrastructure_Logistics_list.csv",
+      "constituent_sha256": "2d3ed0896f5d2f77f0d98ae8b9c1a50414e291afc3e90ddc3975b1317eb89b1d",
+      "constituent_count": 100
+    },
+    {
+      "index_name": "Nifty India Internet",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-internet",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyIndiaInternet_list.csv",
+      "constituent_sha256": "6585dd312bbd0bfbe16cd820dee637f0e75463c63f4d45e163a8ec8512c2d122",
+      "constituent_count": 27
+    },
+    {
+      "index_name": "Nifty India Manufacturing",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-manufacturing",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyindiamanufacturing_list.csv",
+      "constituent_sha256": "9b07f7445c45e14409169e10943178ea80b0e13e7e636d2cf3f5c8548b1b1af7",
+      "constituent_count": 76
+    },
+    {
+      "index_name": "Nifty India New Age Consumption",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-new--age-consumption",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyIndiaNewAgeConsumption_list.csv",
+      "constituent_sha256": "d5f543abe06a2af628f485277b0d9b522e2df55dd8f4451d213fecdeece7bc27",
+      "constituent_count": 75
+    },
+    {
+      "index_name": "Nifty India Railways PSU",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-railways-psu",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyIndiaRailwaysPSU_list.csv",
+      "constituent_sha256": "33072cc81005e20aad462999e2eda57949f8a259ae3a07f8c6aa3b4618fc8440",
+      "constituent_count": 17
+    },
+    {
+      "index_name": "Nifty India Select 5 Corporate Groups (MAATR)",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-select--5-corporate-groups-(maatr)",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyIndiaSelect5CorporateGroupsMAATR_list.csv",
+      "constituent_sha256": "56b9d992e5b94efa2f0add39aa35fb0647559b465065659042814ddd007246b9",
+      "constituent_count": 42
+    },
+    {
+      "index_name": "Nifty India Tourism",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-india-tourism",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyindiatourism_list.csv",
+      "constituent_sha256": "37498681330dcbbe1c28f2b68b9f97f3562a6fbc50c6b5876cdb9445ee3300ec",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty Infrastructure",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-infrastructure",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyinfralist.csv",
+      "constituent_sha256": "18679f51655d508943f60e1c41a30bddf03fc3f0e33f0fe0172bc4872995c79e",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty IPO",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty--ipo",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyIPO_list.csv",
+      "constituent_sha256": "c2ebf1723810627c3441ad7c1508d09d72de54f853f9c3de2d280dc2eeee4418",
+      "constituent_count": 149
+    },
+    {
+      "index_name": "Nifty Midcap Liquid 15",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-midcap-liquid-15",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_Nifty_Midcap_Liquid15.csv",
+      "constituent_sha256": "a2eeba8ba483c1a2833b63cedbccdacf898c1c9f59698a7a496db83279390800",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty MidSmall India Consumption",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-mid-small-india-consumption",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymidsmallindiaconsumption_list.csv",
+      "constituent_sha256": "ba40bf264e0a25186a38df0a0398be67a8bb1d09d56a78be853d03fd267fc0d2",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty MNC",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-mnc",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymnclist.csv",
+      "constituent_sha256": "83402cdef15f92f2869b5a0229ec24895471857e198648b0e4ea6c3d1acbbaf0",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty Mobility",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty--mobility",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftymobility_list.csv",
+      "constituent_sha256": "23832dff1891bc63987bc3eccc265add5b3b4dd78ec799cbd542513a50daf8c4",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty Non-Cyclical Consumer",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-non--cyclical-consumer",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftynon-cyclicalconsumer_list.csv",
+      "constituent_sha256": "932883a42e5001223ca2640ecf56a2e96c5701661f6522c594525e0ec61fa227",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty PSE",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-pse",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftypselist.csv",
+      "constituent_sha256": "c3849af056da4d3693590246837eaa1f2491732b366f5b9254f9e026e2cfeefa",
+      "constituent_count": 20
+    },
+    {
+      "index_name": "Nifty REITs & InvITs",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-reits-invits",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyREITs_InvITs_list.csv",
+      "constituent_sha256": "86988b50b1dd9a790990db3c53ff3fe64bcf20dc9e63b7a1d55c90f1392cc9f1",
+      "constituent_count": 13
+    },
+    {
+      "index_name": "Nifty REITs & InvITs 90:10",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-reits---invits-90-10",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyREITsInvITs9010list.csv",
+      "constituent_sha256": "d9edc352ccbe92f725bbda15039dab24a088f0fce8f4506570bd51d883aca4da",
+      "constituent_count": 13
+    },
+    {
+      "index_name": "Nifty Rural",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty--rural",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyRural_list.csv",
+      "constituent_sha256": "27b962fd498b53ce6ef6a1fd123f44506a8bc74bbb7680ca3deff4927b78f5cb",
+      "constituent_count": 75
+    },
+    {
+      "index_name": "Nifty Services Sector",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-services-sector",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyservicelist.csv",
+      "constituent_sha256": "0fcc233eabbfedab5f88d31333a6cc6114451bd61c18ae97c26b4f70e9995dca",
+      "constituent_count": 30
+    },
+    {
+      "index_name": "Nifty Small Finance Banks & Microfinance Institutions",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-small-finance-banks---microfinance-institutions",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftySFBsMfis_list.csv",
+      "constituent_sha256": "8a9de3f982dd690ad2208341699f0dbee308263af5d070efc7085b8b66bedac1",
+      "constituent_count": 10
+    },
+    {
+      "index_name": "Nifty SME Emerge",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-sme-emerge",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftysmelist.csv",
+      "constituent_sha256": "57ac592e6fe86ae92b1f117242c88867cbbd05cc02510cf8b1f560762f9f6957",
+      "constituent_count": 528
+    },
+    {
+      "index_name": "Nifty Sugar & Ethanol",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-sugar---ethanol",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftySugarEthanol_list.csv",
+      "constituent_sha256": "b203b051ab46e25cbbb38f91457849b7437746604401fe46fec3195c43458871",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty Transportation & Logistics",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty--transportation-logistics",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftytransportationandlogistics _list.csv",
+      "constituent_sha256": "c1210e2ebed5771cdeddda753ca1302be7c6a6973f60808668dedd758c7c1496",
+      "constituent_count": 31
+    },
+    {
+      "index_name": "Nifty Waves",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-waves",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_niftyWaves_list.csv",
+      "constituent_sha256": "799366f15abf91afc23fd2b8f4146b898483733c80c7faf4f83a548716d818a2",
+      "constituent_count": 43
+    },
+    {
+      "index_name": "Nifty100 Liquid 15",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty-100-liquid-15",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_Nifty100_Liquid15.csv",
+      "constituent_sha256": "3b0ab99cceca37327efcfcc6ed7d033e3d8e7c7d43f68b1a6afb54c085ca00a1",
+      "constituent_count": 15
+    },
+    {
+      "index_name": "Nifty500 Ahimsa",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty500-ahimsa",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty500Ahimsa_list.csv",
+      "constituent_sha256": "9c28a05b1f6f1bbf8c74744e99ca8996634dff91abf1c26cfcadf3ac2c290bd9",
+      "constituent_count": 326
+    },
+    {
+      "index_name": "Nifty500 Multicap India Manufacturing 50:30:20",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty500-multicap-india-manufacturing-503020",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty500MulticapIndiaManufacturing503020_list.csv",
+      "constituent_sha256": "dc966fecae9cdaf2f4e9e6e739a7a034b989413e806f467ea2dc559bb201c35a",
+      "constituent_count": 75
+    },
+    {
+      "index_name": "Nifty500 Multicap Infrastructure 50:30:20",
+      "index_type": "THEMATIC",
+      "index_page_url": "https://www.niftyindices.com/indices/equity/thematic-indices/nifty500-multicap-infrastructure-503020",
+      "constituent_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty500MulticapInfrastructure503020_list.csv",
+      "constituent_sha256": "e959616e1e15c341005b47062d8b39546b21bbb4ee9fbf3e74bbcec6d13462f2",
+      "constituent_count": 75
+    }
+  ],
+  "rows": [
+    {
+      "symbol": "ADANIENT",
+      "isin": "INE423A01024",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty Conglomerate 50",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Metal",
+        "Nifty100 Liquid 15",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 6,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "ADANIPORTS",
+      "isin": "INE742F01042",
+      "all_applicable_indices": [
+        "Nifty Commercial & Transport Services",
+        "Nifty Conglomerate 50",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Mobility",
+        "Nifty Services Sector",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 10,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "APOLLOHOSP",
+      "isin": "INE437A01024",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty Hospitals",
+        "Nifty India Consumption",
+        "Nifty Infrastructure",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 8,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "isin": "INE021A01026",
+      "all_applicable_indices": [
+        "Nifty Core Housing",
+        "Nifty Housing",
+        "Nifty India Consumption",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 6,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "AXISBANK",
+      "isin": "INE238A01034",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector"
+      ],
+      "verified_index_count": 6,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "BAJAJ-AUTO",
+      "isin": "INE917I01010",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty Conglomerate 50",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 11,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "isin": "INE296A01032",
+      "all_applicable_indices": [
+        "Nifty Conglomerate 50",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty NBFC",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "verified_index_count": 8,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "BAJAJFINSV",
+      "isin": "INE918I01026",
+      "all_applicable_indices": [
+        "Nifty Conglomerate 50",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty Services Sector"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "BEL",
+      "isin": "INE263A01024",
+      "all_applicable_indices": [
+        "Nifty CPSE",
+        "Nifty Capital Goods",
+        "Nifty India Defence",
+        "Nifty India Defence Equal Weight",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Manufacturing",
+        "Nifty India Railways PSU",
+        "Nifty PSE",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 10,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "isin": "INE397D01024",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty India Consumption",
+        "Nifty India Digital",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India New Age Consumption",
+        "Nifty Infrastructure",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty Telecommunications",
+        "Nifty100 Liquid 15",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 13,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "CIPLA",
+      "isin": "INE059A01026",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty India Manufacturing",
+        "Nifty Pharma",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "COALINDIA",
+      "isin": "INE522F01014",
+      "all_applicable_indices": [
+        "Nifty CPSE",
+        "Nifty Commodities",
+        "Nifty Energy",
+        "Nifty PSE",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "DRREDDY",
+      "isin": "INE089A01031",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty India Manufacturing",
+        "Nifty Pharma",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "EICHERMOT",
+      "isin": "INE066A01021",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 9,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "ETERNAL",
+      "isin": "INE758T01015",
+      "all_applicable_indices": [
+        "Nifty Consumer Services",
+        "Nifty India Consumption",
+        "Nifty India Digital",
+        "Nifty India Internet",
+        "Nifty India New Age Consumption",
+        "Nifty Mobility",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Retail",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "verified_index_count": 10,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "GRASIM",
+      "isin": "INE047A01021",
+      "all_applicable_indices": [
+        "Nifty Cement",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Core Housing",
+        "Nifty Housing",
+        "Nifty India Corporate Group Index - Aditya Birla Group",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Rural",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 12,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "HCLTECH",
+      "isin": "INE860A01027",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty IT",
+        "Nifty India Digital",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "isin": "INE040A01034",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector"
+      ],
+      "verified_index_count": 6,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "HDFCLIFE",
+      "isin": "INE795G01014",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty Insurance",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 7,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "HINDALCO",
+      "isin": "INE038A01020",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty India Corporate Group Index - Aditya Birla Group",
+        "Nifty India Manufacturing",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Metal",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 9,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "isin": "INE030A01027",
+      "all_applicable_indices": [
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty MNC",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "isin": "INE090A01021",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector"
+      ],
+      "verified_index_count": 6,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "ITC",
+      "isin": "INE154A01025",
+      "all_applicable_indices": [
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural"
+      ],
+      "verified_index_count": 4,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "INFY",
+      "isin": "INE009A01021",
+      "all_applicable_indices": [
+        "Nifty IT",
+        "Nifty India Digital",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 4,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "INDIGO",
+      "isin": "INE646L01027",
+      "all_applicable_indices": [
+        "Nifty Commercial & Transport Services",
+        "Nifty India Consumption",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India New Age Consumption",
+        "Nifty India Tourism",
+        "Nifty Infrastructure",
+        "Nifty Mobility",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Services Sector",
+        "Nifty Transportation & Logistics",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 12,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "JSWSTEEL",
+      "isin": "INE019A01038",
+      "all_applicable_indices": [
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Housing",
+        "Nifty India Manufacturing",
+        "Nifty Metal",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 7,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "JIOFIN",
+      "isin": "INE758E01017",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Services Sector"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "isin": "INE237A01036",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty Private Bank",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "verified_index_count": 7,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "LT",
+      "isin": "INE018A01030",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty Conglomerate 50",
+        "Nifty Construction",
+        "Nifty Housing",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty Infrastructure",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 7,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "M&M",
+      "isin": "INE101A01026",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty Conglomerate 50",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Mahindra Group",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 13,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "MARUTI",
+      "isin": "INE585B01010",
+      "all_applicable_indices": [
+        "Nifty Auto",
+        "Nifty EV & New Age Automotive",
+        "Nifty India Consumption",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty MNC",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty Transportation & Logistics",
+        "Nifty100 Liquid 15",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 12,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "MAXHEALTH",
+      "isin": "INE027H01010",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty Hospitals",
+        "Nifty India Consumption",
+        "Nifty Infrastructure",
+        "Nifty MidSmall India Consumption",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 9,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "NTPC",
+      "isin": "INE733E01010",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty CPSE",
+        "Nifty Commodities",
+        "Nifty Energy",
+        "Nifty Housing",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Railways PSU",
+        "Nifty Infrastructure",
+        "Nifty PSE",
+        "Nifty Power",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 14,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "NESTLEIND",
+      "isin": "INE239A01024",
+      "all_applicable_indices": [
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty MNC",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "ONGC",
+      "isin": "INE213A01029",
+      "all_applicable_indices": [
+        "Nifty CPSE",
+        "Nifty Commodities",
+        "Nifty Energy",
+        "Nifty India Railways PSU",
+        "Nifty Infrastructure",
+        "Nifty Oil & Gas",
+        "Nifty PSE",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 9,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "POWERGRID",
+      "isin": "INE752E01010",
+      "all_applicable_indices": [
+        "Nifty AI Catalysts",
+        "Nifty CPSE",
+        "Nifty Energy",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty Infrastructure",
+        "Nifty PSE",
+        "Nifty Power",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 10,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "RELIANCE",
+      "isin": "INE002A01018",
+      "all_applicable_indices": [
+        "Nifty Commodities",
+        "Nifty EV & New Age Automotive",
+        "Nifty Energy",
+        "Nifty India Manufacturing",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Mobility",
+        "Nifty Oil & Gas",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap India Manufacturing 50:30:20",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 11,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "SBILIFE",
+      "isin": "INE123W01016",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty Insurance",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 7,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "SHRIRAMFIN",
+      "isin": "INE721A01047",
+      "all_applicable_indices": [
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Financial Services Ex-Bank",
+        "Nifty NBFC",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "verified_index_count": 7,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "SBIN",
+      "isin": "INE062A01020",
+      "all_applicable_indices": [
+        "Nifty Bank",
+        "Nifty Financial Services",
+        "Nifty Financial Services 25/50",
+        "Nifty Housing",
+        "Nifty PSU Bank",
+        "Nifty Rural",
+        "Nifty Services Sector",
+        "Nifty100 Liquid 15"
+      ],
+      "verified_index_count": 8,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "isin": "INE044A01036",
+      "all_applicable_indices": [
+        "Nifty Healthcare",
+        "Nifty India Manufacturing",
+        "Nifty Pharma",
+        "Nifty500 Healthcare",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 5,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "TCS",
+      "isin": "INE467B01029",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Conglomerate 50",
+        "Nifty IT",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Digital",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 8,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "TATACONSUM",
+      "isin": "INE192A01025",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty FMCG",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Rural",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 8,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "TMPV",
+      "isin": "INE155A01022",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Auto",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Manufacturing",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Mobility",
+        "Nifty Rural",
+        "Nifty100 Liquid 15",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 10,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "isin": "INE081A01020",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty AI Catalysts",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Housing",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India Manufacturing",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Metal",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap India Manufacturing 50:30:20"
+      ],
+      "verified_index_count": 11,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "TECHM",
+      "isin": "INE669C01036",
+      "all_applicable_indices": [
+        "Nifty Conglomerate 50",
+        "Nifty IT",
+        "Nifty India Corporate Group Index - Mahindra Group",
+        "Nifty India Digital",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 7,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "TITAN",
+      "isin": "INE280A01028",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Conglomerate 50",
+        "Nifty Consumer Durables",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Non-Cyclical Consumer"
+      ],
+      "verified_index_count": 8,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "TRENT",
+      "isin": "INE849A01020",
+      "all_applicable_indices": [
+        "NIFTY INDIA CORPORATE GROUP INDEX - TATA GROUP 25% CAP",
+        "Nifty Conglomerate 50",
+        "Nifty Consumer Services",
+        "Nifty India Consumption",
+        "Nifty India Corporate Group Index - Tata Group",
+        "Nifty India New Age Consumption",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty MidSmall India Consumption",
+        "Nifty Non-Cyclical Consumer",
+        "Nifty Retail",
+        "Nifty100 Liquid 15"
+      ],
+      "verified_index_count": 11,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "isin": "INE481G01011",
+      "all_applicable_indices": [
+        "Nifty Cement",
+        "Nifty Commodities",
+        "Nifty Conglomerate 50",
+        "Nifty Core Housing",
+        "Nifty Housing",
+        "Nifty India Corporate Group Index - Aditya Birla Group",
+        "Nifty India Infrastructure & Logistics",
+        "Nifty India Select 5 Corporate Groups (MAATR)",
+        "Nifty Infrastructure",
+        "Nifty Rural",
+        "Nifty500 Ahimsa",
+        "Nifty500 Multicap Infrastructure 50:30:20"
+      ],
+      "verified_index_count": 12,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    },
+    {
+      "symbol": "WIPRO",
+      "isin": "INE075A01022",
+      "all_applicable_indices": [
+        "Nifty IT",
+        "Nifty India Digital",
+        "Nifty Services Sector",
+        "Nifty500 Ahimsa"
+      ],
+      "verified_index_count": 4,
+      "verification_status": "SOURCE_UNIVERSE_PARTIAL"
+    }
+  ]
+}
