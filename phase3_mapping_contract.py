@@ -311,6 +311,29 @@ def resolve_memberships(
     return memberships
 
 
+def validate_memberships_50(
+    rows: list[dict[str, Any]], expected_symbols: set[str]
+) -> dict[str, Any]:
+    if len(rows) != EXPECTED_STOCKS:
+        _mapping_fail("MEMBERSHIP_COUNT_50", "membership rows must equal 50")
+
+    symbols = [str(row.get("symbol") or "").strip().upper() for row in rows]
+    if len(set(symbols)) != EXPECTED_STOCKS:
+        _mapping_fail("MEMBERSHIP_SYMBOL_UNIQUE", "membership symbols not unique")
+    if set(symbols) != {str(symbol).strip().upper() for symbol in expected_symbols}:
+        _mapping_fail("MEMBERSHIP_SYMBOL_SET", "membership symbol set mismatch")
+
+    for row in rows:
+        memberships = row.get("all_applicable_indices") or []
+        if not isinstance(memberships, list) or not memberships:
+            _mapping_fail(
+                "MEMBERSHIP_REVIEW_REQUIRED",
+                f"no eligible membership for {row.get('symbol')}",
+            )
+
+    return {"status": "PASS", "count": EXPECTED_STOCKS}
+
+
 def choose_primary_index(
     memberships: list[str],
     weights: dict[str, dict[str, float]],
