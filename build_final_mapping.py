@@ -25,6 +25,17 @@ def _rows_by_symbol(payload: dict[str, Any], label: str) -> dict[str, dict[str, 
     return keyed
 
 
+def _normalize_numbers(value: Any) -> Any:
+    """Use one JSON number representation across Python and JavaScript."""
+    if isinstance(value, dict):
+        return {key: _normalize_numbers(child) for key, child in value.items()}
+    if isinstance(value, list):
+        return [_normalize_numbers(child) for child in value]
+    if isinstance(value, float) and value.is_integer():
+        return int(value)
+    return value
+
+
 def build_final_mapping(
     source: dict[str, Any],
     classifications: dict[str, Any],
@@ -95,9 +106,9 @@ def build_final_mapping(
             "sector": cls.get("sector"),
             "basic_industry": cls.get("basic_industry"),
             "all_membership_indices": applicable,
-            "weight_comparisons": weight.get("weight_comparisons"),
+            "weight_comparisons": _normalize_numbers(weight.get("weight_comparisons")),
             "primary_sector_index": primary,
-            "primary_weight": weight.get("primary_weight"),
+            "primary_weight": _normalize_numbers(weight.get("primary_weight")),
             "instrument_key": instrument.get("instrument_key"),
             "exchange_token": instrument.get("exchange_token"),
             "verification_as_of_date": verification_date,

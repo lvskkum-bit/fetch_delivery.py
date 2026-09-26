@@ -307,7 +307,7 @@
         {
           "index_name": "Nifty Private Bank",
           "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
-          "weight": 19.0
+          "weight": 19
         },
         {
           "index_name": "Nifty Services Sector",
@@ -316,13 +316,13 @@
         }
       ],
       "primary_sector_index": "Nifty Private Bank",
-      "primary_weight": 19.0,
+      "primary_weight": 19,
       "instrument_key": "NSE_EQ|INE238A01034",
       "exchange_token": "5900",
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "c17a3b565bab229a13362112bfda06c0783a4478e5c66522032f3bf3eb9428a9"
+      "row_checksum": "73600a0992578165110fbfc75c71a1a04073d88e869dca5f944188ce833da426"
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -629,7 +629,7 @@
         {
           "index_name": "Nifty AI Catalysts",
           "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
-          "weight": 3.0
+          "weight": 3
         },
         {
           "index_name": "Nifty India Consumption",
@@ -699,7 +699,7 @@
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "6529c85e01928a7f62e81bfcc02f22bb36a08b34f16df017cecc96a0a813439b"
+      "row_checksum": "98877177bc0b8e4ae2806aaed822456b42550b97fc927bfa4706628f0d958190"
     },
     {
       "symbol": "CIPLA",
@@ -1219,7 +1219,7 @@
         {
           "index_name": "Nifty Financial Services 25/50",
           "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
-          "weight_upper_bound": 4.0
+          "weight_upper_bound": 4
         },
         {
           "index_name": "Nifty Financial Services Ex-Bank",
@@ -1254,7 +1254,7 @@
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "32850c4215527b3dcfd0dfcfe31ed66ffb38ba67f2dbf746fa7b4dc3ca1a12d1"
+      "row_checksum": "9c1cc55962b4787f8bf32a68705f8c110020ee61f7119168258ed14ee5e6d44f"
     },
     {
       "symbol": "HINDALCO",
@@ -1583,7 +1583,7 @@
         {
           "index_name": "Nifty FMCG",
           "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
-          "weight": 26.0
+          "weight": 26
         },
         {
           "index_name": "Nifty India Consumption",
@@ -1602,13 +1602,13 @@
         }
       ],
       "primary_sector_index": "Nifty FMCG",
-      "primary_weight": 26.0,
+      "primary_weight": 26,
       "instrument_key": "NSE_EQ|INE154A01025",
       "exchange_token": "1660",
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "fc70affe722613dfdb233f5fffc4b1d61774dfe7640c315cc266be800f5fdad0"
+      "row_checksum": "7a2f3af8c8791d4d90cf1d84122e3fcb3e451b6ac2a18324d0d5ed990bbc119c"
     },
     {
       "symbol": "JIOFIN",
@@ -1632,7 +1632,7 @@
         {
           "index_name": "Nifty Financial Services 25/50",
           "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
-          "weight": 4.0
+          "weight": 4
         },
         {
           "index_name": "Nifty Financial Services Ex-Bank",
@@ -1657,7 +1657,7 @@
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "f8bd39e35ee752c996d58bcfbfa7529a0839bd0f8835e7e0412820035bc17c10"
+      "row_checksum": "9899c851c8685159e8b6be2fb0f9aafdd0c24fdb49bc23a0ed3f3b3088aac90b"
     },
     {
       "symbol": "JSWSTEEL",
@@ -2430,7 +2430,7 @@
         {
           "index_name": "Nifty Commodities",
           "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
-          "weight": 10.0
+          "weight": 10
         },
         {
           "index_name": "Nifty EV & New Age Automotive",
@@ -2490,7 +2490,7 @@
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "2ca07929d4206904a4c255f43fe8eb61d1164c09511d3ff3fd7d1ff5cbd50b58"
+      "row_checksum": "f3a8bae44697a7eebb4529c8519d707b2e84a6c31a60301f4cb2fa13e5c09b72"
     },
     {
       "symbol": "SBILIFE",
@@ -2516,7 +2516,7 @@
         {
           "index_name": "Nifty Financial Services 25/50",
           "evidence_type": "NON_TOP_CONSTITUENT_UPPER_BOUND",
-          "weight_upper_bound": 4.0
+          "weight_upper_bound": 4
         },
         {
           "index_name": "Nifty Financial Services Ex-Bank",
@@ -2551,7 +2551,7 @@
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "c02c05b361640fb573f1e48dbfbaa907ae40c257cb04872d35f8d6054a485c1f"
+      "row_checksum": "e5680a6d13b74ba02d0e24424f7dd850a0f8d77a8a34dc21d430081bdb5b3ed1"
     },
     {
       "symbol": "SBIN",
@@ -3065,7 +3065,7 @@
         {
           "index_name": "Nifty Non-Cyclical Consumer",
           "evidence_type": "EXACT_TOP_CONSTITUENT_WEIGHT",
-          "weight": 9.0
+          "weight": 9
         }
       ],
       "primary_sector_index": "Nifty Consumer Durables",
@@ -3075,7 +3075,7 @@
       "verification_as_of_date": "2026-09-25",
       "weight_as_of_date": "2026-08-31",
       "verification_status": "VERIFIED",
-      "row_checksum": "ddc07dc1e17a192540ca99d39b4c0bb327045f1bd7ca0e8c68f2a82f82d6ad9e"
+      "row_checksum": "3119aa907b3108e0aac7c0fde89d2b7f17afdc6770ebd3f8669be01d3a58bfc3"
     },
     {
       "symbol": "TMPV",
@@ -3376,5 +3376,5 @@
       "row_checksum": "09a364a64cd41bfb3bbe6a3ba0dade43a26b1be35c615dd663384ccaea10f8f2"
     }
   ],
-  "source_checksum": "7ce834cd4287ed50fba6741c3775c7b946b2c963e44266a4411aa6d03c110be9"
+  "source_checksum": "a2878e23c62ebad80ff8a7c465824ebef4ff6e12da63aab244b4f3f2f327937e"
 }

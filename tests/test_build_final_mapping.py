@@ -50,6 +50,19 @@ def test_monthly_weight_date_is_not_rejected_as_daily_mismatch():
     assert {row["verification_status"] for row in mapping["rows"]} == {"VERIFIED"}
 
 
+def test_final_mapping_normalizes_integral_floats_for_cross_runtime_checksum():
+    mapping, _ = build_final_mapping(*load_inputs())
+
+    def integral_floats(value):
+        if isinstance(value, dict):
+            return [item for child in value.values() for item in integral_floats(child)]
+        if isinstance(value, list):
+            return [item for child in value for item in integral_floats(child)]
+        return [value] if isinstance(value, float) and value.is_integer() else []
+
+    assert integral_floats(mapping) == []
+
+
 @pytest.mark.parametrize("input_index", [1, 2, 3, 4])
 def test_non_pass_component_fails_closed(input_index):
     inputs = load_inputs()
