@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from build_final_mapping import build_final_mapping
+from build_final_mapping import build_final_mapping, publish_final_artifacts
 from phase3_mapping_contract import MappingContractError, canonical_sha256
 
 
@@ -92,3 +92,37 @@ def test_added_removed_reconciliation_is_reported():
     assert audit["transition_status"] == "NO_CHANGE"
     assert audit["added"] == []
     assert audit["removed"] == []
+
+
+def test_publishes_exact_final_json_artifact_names(tmp_path):
+    mapping, audit = publish_final_artifacts(*load_inputs(), output_dir=tmp_path)
+    mapping_path = tmp_path / "nifty50_mapping_latest.json"
+    audit_path = tmp_path / "phase3_mapping_audit_latest.json"
+    assert mapping_path.exists()
+    assert audit_path.exists()
+    assert json.loads(mapping_path.read_text(encoding="utf-8")) == mapping
+    assert json.loads(audit_path.read_text(encoding="utf-8")) == audit
+    assert sorted(path.name for path in tmp_path.iterdir()) == [
+        "nifty50_mapping_latest.json",
+        "phase3_mapping_audit_latest.json",
+    ]
+
+
+def test_invalid_input_preserves_last_good_mapping_and_publishes_wait_audit(tmp_path):
+    mapping_path = tmp_path / "nifty50_mapping_latest.json"
+    sentinel = {"status": "PASS", "source_checksum": "LAST_KNOWN_GOOD"}
+    mapping_path.write_text(json.dumps(sentinel), encoding="utf-8")
+    inputs = load_inputs()
+    inputs[4]["status"] = "WAIT"
+
+    mapping, audit = publish_final_artifacts(*inputs, output_dir=tmp_path)
+
+    assert mapping is None
+    assert json.loads(mapping_path.read_text(encoding="utf-8")) == sentinel
+    assert audit["final_status"] == "DATA_NOT_READY"
+    assert audit["decision"] == "WAIT"
+    assert audit["error_code"] == "COMPONENT_NOT_READY"
+    assert audit["production_write"] is False
+    assert json.loads(
+        (tmp_path / "phase3_mapping_audit_latest.json").read_text(encoding="utf-8")
+    ) == audit

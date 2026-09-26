@@ -168,23 +168,64 @@ def _write(path: Path, payload: dict[str, Any]) -> None:
     os.replace(temp, path)
 
 
+def publish_final_artifacts(
+    source: dict[str, Any],
+    classifications: dict[str, Any],
+    memberships: dict[str, Any],
+    weights: dict[str, Any],
+    instruments: dict[str, Any],
+    output_dir: Path,
+    last_known_good: dict[str, dict[str, Any]] | None = None,
+) -> tuple[dict[str, Any] | None, dict[str, Any]]:
+    """Atomically publish READY artifacts or a fail-closed WAIT audit.
+
+    A failed build never replaces the last-known-good mapping file.
+    """
+    try:
+        mapping, audit = build_final_mapping(
+            source,
+            classifications,
+            memberships,
+            weights,
+            instruments,
+            last_known_good=last_known_good,
+        )
+    except MappingContractError as error:
+        audit = {
+            "schema_version": "phase3-mapping-audit-v2",
+            "final_status": "DATA_NOT_READY",
+            "decision": "WAIT",
+            "error_code": error.code,
+            "error_message": str(error),
+            "production_write": False,
+        }
+        audit["audit_checksum"] = canonical_sha256(
+            audit, excluded_keys=("audit_checksum",)
+        )
+        _write(output_dir / "phase3_mapping_audit_latest.json", audit)
+        return None, audit
+
+    _write(output_dir / "nifty50_mapping_latest.json", mapping)
+    _write(output_dir / "phase3_mapping_audit_latest.json", audit)
+    return mapping, audit
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", type=Path, default=Path("nifty50_latest.json"))
     parser.add_argument("--artifacts", type=Path, default=Path("phase3_artifacts"))
     args = parser.parse_args()
     a = args.artifacts
-    mapping, audit = build_final_mapping(
+    mapping, audit = publish_final_artifacts(
         _read(args.source),
         _read(a / "nifty50_classification_latest.json"),
         _read(a / "nifty50_memberships_latest.json"),
         _read(a / "nifty50_primary_sector_weights_latest.json"),
         _read(a / "nifty50_instruments_latest.json"),
+        output_dir=a,
     )
-    _write(a / "nifty50_mapping_latest.json", mapping)
-    _write(a / "phase3_mapping_audit_latest.json", audit)
     print(json.dumps(audit, ensure_ascii=False, indent=2))
-    return 0
+    return 0 if mapping is not None else 2
 
 
 if __name__ == "__main__":
