@@ -1,0 +1,21 @@
+{
+  "schema_version": "phase3-mapping-audit-v2",
+  "final_status": "PASS",
+  "decision": "READY",
+  "transition_status": "BASELINE_CREATED",
+  "verification_as_of_date": "2026-09-25",
+  "added": [],
+  "removed": [],
+  "gate_counts": {
+    "constituents": "50/50",
+    "classifications": "50/50",
+    "memberships": "50/50",
+    "primary_weights": "50/50",
+    "instruments": "50/50",
+    "duplicates": 0,
+    "partial_rows": 0
+  },
+  "mapping_checksum": "7ce834cd4287ed50fba6741c3775c7b946b2c963e44266a4411aa6d03c110be9",
+  "production_write": false,
+  "audit_checksum": "8d0a6db4d3947e48cdda48d8ff1b6efcd89959bf083365b690b6166dc116ec12"
+}
