@@ -1,0 +1,16 @@
+{
+  "schema_version": "phase3-instrument-mapping-audit-v1",
+  "status": "PASS",
+  "source_as_of_date": "2026-09-25",
+  "symbol_count": 50,
+  "unique_symbol_count": 50,
+  "instrument_key_count": 50,
+  "unique_instrument_key_count": 50,
+  "isin_symbol_parity_count": 50,
+  "blank_count": 0,
+  "duplicate_count": 0,
+  "review_required_count": 0,
+  "input_checksum": "68b2c9cc2d9d8c97d0130423f453d3cb3d9cd1a1aa6c879d49ecf092db4cceef",
+  "production_write": false,
+  "audit_checksum": "16144795dad526d98ec96eb3f0810917c29b9eb8f20d8c3e4b280e3494bb24e3"
+}

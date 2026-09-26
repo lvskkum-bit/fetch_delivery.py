@@ -1,0 +1,518 @@
+{
+  "schema_version": "phase3-instrument-mapping-v1",
+  "status": "PASS",
+  "source": "Upstox BOD Instruments \u2014 NSE JSON",
+  "source_url": "https://assets.upstox.com/market-quote/instruments/exchange/NSE.json.gz",
+  "source_as_of_date": "2026-09-25",
+  "constituent_source_as_of_date": "2026-09-24",
+  "fetched_at_utc": "2026-09-25T17:38:31Z",
+  "http_last_modified": "Thu, 24 Sep 2026 23:53:02 GMT",
+  "http_etag": "\"a76f8afc1770769668e90839e34de28d\"",
+  "compressed_source_sha256": "35d55ff300abc3685389c0886bf8fba1da6dab628c1b694becb6a1f9b569683e",
+  "master_record_count": 79346,
+  "count": 50,
+  "rows": [
+    {
+      "symbol": "ADANIENT",
+      "isin": "INE423A01024",
+      "instrument_key": "NSE_EQ|INE423A01024",
+      "exchange_token": "25",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ADANIPORTS",
+      "isin": "INE742F01042",
+      "instrument_key": "NSE_EQ|INE742F01042",
+      "exchange_token": "15083",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "APOLLOHOSP",
+      "isin": "INE437A01024",
+      "instrument_key": "NSE_EQ|INE437A01024",
+      "exchange_token": "157",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ASIANPAINT",
+      "isin": "INE021A01026",
+      "instrument_key": "NSE_EQ|INE021A01026",
+      "exchange_token": "236",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "AXISBANK",
+      "isin": "INE238A01034",
+      "instrument_key": "NSE_EQ|INE238A01034",
+      "exchange_token": "5900",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BAJAJ-AUTO",
+      "isin": "INE917I01010",
+      "instrument_key": "NSE_EQ|INE917I01010",
+      "exchange_token": "16669",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BAJAJFINSV",
+      "isin": "INE918I01026",
+      "instrument_key": "NSE_EQ|INE918I01026",
+      "exchange_token": "16675",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BAJFINANCE",
+      "isin": "INE296A01032",
+      "instrument_key": "NSE_EQ|INE296A01032",
+      "exchange_token": "317",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BEL",
+      "isin": "INE263A01024",
+      "instrument_key": "NSE_EQ|INE263A01024",
+      "exchange_token": "383",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "BHARTIARTL",
+      "isin": "INE397D01024",
+      "instrument_key": "NSE_EQ|INE397D01024",
+      "exchange_token": "10604",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "CIPLA",
+      "isin": "INE059A01026",
+      "instrument_key": "NSE_EQ|INE059A01026",
+      "exchange_token": "694",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "COALINDIA",
+      "isin": "INE522F01014",
+      "instrument_key": "NSE_EQ|INE522F01014",
+      "exchange_token": "20374",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "DRREDDY",
+      "isin": "INE089A01031",
+      "instrument_key": "NSE_EQ|INE089A01031",
+      "exchange_token": "881",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "EICHERMOT",
+      "isin": "INE066A01021",
+      "instrument_key": "NSE_EQ|INE066A01021",
+      "exchange_token": "910",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ETERNAL",
+      "isin": "INE758T01015",
+      "instrument_key": "NSE_EQ|INE758T01015",
+      "exchange_token": "5097",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "GRASIM",
+      "isin": "INE047A01021",
+      "instrument_key": "NSE_EQ|INE047A01021",
+      "exchange_token": "1232",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HCLTECH",
+      "isin": "INE860A01027",
+      "instrument_key": "NSE_EQ|INE860A01027",
+      "exchange_token": "7229",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HDFCBANK",
+      "isin": "INE040A01034",
+      "instrument_key": "NSE_EQ|INE040A01034",
+      "exchange_token": "1333",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HDFCLIFE",
+      "isin": "INE795G01014",
+      "instrument_key": "NSE_EQ|INE795G01014",
+      "exchange_token": "467",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HINDALCO",
+      "isin": "INE038A01020",
+      "instrument_key": "NSE_EQ|INE038A01020",
+      "exchange_token": "1363",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "HINDUNILVR",
+      "isin": "INE030A01027",
+      "instrument_key": "NSE_EQ|INE030A01027",
+      "exchange_token": "1394",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ICICIBANK",
+      "isin": "INE090A01021",
+      "instrument_key": "NSE_EQ|INE090A01021",
+      "exchange_token": "4963",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "INDIGO",
+      "isin": "INE646L01027",
+      "instrument_key": "NSE_EQ|INE646L01027",
+      "exchange_token": "11195",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "INFY",
+      "isin": "INE009A01021",
+      "instrument_key": "NSE_EQ|INE009A01021",
+      "exchange_token": "1594",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ITC",
+      "isin": "INE154A01025",
+      "instrument_key": "NSE_EQ|INE154A01025",
+      "exchange_token": "1660",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "JIOFIN",
+      "isin": "INE758E01017",
+      "instrument_key": "NSE_EQ|INE758E01017",
+      "exchange_token": "18143",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "JSWSTEEL",
+      "isin": "INE019A01038",
+      "instrument_key": "NSE_EQ|INE019A01038",
+      "exchange_token": "11723",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "KOTAKBANK",
+      "isin": "INE237A01036",
+      "instrument_key": "NSE_EQ|INE237A01036",
+      "exchange_token": "1922",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "LT",
+      "isin": "INE018A01030",
+      "instrument_key": "NSE_EQ|INE018A01030",
+      "exchange_token": "11483",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "M&M",
+      "isin": "INE101A01026",
+      "instrument_key": "NSE_EQ|INE101A01026",
+      "exchange_token": "2031",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "MARUTI",
+      "isin": "INE585B01010",
+      "instrument_key": "NSE_EQ|INE585B01010",
+      "exchange_token": "10999",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "MAXHEALTH",
+      "isin": "INE027H01010",
+      "instrument_key": "NSE_EQ|INE027H01010",
+      "exchange_token": "22377",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "NESTLEIND",
+      "isin": "INE239A01024",
+      "instrument_key": "NSE_EQ|INE239A01024",
+      "exchange_token": "17963",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "NTPC",
+      "isin": "INE733E01010",
+      "instrument_key": "NSE_EQ|INE733E01010",
+      "exchange_token": "11630",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ONGC",
+      "isin": "INE213A01029",
+      "instrument_key": "NSE_EQ|INE213A01029",
+      "exchange_token": "2475",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "POWERGRID",
+      "isin": "INE752E01010",
+      "instrument_key": "NSE_EQ|INE752E01010",
+      "exchange_token": "14977",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "RELIANCE",
+      "isin": "INE002A01018",
+      "instrument_key": "NSE_EQ|INE002A01018",
+      "exchange_token": "2885",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SBILIFE",
+      "isin": "INE123W01016",
+      "instrument_key": "NSE_EQ|INE123W01016",
+      "exchange_token": "21808",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SBIN",
+      "isin": "INE062A01020",
+      "instrument_key": "NSE_EQ|INE062A01020",
+      "exchange_token": "3045",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SHRIRAMFIN",
+      "isin": "INE721A01047",
+      "instrument_key": "NSE_EQ|INE721A01047",
+      "exchange_token": "4306",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "SUNPHARMA",
+      "isin": "INE044A01036",
+      "instrument_key": "NSE_EQ|INE044A01036",
+      "exchange_token": "3351",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TATACONSUM",
+      "isin": "INE192A01025",
+      "instrument_key": "NSE_EQ|INE192A01025",
+      "exchange_token": "3432",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TATASTEEL",
+      "isin": "INE081A01020",
+      "instrument_key": "NSE_EQ|INE081A01020",
+      "exchange_token": "3499",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TCS",
+      "isin": "INE467B01029",
+      "instrument_key": "NSE_EQ|INE467B01029",
+      "exchange_token": "11536",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TECHM",
+      "isin": "INE669C01036",
+      "instrument_key": "NSE_EQ|INE669C01036",
+      "exchange_token": "13538",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TITAN",
+      "isin": "INE280A01028",
+      "instrument_key": "NSE_EQ|INE280A01028",
+      "exchange_token": "3506",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TMPV",
+      "isin": "INE155A01022",
+      "instrument_key": "NSE_EQ|INE155A01022",
+      "exchange_token": "3456",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "TRENT",
+      "isin": "INE849A01020",
+      "instrument_key": "NSE_EQ|INE849A01020",
+      "exchange_token": "1964",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "ULTRACEMCO",
+      "isin": "INE481G01011",
+      "instrument_key": "NSE_EQ|INE481G01011",
+      "exchange_token": "11532",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    },
+    {
+      "symbol": "WIPRO",
+      "isin": "INE075A01022",
+      "instrument_key": "NSE_EQ|INE075A01022",
+      "exchange_token": "3787",
+      "segment": "NSE_EQ",
+      "instrument_type": "EQ",
+      "as_of_date": "2026-09-25",
+      "verification_status": "VERIFIED"
+    }
+  ],
+  "production_write": false,
+  "source_checksum": "68b2c9cc2d9d8c97d0130423f453d3cb3d9cd1a1aa6c879d49ecf092db4cceef"
+}
