@@ -1,12 +1,29 @@
 import copy
+import hashlib
 
 import pytest
 
+import phase3_mapping_contract as source_contract
 from build_nifty50_mapping import build_mapping
 from phase3_mapping_contract import MappingContractError, canonical_sha256
 
 
 SOURCE_DATE = "2026-09-24"
+APPROVED_CALENDAR_EVIDENCE = {
+    "verified": True,
+    "expected_completed_trading_date": SOURCE_DATE,
+    "evidence_ref": "approved-calendar-evidence-2026-09-24",
+    "evidence_sha256": "a" * 64,
+}
+
+
+@pytest.fixture(autouse=True)
+def trusted_calendar_resolver(monkeypatch):
+    monkeypatch.setattr(
+        source_contract,
+        "_resolve_approved_calendar_evidence",
+        lambda: dict(APPROVED_CALENDAR_EVIDENCE),
+    )
 
 
 def make_source(symbols=None):
@@ -17,7 +34,23 @@ def make_source(symbols=None):
         "source": "NSE Indices — NIFTY 50 Index Constituent",
         "source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv",
         "source_as_of_date": SOURCE_DATE,
-        "fetched_at_utc": "2026-09-24T12:54:04+00:00",
+        "fetched_at_utc": "2026-09-24T20:54:04+00:00",
+        "source_content_sha256": hashlib.sha256(
+            b"nifty50 mapping test source"
+        ).hexdigest(),
+        "source_date_provenance": {
+            "method": "HTTP_LAST_MODIFIED_UTC_DATE",
+            "source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv",
+            "last_modified": "Thu, 24 Sep 2026 18:00:00 GMT",
+            "derived_source_as_of_date": SOURCE_DATE,
+            "expected_completed_trading_date": SOURCE_DATE,
+            "expected_date_method": "EXTERNAL_APPROVED_MARKET_CALENDAR",
+            "expected_date_evidence_ref": "approved-calendar-evidence-2026-09-24",
+            "expected_date_evidence_sha256": "a" * 64,
+            "response_content_sha256": hashlib.sha256(
+                b"nifty50 mapping test source"
+            ).hexdigest(),
+        },
         "count": 50,
         "symbols": sorted(symbols),
         "constituents": [
@@ -79,7 +112,10 @@ def make_inputs(symbols=None):
 
 def build_valid(last_known_good=None, symbols=None):
     args = make_inputs(symbols)
-    return build_mapping(*args, last_known_good=last_known_good)
+    return build_mapping(
+        *args,
+        last_known_good=last_known_good,
+    )
 
 
 def test_builds_complete_50_row_mapping_and_audit():
@@ -135,7 +171,12 @@ def test_added_and_removed_are_reconciled():
         for i in range(50)
     }
     _, audit = build_mapping(
-        source, classifications, memberships, weights, instruments, last_known_good
+        source,
+        classifications,
+        memberships,
+        weights,
+        instruments,
+        last_known_good,
     )
     assert audit["added"] == ["NEWCO"]
     assert audit["removed"] == ["SYM49"]
@@ -155,7 +196,12 @@ def test_added_stock_missing_weight_is_wait():
     }
     with pytest.raises(MappingContractError) as caught:
         build_mapping(
-            source, classifications, memberships, weights, instruments, last_known_good
+            source,
+            classifications,
+            memberships,
+            weights,
+            instruments,
+            last_known_good,
         )
     assert caught.value.code == "NEW_STOCK_WEIGHT_WAIT"
 
@@ -165,7 +211,14 @@ def test_added_stock_missing_instrument_is_wait():
     source, classifications, memberships, weights, instruments = make_inputs(symbols)
     del instruments["NEWCO"]
     with pytest.raises(MappingContractError) as caught:
-        build_mapping(source, classifications, memberships, weights, instruments, {})
+          build_mapping(
+                source,
+                classifications,
+                memberships,
+                weights,
+                instruments,
+                {},
+          )
     assert caught.value.code == "INSTRUMENT_MAPPING_50"
 
 
@@ -173,6 +226,13 @@ def test_mismatched_source_dates_fail_closed():
     source, classifications, memberships, weights, instruments = make_inputs()
     classifications["SYM00"]["as_of_date"] = "2026-09-23"
     with pytest.raises(MappingContractError) as caught:
-        build_mapping(source, classifications, memberships, weights, instruments, None)
+          build_mapping(
+                source,
+                classifications,
+                memberships,
+                weights,
+                instruments,
+                None,
+          )
     assert caught.value.code == "SOURCE_DATE_MISMATCH"
 

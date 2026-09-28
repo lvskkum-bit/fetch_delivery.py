@@ -7,7 +7,8 @@ import hashlib
 import io
 import json
 import re
-from datetime import date, datetime
+from datetime import date, datetime, timezone
+from email.utils import parsedate_to_datetime
 from typing import Any
 from urllib.parse import urlparse
 
@@ -59,6 +60,100 @@ def _validate_timestamp(value: str) -> None:
         datetime.fromisoformat(str(value).replace("Z", "+00:00"))
     except (TypeError, ValueError):
         _fail("FETCHED_AT_FORMAT", f"invalid ISO timestamp: {value!r}")
+
+
+def source_date_from_last_modified(last_modified_value: str) -> str:
+    try:
+        last_modified = parsedate_to_datetime(str(last_modified_value or ""))
+    except (TypeError, ValueError, OverflowError):
+        _fail("SOURCE_DATE_PROVENANCE", "valid HTTP Last-Modified evidence is required")
+    if last_modified.tzinfo is None:
+        _fail("SOURCE_DATE_PROVENANCE", "Last-Modified must include a timezone")
+    return last_modified.astimezone(timezone.utc).date().isoformat()
+
+
+def _resolve_approved_calendar_evidence() -> dict[str, Any] | None:
+    """Return trusted market-calendar evidence.
+
+    Phase 3 does not yet have an approved calendar artifact/verifier in this
+    repository, so production remains fail-closed until one is wired here.
+    Tests may monkeypatch this internal resolver.
+    """
+    return None
+
+
+def _validate_source_date_provenance(
+    provenance: Any,
+    source_date: date,
+    source_url: str,
+    fetched_at_utc: str,
+    source_content_sha256: Any,
+) -> None:
+    if not isinstance(provenance, dict):
+        _fail("SOURCE_DATE_PROVENANCE", "source date provenance is missing")
+    if provenance.get("method") != "HTTP_LAST_MODIFIED_UTC_DATE":
+        _fail("SOURCE_DATE_PROVENANCE", "unsupported source date derivation method")
+    if provenance.get("source_url") != source_url:
+        _fail("SOURCE_DATE_PROVENANCE", "provenance URL does not match source URL")
+
+    derived_date = source_date_from_last_modified(
+        str(provenance.get("last_modified") or "")
+    )
+    if derived_date != str(provenance.get("derived_source_as_of_date") or ""):
+        _fail("SOURCE_DATE_PROVENANCE", "derived source date does not match Last-Modified")
+    if derived_date != source_date.isoformat():
+        _fail("SOURCE_DATE_PROVENANCE", "source date does not match Last-Modified")
+
+    expected_date = provenance.get("expected_completed_trading_date")
+    expected_method = provenance.get("expected_date_method")
+    expected_ref = str(provenance.get("expected_date_evidence_ref") or "")
+    expected_evidence_sha256 = provenance.get("expected_date_evidence_sha256")
+    if not expected_date or not expected_method or not expected_ref or not re.fullmatch(
+        r"[0-9a-f]{64}", str(expected_evidence_sha256 or "")
+    ):
+        _fail(
+            "TRADING_DATE_EVIDENCE_UNAVAILABLE",
+            "independent approved trading-date evidence is required",
+        )
+    approved_calendar_evidence = _resolve_approved_calendar_evidence()
+    if not approved_calendar_evidence or approved_calendar_evidence.get("verified") is not True:
+        _fail(
+            "TRADING_DATE_EVIDENCE_UNAVAILABLE",
+            "no verified approved trading-calendar evidence is available",
+        )
+    evidence_date = approved_calendar_evidence.get("expected_completed_trading_date")
+    evidence_ref = approved_calendar_evidence.get("evidence_ref")
+    evidence_sha256 = approved_calendar_evidence.get("evidence_sha256")
+    if (
+        not evidence_date
+        or evidence_ref != expected_ref
+        or evidence_sha256 != expected_evidence_sha256
+        or str(evidence_date) != str(expected_date)
+    ):
+        _fail("TRADING_DATE_EVIDENCE_MISMATCH", "calendar evidence does not match verified evidence")
+    if expected_method != "EXTERNAL_APPROVED_MARKET_CALENDAR":
+        _fail("TRADING_DATE_EVIDENCE_MISMATCH", "approved calendar method is invalid")
+    if not re.search(rf"{re.escape(str(expected_date))}$", expected_ref):
+        _fail("TRADING_DATE_EVIDENCE_MISMATCH", "calendar evidence reference date differs")
+    if _parse_iso_date(str(expected_date), "TRADING_DATE_EVIDENCE_MISMATCH") != source_date:
+        _fail("TRADING_DATE_EVIDENCE_MISMATCH", "expected completed trading date differs from source date")
+    requested_date = provenance.get("requested_source_as_of_date")
+    if requested_date is not None and _parse_iso_date(
+        str(requested_date), "SOURCE_DATE_PROVENANCE"
+    ) != source_date:
+        _fail("SOURCE_DATE_PROVENANCE", "requested date conflicts with HTTP evidence")
+
+    if not isinstance(source_content_sha256, str) or not re.fullmatch(
+        r"[0-9a-f]{64}", source_content_sha256
+    ):
+        _fail("SOURCE_DATE_PROVENANCE", "response content SHA-256 is missing or invalid")
+    if provenance.get("response_content_sha256") != source_content_sha256:
+        _fail("SOURCE_DATE_PROVENANCE", "response content checksum evidence differs")
+
+    fetched_at = datetime.fromisoformat(str(fetched_at_utc).replace("Z", "+00:00"))
+    last_modified = parsedate_to_datetime(str(provenance["last_modified"]))
+    if fetched_at.tzinfo is None or fetched_at.astimezone(timezone.utc) < last_modified.astimezone(timezone.utc):
+        _fail("SOURCE_DATE_PROVENANCE", "fetch timestamp predates source evidence")
 
 
 def canonical_sha256(
@@ -114,7 +209,8 @@ def _validate_constituents(constituents: list[dict[str, Any]]) -> list[str]:
 
 
 def validate_nifty50_source_payload(
-    payload: dict[str, Any], expected_source_date: str | None = None
+    payload: dict[str, Any],
+    expected_source_date: str | None = None,
 ) -> dict[str, Any]:
     if payload.get("schema_version") != SOURCE_SCHEMA_VERSION:
         _fail("SCHEMA_VERSION", "unsupported source schema")
@@ -124,7 +220,8 @@ def validate_nifty50_source_payload(
     source_date = _parse_iso_date(
         str(payload.get("source_as_of_date") or ""), "SOURCE_DATE_FORMAT"
     )
-    _validate_timestamp(str(payload.get("fetched_at_utc") or ""))
+    fetched_at_utc = str(payload.get("fetched_at_utc") or "")
+    _validate_timestamp(fetched_at_utc)
 
     if expected_source_date is not None:
         expected = _parse_iso_date(expected_source_date, "EXPECTED_DATE_FORMAT")
@@ -133,6 +230,14 @@ def validate_nifty50_source_payload(
                 "SOURCE_DATE_STALE",
                 f"source {source_date} does not match expected {expected}",
             )
+
+    _validate_source_date_provenance(
+        payload.get("source_date_provenance"),
+        source_date,
+        str(payload.get("source_url") or ""),
+        fetched_at_utc,
+        payload.get("source_content_sha256"),
+    )
 
     constituents = payload.get("constituents")
     if not isinstance(constituents, list):
@@ -166,10 +271,14 @@ def build_nifty50_source_payload(
     source_url: str,
     source_as_of_date: str,
     fetched_at_utc: str,
+    source_date_provenance: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     _validate_url(source_url)
     _parse_iso_date(source_as_of_date, "SOURCE_DATE_FORMAT")
     _validate_timestamp(fetched_at_utc)
+    response_content_sha256 = hashlib.sha256(csv_bytes).hexdigest()
+    provenance = dict(source_date_provenance or {})
+    provenance["response_content_sha256"] = response_content_sha256
 
     text = csv_bytes.decode("utf-8-sig")
     reader = csv.DictReader(io.StringIO(text))
@@ -196,12 +305,17 @@ def build_nifty50_source_payload(
         "source_url": source_url,
         "source_as_of_date": source_as_of_date,
         "fetched_at_utc": fetched_at_utc,
+        "source_content_sha256": response_content_sha256,
+        "source_date_provenance": provenance,
         "count": EXPECTED_STOCKS,
         "symbols": sorted(constituent_symbols),
         "constituents": constituents,
     }
     payload["source_checksum"] = canonical_sha256(payload)
-    validate_nifty50_source_payload(payload, expected_source_date=source_as_of_date)
+    validate_nifty50_source_payload(
+        payload,
+        expected_source_date=source_as_of_date,
+    )
     return payload
 
 

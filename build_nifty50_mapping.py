@@ -47,7 +47,10 @@ def build_mapping(
     last_known_good: dict[str, dict[str, Any]] | None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
     source_date = str(source.get("source_as_of_date") or "")
-    validate_nifty50_source_payload(source, expected_source_date=source_date)
+    validate_nifty50_source_payload(
+        source,
+        expected_source_date=source_date,
+    )
     symbols = [str(value).strip().upper() for value in source["symbols"]]
     symbol_set = set(symbols)
 

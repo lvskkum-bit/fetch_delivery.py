@@ -1,10 +1,22 @@
 {
   "schema_version": "nifty50-source-v2",
-  "status": "PASS",
+  "status": "WAIT",
   "source": "NSE Indices — NIFTY 50 Index Constituent",
   "source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv",
-  "source_as_of_date": "2026-09-24",
-  "fetched_at_utc": "2026-09-25T04:05:45.916373+00:00",
+  "source_as_of_date": "2026-09-25",
+  "fetched_at_utc": "2026-09-27T14:49:03.270001+00:00",
+  "source_content_sha256": "9fb8832853c279448d2bc05f0e7dd5f460ed2ff35332fea8c40fc1250362ad28",
+  "source_date_provenance": {
+    "method": "HTTP_LAST_MODIFIED_UTC_DATE",
+    "source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv",
+    "last_modified": "Fri, 25 Sep 2026 18:00:18 GMT",
+    "derived_source_as_of_date": "2026-09-25",
+    "expected_date_method": "APPROVED_MARKET_CALENDAR_REQUIRED",
+    "expected_date_evidence_status": "UNAVAILABLE_IN_REPOSITORY",
+    "etag": "\"02556b9174ddd1:0\"",
+    "requested_source_as_of_date": "2026-09-25",
+    "response_content_sha256": "9fb8832853c279448d2bc05f0e7dd5f460ed2ff35332fea8c40fc1250362ad28"
+  },
   "count": 50,
   "symbols": [
     "ADANIENT",
@@ -410,5 +422,5 @@
       "isin": "INE075A01022"
     }
   ],
-  "source_checksum": "2b4076b97a8f6063067fe93e59a45e810f6a64971094148855c27ce28ea61fd8"
+  "source_checksum": "7335e32b27b316f39989f8f0d6af380b534a266682dcc345019c989bcbc6fff6"
 }

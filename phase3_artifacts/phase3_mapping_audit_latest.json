@@ -1,11 +1,16 @@
 {
   "schema_version": "phase3-mapping-audit-v2",
-  "final_status": "PASS",
-  "decision": "READY",
-  "transition_status": "BASELINE_CREATED",
+  "final_status": "DATA_NOT_READY",
+  "decision": "WAIT",
+  "error_code": "SOURCE_STATUS",
+  "error_message": "SOURCE_STATUS: source status is not PASS",
+  "constituent_source_as_of_date": "2026-09-25",
   "verification_as_of_date": "2026-09-25",
+  "weight_as_of_date": "2026-08-31",
   "added": [],
   "removed": [],
+  "transition_status": "NO_CHANGE",
+  "unchanged_count": 50,
   "gate_counts": {
     "constituents": "50/50",
     "classifications": "50/50",
@@ -15,7 +20,14 @@
     "duplicates": 0,
     "partial_rows": 0
   },
-  "mapping_checksum": "a2878e23c62ebad80ff8a7c465824ebef4ff6e12da63aab244b4f3f2f327937e",
+  "component_checksums": {
+    "nifty50": "7335e32b27b316f39989f8f0d6af380b534a266682dcc345019c989bcbc6fff6",
+    "classification": null,
+    "memberships": null,
+    "primary_weights": "b636868ecc1ca14f91789b8348a784d98d2ba8c48116f9fe63a9e6e859ff1850",
+    "instruments": "68b2c9cc2d9d8c97d0130423f453d3cb3d9cd1a1aa6c879d49ecf092db4cceef"
+  },
+  "last_known_good_mapping_checksum": "a2878e23c62ebad80ff8a7c465824ebef4ff6e12da63aab244b4f3f2f327937e",
   "production_write": false,
-  "audit_checksum": "2c970cf93f26126d608f94920fc46004122df739a4b7d7eea7ef93e1a04698ee"
+  "audit_checksum": "7d08c994582824e1200a392aa65efe619cae15d584ec6eb93ef0970068dedbca"
 }

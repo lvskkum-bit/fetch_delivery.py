@@ -10,7 +10,12 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from phase3_mapping_contract import MappingContractError, canonical_sha256, validate_nifty50_source_payload
+from phase3_mapping_contract import (
+    MappingContractError,
+    SourceContractError,
+    canonical_sha256,
+    validate_nifty50_source_payload,
+)
 
 
 def _fail(code: str, message: str) -> None:
@@ -23,6 +28,69 @@ def _rows_by_symbol(payload: dict[str, Any], label: str) -> dict[str, dict[str, 
     if len(rows) != 50 or len(keyed) != 50 or "" in keyed:
         _fail("COMPONENT_50_GATE", f"{label}: rows={len(rows)}, unique={len(keyed)}")
     return keyed
+
+
+def _artifact_rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
+    rows = payload.get("rows")
+    return rows if isinstance(rows, list) else []
+
+
+def _audit_duplicate_count(source: dict[str, Any], *components: dict[str, Any]) -> int:
+    source_symbols = source.get("symbols")
+    symbol_lists = [source_symbols if isinstance(source_symbols, list) else []]
+    symbol_lists.extend(
+        [row.get("symbol") for row in _artifact_rows(payload)]
+        for payload in components
+    )
+    return sum(
+        len(symbols) - len({str(symbol).strip().upper() for symbol in symbols})
+        for symbols in symbol_lists
+    )
+
+
+def _audit_partial_row_count(
+    source: dict[str, Any],
+    classifications: dict[str, Any],
+    memberships: dict[str, Any],
+    weights: dict[str, Any],
+    instruments: dict[str, Any],
+) -> int:
+    source_constituents = source.get("constituents")
+    source_rows = {
+        str(row.get("symbol") or "").strip().upper(): row
+        for row in (source_constituents if isinstance(source_constituents, list) else [])
+        if isinstance(row, dict)
+    }
+    component_rows = []
+    for payload in (classifications, memberships, weights, instruments):
+        component_rows.append(
+            {
+                str(row.get("symbol") or "").strip().upper(): row
+                for row in _artifact_rows(payload)
+            }
+        )
+
+    required = (
+        ("company_name", "isin"),
+        ("isin", "sector", "basic_industry"),
+        ("isin", "all_applicable_indices"),
+        ("primary_sector_index", "primary_weight", "all_applicable_indices"),
+        ("isin", "instrument_key"),
+    )
+    partial = 0
+    source_symbols = source.get("symbols")
+    for symbol in source_symbols if isinstance(source_symbols, list) else []:
+        rows = [source_rows.get(symbol)] + [items.get(symbol) for items in component_rows]
+        if any(row is None for row in rows):
+            partial += 1
+            continue
+        if any(
+            rows[index].get(field) in (None, "", [])
+            for index, fields in enumerate(required)
+            for field in fields
+        ):
+            partial += 1
+    return partial
 
 
 def _normalize_numbers(value: Any) -> Any:
@@ -44,7 +112,10 @@ def build_final_mapping(
     instruments: dict[str, Any],
     last_known_good: dict[str, dict[str, Any]] | None = None,
 ) -> tuple[dict[str, Any], dict[str, Any]]:
-    validate_nifty50_source_payload(source, expected_source_date=source.get("source_as_of_date"))
+    validate_nifty50_source_payload(
+        source,
+        expected_source_date=source.get("source_as_of_date"),
+    )
     for label, payload in (
         ("classification", classifications),
         ("membership", memberships),
@@ -64,8 +135,21 @@ def build_final_mapping(
         _fail("DAILY_VERIFICATION_DATE_MISMATCH", "classification/instrument dates differ")
     if str(memberships.get("catalog_verification_date") or "") != verification_date:
         _fail("DAILY_VERIFICATION_DATE_MISMATCH", "membership catalog was not verified on daily date")
-    if str(source.get("source_as_of_date") or "") > verification_date:
-        _fail("DAILY_VERIFICATION_DATE_MISMATCH", "constituent source is newer than verification date")
+    source_date = str(source.get("source_as_of_date") or "")
+    if source_date != verification_date:
+        _fail("DAILY_VERIFICATION_DATE_MISMATCH", "constituent source and daily verification dates differ")
+    if str(memberships.get("source_as_of_date") or "") != source_date:
+        _fail("DAILY_VERIFICATION_DATE_MISMATCH", "memberships were built from a different constituent source date")
+    if str(instruments.get("constituent_source_as_of_date") or "") != source_date:
+        _fail("DAILY_VERIFICATION_DATE_MISMATCH", "instruments were resolved from a different constituent source date")
+    for label, payload in (
+        ("classification", classifications),
+        ("membership", memberships),
+    ):
+        if not payload.get("source_checksum"):
+            _fail("COMPONENT_CHECKSUM_MISSING", f"{label} checksum is missing")
+        if canonical_sha256(payload) != payload["source_checksum"]:
+            _fail("SOURCE_CHECKSUM_MISMATCH", f"{label} checksum mismatch")
 
     source_rows = {row["symbol"]: row for row in source["constituents"]}
     expected = set(source["symbols"])
@@ -86,6 +170,11 @@ def build_final_mapping(
         mem = components["membership"][symbol]
         weight = components["primary_weight"][symbol]
         instrument = components["instrument"][symbol]
+        if str(instrument.get("as_of_date") or "") != verification_date:
+            _fail(
+                "DAILY_VERIFICATION_DATE_MISMATCH",
+                f"{symbol}: instrument row was not verified on daily date",
+            )
         isins = {base.get("isin"), cls.get("isin"), mem.get("isin"), instrument.get("isin")}
         if len(isins) != 1 or not next(iter(isins)):
             _fail("ROW_IDENTITY_MISMATCH", f"{symbol}: ISIN mismatch")
@@ -136,6 +225,8 @@ def build_final_mapping(
         "production_write": False,
         "component_checksums": {
             "nifty50": source["source_checksum"],
+            "classification": canonical_sha256(classifications),
+            "memberships": canonical_sha256(memberships),
             "primary_weights": weights["source_checksum"],
             "instruments": instruments["source_checksum"],
         },
@@ -147,9 +238,12 @@ def build_final_mapping(
         "final_status": "PASS",
         "decision": "READY",
         "transition_status": transition,
+        "constituent_source_as_of_date": source_date,
         "verification_as_of_date": verification_date,
+        "weight_as_of_date": weights["weight_as_of_date"],
         "added": added,
         "removed": removed,
+        "unchanged_count": len(expected & set(previous)),
         "gate_counts": {
             "constituents": "50/50",
             "classifications": "50/50",
@@ -192,6 +286,24 @@ def publish_final_artifacts(
 
     A failed build never replaces the last-known-good mapping file.
     """
+    last_known_good_checksum = None
+    if last_known_good is None:
+        previous_path = output_dir / "nifty50_mapping_latest.json"
+        try:
+            previous_payload = _read(previous_path)
+            previous_rows = previous_payload.get("rows") or []
+            if previous_payload.get("schema_version") == "nifty50-mapping-v2":
+                previous = {
+                    str(row.get("symbol") or "").strip().upper(): row
+                    for row in previous_rows
+                    if isinstance(row, dict) and row.get("symbol")
+                }
+                if len(previous) == len(previous_rows):
+                    last_known_good = previous
+                    last_known_good_checksum = previous_payload.get("source_checksum")
+        except (OSError, json.JSONDecodeError):
+            pass
+
     try:
         mapping, audit = build_final_mapping(
             source,
@@ -201,13 +313,57 @@ def publish_final_artifacts(
             instruments,
             last_known_good=last_known_good,
         )
-    except MappingContractError as error:
+    except (MappingContractError, SourceContractError) as error:
+        raw_symbols = source.get("symbols")
+        source_symbols = {
+            str(symbol).strip().upper()
+            for symbol in (raw_symbols if isinstance(raw_symbols, list) else [])
+        }
+        previous_symbols = set(last_known_good or {})
+        added = sorted(source_symbols - previous_symbols) if previous_symbols else []
+        removed = sorted(previous_symbols - source_symbols) if previous_symbols else []
+        transition_status = (
+            "BASELINE_UNAVAILABLE"
+            if not previous_symbols
+            else "NO_CHANGE"
+            if not added and not removed
+            else "ATOMIC_TRANSITION_REVALIDATION_REQUIRED"
+        )
+        component_checksums = {
+            "nifty50": source.get("source_checksum"),
+            "classification": classifications.get("source_checksum"),
+            "memberships": memberships.get("source_checksum"),
+            "primary_weights": weights.get("source_checksum"),
+            "instruments": instruments.get("source_checksum"),
+        }
         audit = {
             "schema_version": "phase3-mapping-audit-v2",
             "final_status": "DATA_NOT_READY",
             "decision": "WAIT",
             "error_code": error.code,
             "error_message": str(error),
+            "constituent_source_as_of_date": source.get("source_as_of_date"),
+            "verification_as_of_date": classifications.get("source_as_of_date"),
+            "weight_as_of_date": weights.get("weight_as_of_date"),
+            "added": added,
+            "removed": removed,
+            "transition_status": transition_status,
+            "unchanged_count": len(source_symbols & previous_symbols),
+            "gate_counts": {
+                "constituents": f"{len(source_symbols)}/50",
+                "classifications": f"{len(_artifact_rows(classifications))}/50",
+                "memberships": f"{len(_artifact_rows(memberships))}/50",
+                "primary_weights": f"{len(_artifact_rows(weights))}/50",
+                "instruments": f"{len(_artifact_rows(instruments))}/50",
+                "duplicates": _audit_duplicate_count(
+                    source, classifications, memberships, weights, instruments
+                ),
+                "partial_rows": _audit_partial_row_count(
+                    source, classifications, memberships, weights, instruments
+                ),
+            },
+            "component_checksums": component_checksums,
+            "last_known_good_mapping_checksum": last_known_good_checksum,
             "production_write": False,
         }
         audit["audit_checksum"] = canonical_sha256(
