@@ -1,7 +1,7 @@
 {
   "source": "NSE Indices — NIFTY 50 Index Constituent",
   "source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv",
-  "fetched_at_utc": "2026-09-29T12:58:02.272669+00:00",
+  "fetched_at_utc": "2026-09-30T13:00:03.735450+00:00",
   "count": 50,
   "symbols": [
     "ADANIENT",
@@ -14,6 +14,7 @@
     "BAJFINANCE",
     "BEL",
     "BHARTIARTL",
+    "BSE",
     "CIPLA",
     "COALINDIA",
     "DRREDDY",
@@ -52,8 +53,7 @@
     "TITAN",
     "TMPV",
     "TRENT",
-    "ULTRACEMCO",
-    "WIPRO"
+    "ULTRACEMCO"
   ],
   "constituents": [
     {
@@ -90,6 +90,13 @@
       "industry": "Financial Services",
       "series": "EQ",
       "isin": "INE238A01034"
+    },
+    {
+      "symbol": "BSE",
+      "company_name": "BSE Ltd.",
+      "industry": "Financial Services",
+      "series": "EQ",
+      "isin": "INE118H01025"
     },
     {
       "symbol": "BAJAJ-AUTO",
@@ -398,13 +405,6 @@
       "industry": "Construction Materials",
       "series": "EQ",
       "isin": "INE481G01011"
-    },
-    {
-      "symbol": "WIPRO",
-      "company_name": "Wipro Ltd.",
-      "industry": "Information Technology",
-      "series": "EQ",
-      "isin": "INE075A01022"
     }
   ],
   "status": "PASS"
