@@ -1,27 +1,73 @@
 import csv
 import io
 import json
-import requests
-from datetime import datetime, timedelta
+import hashlib
+import math
+import os
+import re
+import tempfile
+from datetime import datetime, timedelta, timezone
+from pathlib import Path
 from zoneinfo import ZoneInfo
 
+import requests
 
-# ============================================================
-# NIFTY 50 — CURRENT WORKING UNIVERSE
-# ============================================================
 
-NIFTY50 = {
-    "ADANIENT", "ADANIPORTS", "APOLLOHOSP", "ASIANPAINT", "AXISBANK",
-    "BAJAJ-AUTO", "BAJFINANCE", "BAJAJFINSV", "BEL", "BHARTIARTL",
-    "CIPLA", "COALINDIA", "DRREDDY", "EICHERMOT", "ETERNAL",
-    "GRASIM", "HCLTECH", "HDFCBANK", "HDFCLIFE", "HINDALCO",
-    "HINDUNILVR", "ICICIBANK", "INDIGO", "INFY", "ITC",
-    "JIOFIN", "JSWSTEEL", "KOTAKBANK", "LT", "M&M",
-    "MARUTI", "MAXHEALTH", "NESTLEIND", "NTPC", "ONGC",
-    "POWERGRID", "RELIANCE", "SBILIFE", "SBIN", "SHRIRAMFIN",
-    "SUNPHARMA", "TATACONSUM", "TMPV", "TATASTEEL", "TCS",
-    "TECHM", "TITAN", "TRENT", "ULTRACEMCO", "WIPRO"
-}
+# The constituent roster is always loaded from the same-run official fetch.
+# Never fall back to an embedded 50-stock list or silently trust a stale cache.
+SOURCE_URL = "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv"
+
+
+def load_verified_membership(path="nifty50_latest.json"):
+    try:
+        raw = json.loads(Path(path).read_text(encoding="utf-8"))
+    except (OSError, ValueError) as exc:
+        raise RuntimeError("CURRENT_CONSTITUENTS_UNAVAILABLE") from exc
+
+    if not isinstance(raw, dict) or raw.get("status") != "PASS" or (
+        raw.get("source_url") != SOURCE_URL or raw.get("count") != 50
+    ):
+        raise RuntimeError("CURRENT_CONSTITUENTS_NOT_PASS")
+
+    symbols = raw.get("symbols")
+    rows = raw.get("constituents")
+    if not isinstance(symbols, list) or not isinstance(rows, list) or (
+        len(symbols) != 50 or len(rows) != 50
+    ):
+        raise RuntimeError("CONSTITUENT_COVERAGE_INVALID")
+    if any(not isinstance(s, str) or
+           not re.fullmatch(r"[A-Z0-9&-]{1,25}", s) for s in symbols):
+        raise RuntimeError("CONSTITUENT_SYMBOL_INVALID")
+    membership = set(symbols)
+    row_symbols = [r.get("symbol") if isinstance(r, dict) else None
+                   for r in rows]
+    if len(membership) != 50 or set(row_symbols) != membership or (
+        len(set(row_symbols)) != 50
+    ):
+        raise RuntimeError("CONSTITUENT_MEMBERSHIP_MISMATCH")
+
+    try:
+        fetched = datetime.fromisoformat(
+            raw["fetched_at_utc"].replace("Z", "+00:00")
+        )
+        if fetched.tzinfo is None or fetched.utcoffset() is None:
+            raise ValueError("missing timezone")
+        age = datetime.now(timezone.utc) - fetched.astimezone(timezone.utc)
+        if age.total_seconds() < -60 or age > timedelta(hours=2):
+            raise ValueError("stale/future source")
+    except (KeyError, TypeError, AttributeError, ValueError, OverflowError) as exc:
+        raise RuntimeError("CONSTITUENT_FRESH_FETCH_UNVERIFIED") from exc
+
+    # Hash source-identifying fields; no claim of exchange digital signature.
+    attestation = {
+        "source_url": SOURCE_URL,
+        "symbols": sorted(membership),
+        "fetched_at_utc": raw["fetched_at_utc"],
+    }
+    digest = hashlib.sha256(json.dumps(
+        attestation, sort_keys=True, separators=(",", ":"), ensure_ascii=False
+    ).encode("utf-8")).hexdigest()
+    return membership, digest, raw["fetched_at_utc"]
 
 
 HEADERS = {
@@ -149,7 +195,7 @@ def normalize_header(value):
 # PARSE DELIVERY FILE
 # ============================================================
 
-def parse_delivery(text):
+def parse_delivery(text, membership):
 
     reader = csv.DictReader(
         io.StringIO(text)
@@ -203,7 +249,7 @@ def parse_delivery(text):
 
         symbol = str(symbol).strip().upper()
 
-        if symbol not in NIFTY50:
+        if symbol not in membership:
             continue
 
         if (
@@ -258,6 +304,12 @@ def parse_delivery(text):
 
             delivery_percent = None
 
+        if symbol in output:
+            raise RuntimeError("DUPLICATE_EQUITY_DELIVERY_ROW: " + symbol)
+        if (delivery_qty is None or not math.isfinite(delivery_qty) or
+                delivery_qty < 0 or delivery_percent is None or
+                not math.isfinite(delivery_percent) or not 0 <= delivery_percent <= 100):
+            raise RuntimeError("INVALID_EQUITY_DELIVERY_ROW: " + symbol)
         output[symbol] = {
             "deliveryQty": delivery_qty,
             "deliveryPercent": delivery_percent
@@ -281,6 +333,7 @@ def main():
     print("NIFTY50 DELIVERY CACHE — START")
     print("-----------------------------------")
 
+    membership, roster_digest, roster_fetched_at = load_verified_membership()
     current_session, previous_session = (
         find_latest_two_sessions()
     )
@@ -303,19 +356,18 @@ def main():
         previous_date.isoformat()
     )
 
-    current_data = parse_delivery(
-        current_text
-    )
-
-    previous_data = parse_delivery(
-        previous_text
-    )
+    if previous_date >= current_date:
+        raise RuntimeError("DELIVERY_DATE_ORDER_INVALID")
+    current_data = parse_delivery(current_text, membership)
+    previous_data = parse_delivery(previous_text, membership)
+    if set(current_data) != membership or set(previous_data) != membership:
+        raise RuntimeError("DELIVERY_CONSTITUENT_UNIVERSE_MISMATCH")
 
     rows = []
 
     pass_count = 0
 
-    for symbol in sorted(NIFTY50):
+    for symbol in sorted(membership):
 
         current_row = current_data.get(
             symbol,
@@ -404,53 +456,12 @@ def main():
             len(rows) - pass_count,
 
         "rows":
-            rows
+            rows,
+        "constituent_sha256": roster_digest,
+        "constituent_symbols": sorted(membership),
+        "constituent_source_url": SOURCE_URL,
+        "constituent_fetched_at_utc": roster_fetched_at
     }
-
-    # --------------------------------------------------------
-    # WRITE CACHE
-    # --------------------------------------------------------
-
-    with open(
-        "delivery_latest.json",
-        "w",
-        encoding="utf-8"
-    ) as file:
-
-        json.dump(
-            result,
-            file,
-            indent=2,
-            ensure_ascii=False
-        )
-
-    print("-----------------------------------")
-    print("NIFTY50 DELIVERY CACHE")
-    print("-----------------------------------")
-    print(
-        "PREVIOUS:",
-        previous_date.isoformat()
-    )
-    print(
-        "CURRENT :",
-        current_date.isoformat()
-    )
-    print(
-        "TOTAL   :",
-        len(rows)
-    )
-    print(
-        "PASS    :",
-        pass_count
-    )
-    print(
-        "FAIL    :",
-        len(rows) - pass_count
-    )
-    print(
-        "JSON    : delivery_latest.json"
-    )
-    print("-----------------------------------")
 
     # --------------------------------------------------------
     # STRICT AUDIT
@@ -481,6 +492,25 @@ def main():
             + str(pass_count)
             + "/50 PASS"
         )
+
+    # Publish ONLY after complete 50/50 current+previous session validation.
+    # os.replace makes the one-cache file replacement atomic. Both cache
+    # artifacts are published together by one Git commit in delivery.yml.
+    staged_path = None
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="w", encoding="utf-8", dir=".",
+            prefix=".delivery_latest.", suffix=".tmp", delete=False
+        ) as staged:
+            staged_path = staged.name
+            json.dump(result, staged, indent=2, ensure_ascii=False)
+            staged.flush()
+            os.fsync(staged.fileno())
+        os.replace(staged_path, "delivery_latest.json")
+        staged_path = None
+    finally:
+        if staged_path and os.path.exists(staged_path):
+            os.unlink(staged_path)
 
     print(
         "FINAL STATUS: PASS — 50/50"
