@@ -11,9 +11,11 @@ fixture: it cannot approve any later market session.
 from __future__ import annotations
 
 import hashlib
+import csv
+import io
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
@@ -25,6 +27,55 @@ from phase4_calendar_bridge import retrieve_approved_calendar, CalendarBridgeErr
 
 class PreflightWait(ValueError):
     pass
+
+
+def _exact_equity_archive_date(raw_csv: str, expected_day: str, expected_symbols: set[str]) -> None:
+    """Do not mistake HTTP 200 for a cash-trading session.
+    Require the SAME session date on all 50 current selected EQ rows.
+    """
+    from datetime import datetime
+    reader=csv.DictReader(io.StringIO(raw_csv))
+    names={fetch_delivery.normalize_header(n):n for n in (reader.fieldnames or [])}
+    if any(k not in names for k in ("DATE1","SYMBOL","SERIES")):
+        raise PreflightWait("ARCHIVE_DATE_OR_SYMBOL_HEADER_MISSING")
+    matched=set()
+    for row in reader:
+        symbol=str(row.get(names["SYMBOL"],"")).strip().upper()
+        series=str(row.get(names["SERIES"],"")).strip().upper()
+        if symbol not in expected_symbols or series!="EQ":
+            continue
+        if symbol in matched:
+            raise PreflightWait("DUPLICATE_EXACT_CASH_SYMBOL")
+        matched.add(symbol)
+        raw=str(row.get(names["DATE1"],"")).strip()
+        observed=None
+        for fmt in ("%d-%b-%Y","%d-%b-%y","%d/%m/%Y","%Y-%m-%d"):
+            try:
+                observed=datetime.strptime(raw,fmt).date().isoformat()
+                break
+            except ValueError:
+                continue
+        if observed!=expected_day:
+            raise PreflightWait("ARCHIVE_INTERNAL_SESSION_DATE_MISMATCH")
+    if matched!=expected_symbols or len(matched)!=50:
+        raise PreflightWait("ARCHIVE_EXACT_50_CASH_ROWS_UNVERIFIED")
+
+
+def _exact_trading_sessions(approved_current: str, approved_previous: str,
+                            expected_symbols: set[str]):
+    """Historical evidence-only replay. NOT a general market calendar."""
+    current=date.fromisoformat(approved_current)
+    previous=date.fromisoformat(approved_previous)
+    if (current.weekday()>=5 or previous.weekday()>=5
+            or previous>=current or (current-previous).days>7):
+        raise PreflightWait("APPROVED_SESSION_SEQUENCE_INVALID")
+    current_csv=fetch_delivery.fetch_day(current)
+    prev_csv=fetch_delivery.fetch_day(previous)
+    if not current_csv or not prev_csv:
+        raise PreflightWait("APPROVED_ARCHIVE_SOURCE_UNAVAILABLE")
+    _exact_equity_archive_date(current_csv,approved_current,expected_symbols)
+    _exact_equity_archive_date(prev_csv,approved_previous,expected_symbols)
+    return ((current,current_csv),(previous,prev_csv))
 
 
 def execute(*, env=None, get_calendar=retrieve_approved_calendar,
@@ -43,6 +94,15 @@ def execute(*, env=None, get_calendar=retrieve_approved_calendar,
         raise PreflightWait("PINNED_APPROVAL_MISSING") from e
     sha = env.get("PHASE4_CALENDAR_APPROVED_HEAD_SHA","")
     day = env.get("PHASE4_APPROVED_COMPLETED_SESSION_DATE","")
+    prior_day = env.get("PHASE4_APPROVED_PREVIOUS_SESSION_DATE","")
+    # The previous session must be an explicit date for THIS read-only
+    # historical replay; production needs an authenticated prev-session
+    # calendar claim before it may publish a live cache.
+    try:
+        if not prior_day or date.fromisoformat(prior_day).isoformat()!=prior_day:
+            raise ValueError("missing previous day")
+    except (TypeError,ValueError) as err:
+        raise PreflightWait("PREVIOUS_APPROVED_SESSION_REQUIRED") from err
     token = env.get("STOCK_MASTER_CALENDAR_READ_TOKEN","")
     if not token:
         raise PreflightWait("PRIVATE_CALENDAR_READ_SECRET_MISSING")
@@ -67,6 +127,7 @@ def execute(*, env=None, get_calendar=retrieve_approved_calendar,
         # temp execution. Unlike a GitHub Actions var, this value originated
         # from a specific authenticated private calendar artifact.
         old=os.environ.get("EXPECTED_COMPLETED_TRADING_DATE")
+        old_finder=fetch_delivery.find_latest_two_sessions
         os.environ["EXPECTED_COMPLETED_TRADING_DATE"]=day
         try:
             os.chdir(dest)
@@ -74,6 +135,12 @@ def execute(*, env=None, get_calendar=retrieve_approved_calendar,
             membership=load_membership("nifty50_latest.json", now=now)
             if len(membership["symbols"])!=50 or "BSE" not in membership["symbols"] or "WIPRO" in membership["symbols"]:
                 raise PreflightWait("CURRENT_BSE_50_ROSTER_UNVERIFIED")
+            # Replace the permissive latest-HTTP-200 scan ONLY within this
+            # disposable Python process. External filename and CSV DATE1
+            # both must equal the explicit approved cash sessions.
+            if fetch_delivery_data is fetch_delivery.main:
+                fetch_delivery.find_latest_two_sessions=lambda: _exact_trading_sessions(
+                    day,prior_day,membership["symbols"])
             fetch_delivery_data()
             artifact=json.loads(Path("delivery_latest.json").read_text(encoding="utf-8"))
             verdict=validate_delivery_artifact(artifact,membership,
@@ -98,6 +165,7 @@ def execute(*, env=None, get_calendar=retrieve_approved_calendar,
                 "sheet_write":False,"broker_order":False,
             }
         finally:
+            fetch_delivery.find_latest_two_sessions=old_finder
             os.chdir(working)
             if old is None:os.environ.pop("EXPECTED_COMPLETED_TRADING_DATE",None)
             else:os.environ["EXPECTED_COMPLETED_TRADING_DATE"]=old
