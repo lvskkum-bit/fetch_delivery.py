@@ -1,22 +1,31 @@
-name: NSE Delivery Cache
+name: NSE Delivery Cache (Phase 4 Preflight)
 
 on:
   workflow_dispatch:
-
   schedule:
-    # 12:45 UTC = 6:15 PM IST
+    # 12:45 UTC = 6:15 PM IST, weekdays. Calendar gate still required.
     - cron: "45 12 * * 1-5"
 
 permissions:
   contents: write
 
+concurrency:
+  group: nifty50-delivery-cache-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   delivery:
+    # Production publication only on the default branch; feature branches
+    # use phase4_dynamic_delivery_ci.yml and NEVER run this publishing job.
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    timeout-minutes: 15
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -24,25 +33,61 @@ jobs:
           python-version: "3.12"
 
       - name: Install requests
-        run: pip install requests
+        run: python -m pip install requests
 
-        
+      - name: Require approved completed NSE trading session date
+        env:
+          EXPECTED_COMPLETED_TRADING_DATE: ${{ vars.PHASE4_APPROVED_COMPLETED_SESSION_DATE }}
+        run: |
+          python - <<'PY'
+          import os
+          from datetime import date
+          value = os.environ.get("EXPECTED_COMPLETED_TRADING_DATE", "")
+          if not value:
+              raise SystemExit("WAIT: PHASE4_APPROVED_COMPLETED_SESSION_DATE unavailable; no cache publication")
+          if date.fromisoformat(value).isoformat() != value:
+              raise SystemExit("WAIT: invalid completed market date")
+          print("Completed-session date input available; source authentication still independently required")
+          PY
 
-      - name: Fetch NSE delivery
-        run: python fetch_delivery.py
-
-      - name: Fetch current NIFTY50 constituents
+      - name: Fetch current NIFTY50 constituents FIRST
         run: python fetch_nifty50_constituents.py
 
-      - name: Commit cache files
+      - name: Validate fresh 50-member NIFTY50 source
+        run: |
+          python - <<'PY'
+          from delivery_source_contract import load_membership
+          p = load_membership("nifty50_latest.json")
+          print("SOURCE MEMBER COUNT:", len(p["symbols"]))
+          print("SOURCE INTEGRITY SHA256:", p["source_sha256"])
+          PY
+
+      - name: Fetch NSE delivery using the SAME validated membership
+        env:
+          EXPECTED_COMPLETED_TRADING_DATE: ${{ vars.PHASE4_APPROVED_COMPLETED_SESSION_DATE }}
+        run: python fetch_delivery.py
+
+      - name: Final exact-set, date and checksum verification BEFORE publish
+        env:
+          EXPECTED_COMPLETED_TRADING_DATE: ${{ vars.PHASE4_APPROVED_COMPLETED_SESSION_DATE }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from delivery_source_contract import load_membership, validate_delivery_artifact
+          proof = load_membership("nifty50_latest.json")
+          with open("delivery_latest.json", encoding="utf-8") as f:
+              cache = json.load(f)
+          result = validate_delivery_artifact(
+              cache, proof, expected_date=os.environ.get("EXPECTED_COMPLETED_TRADING_DATE")
+          )
+          print("FINAL PREFLIGHT:", result["status"], "date:", result["currentTradingDate"])
+          PY
+
+      - name: Publish BOTH verified caches in ONE Git commit
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-
-          git add delivery_latest.json nifty50_latest.json
-
+          git add -- nifty50_latest.json delivery_latest.json
           git diff --cached --quiet && exit 0
-
-          git commit -m "Update NSE delivery and NIFTY50 cache"
-
+          git commit -m "Update validated NIFTY50 constituents and delivery as one cache set"
           git push
