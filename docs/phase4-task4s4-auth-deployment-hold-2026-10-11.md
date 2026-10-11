@@ -87,3 +87,50 @@ configuration only, NOT the identity/version of the live deployed script.
 
 Do not merge any producer or Stock Master draft PR, copy account
 tokens into documentation, or update trading sheets during this hold.
+
+
+---
+
+## Follow-up 2026-10-11 — Authenticated read-only bridge PASS (supersedes Secret missing)
+
+After the user created and saved the correctly scoped fine-grained PAT in the
+producer repo, the existing GitHub Actions smoke **attempt #3**
+[run 38121074312](https://github.com/lvskkum-bit/fetch_delivery.py/actions/runs/38121074312)
+progressed past secret checking and authenticated GitHub API reads. It failed
+`ARTIFACT_REDIRECT_UNTRUSTED`, because the GitHub artifact download returned
+a newer Azure storage hostname than the strict initial allowlist.
+
+A dedicated token-safe hostname-only diagnostic
+[run 38123830875](https://github.com/lvskkum-bit/fetch_delivery.py/actions/runs/38123830875)
+identified `productionresultssa19.blob.core.windows.net`, HTTPS.
+Neither the redirect's signed URL/query nor bearer token were printed.
+
+On the **isolated correction branch only**, `phase4_calendar_bridge.py` was
+updated to trust that **exact observed hostname** along with the existing
+small set, while continuing to deny suffix lookalikes and to send NO
+Authorization header on the redirected request. Two new offline tests cover
+the observed hostname and its lookalike attack.
+
+### Verified result
+- [Actual authenticated smoke SUCCESS, run 38123865734](https://github.com/lvskkum-bit/fetch_delivery.py/actions/runs/38123865734)
+  — `{"completed_session":"2026-10-09","production_write":false,
+  "status":"PASS","test":"AUTHENTICATED_PRIVATE_CALENDAR_READ"}`.
+- [Offline regression SUCCESS, run 38123909749](https://github.com/lvskkum-bit/fetch_delivery.py/actions/runs/38123909749)
+  — **41/41 PASS**, including forged-hostname rejection.
+- Secret is now **present and usable at GitHub runtime**. No further token
+  creation is needed for this specific smoke.
+- The pin is **historical 2026-10-09**; the upstream calendar artifact expires
+  2026-10-14T05:00:53Z. Do not treat it as approval for future sessions.
+- No producer `main` code change, cache publish, live Sheet trading update,
+  Apps Script deployment, or broker order.
+
+### Revised 4S-4 verdict
+
+**CROSS-REPO AUTHENTICATION: PASS (read-only)**
+**DEPLOYED APPS SCRIPT RUNTIME / TRIGGERS / MULTI-TAB PARITY: NOT VERIFIED**
+**PHASE 4 FINAL LOCK: HOLD**.
+
+Next controlled step: independent Apps Script project editor
+code/version/trigger execution inspection and source-before-write gate,
+tested in disposable Sheet copy, then verified latest-session provider
+publication. Never execute mutating setup functions just to inspect status.
