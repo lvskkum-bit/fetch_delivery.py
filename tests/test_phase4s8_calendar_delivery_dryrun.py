@@ -16,6 +16,7 @@ SYMS=sorted(["BSE"]+[f"S{i:02d}" for i in range(49)])
 ENV={"PHASE4_CALENDAR_APPROVED_RUN_ID":str(RUN),
      "PHASE4_CALENDAR_APPROVED_HEAD_SHA":SHA,
      "PHASE4_APPROVED_COMPLETED_SESSION_DATE":DAY,
+     "PHASE4_APPROVED_PREVIOUS_SESSION_DATE":"2026-10-08",
      "STOCK_MASTER_CALENDAR_READ_TOKEN":"mock-test-token-not-real"}
 
 
@@ -151,3 +152,51 @@ def test_wrong_claimed_run_sha_rejected(tmp_path,monkeypatch):
         p=fake_calendar(**kw);p["source_head_sha"]="f"*40;return p
     with pytest.raises(PreflightWait,match="TRUSTED_CALENDAR_NOT_APPROVED"):
         execute(env=ENV,get_calendar=tampered,fetch_roster=lambda:None,now=TIME)
+
+
+def test_real_csv_internal_date_must_equal_file_date():
+    import csv, io
+    from phase4s8_calendar_bound_delivery_dryrun import _exact_equity_archive_date
+    stream=io.StringIO()
+    writer=csv.DictWriter(stream,fieldnames=["SYMBOL","SERIES","DATE1","DELIV_QTY"])
+    writer.writeheader()
+    for symbol in SYMS:
+        writer.writerow({"SYMBOL":symbol,"SERIES":"EQ",
+                        "DATE1":"09-Oct-2026","DELIV_QTY":"100"})
+    body=stream.getvalue()
+    _exact_equity_archive_date(body,DAY,set(SYMS))
+    with pytest.raises(PreflightWait,match="ARCHIVE_INTERNAL_SESSION_DATE_MISMATCH"):
+        _exact_equity_archive_date(body,"2026-10-11",set(SYMS))
+
+
+def test_no_DATE1_header_does_not_qualify():
+    from phase4s8_calendar_bound_delivery_dryrun import _exact_equity_archive_date
+    body="SYMBOL,SERIES,DELIV_QTY\\nBSE,EQ,200\\n"
+    with pytest.raises(PreflightWait,match="ARCHIVE_DATE_OR_SYMBOL_HEADER_MISSING"):
+        _exact_equity_archive_date(body,DAY,set(SYMS))
+
+
+def test_duplicate_eq_stock_or_partial_50_csv_is_rejected():
+    from phase4s8_calendar_bound_delivery_dryrun import _exact_equity_archive_date
+    body="SYMBOL,SERIES,DATE1\\n"+ "".join(f"{s},EQ,09-Oct-2026\\n" for s in SYMS)
+    with pytest.raises(PreflightWait,match="DUPLICATE_EXACT_CASH_SYMBOL"):
+        _exact_equity_archive_date(body+"BSE,EQ,09-Oct-2026\\n",DAY,set(SYMS))
+    with pytest.raises(PreflightWait,match="ARCHIVE_EXACT_50_CASH_ROWS_UNVERIFIED"):
+        _exact_equity_archive_date(body.splitlines(True)[0]+ "".join(body.splitlines(True)[1:-1]),DAY,set(SYMS))
+
+
+def test_missing_approved_previous_date_blocks_before_any_http(monkeypatch,tmp_path):
+    monkeypatch.chdir(tmp_path)
+    env=dict(ENV)
+    env.pop("PHASE4_APPROVED_PREVIOUS_SESSION_DATE")
+    with pytest.raises(PreflightWait,match="PREVIOUS_APPROVED_SESSION_REQUIRED"):
+        execute(env=env,get_calendar=lambda **k:(_ for _ in ()).throw(AssertionError("calendar should not run")),
+                fetch_roster=lambda:(_ for _ in ()).throw(AssertionError("no NSE")),now=TIME)
+
+
+def test_weekend_requested_previous_session_never_fetches(monkeypatch):
+    from phase4s8_calendar_bound_delivery_dryrun import _exact_trading_sessions
+    import fetch_delivery as fd
+    monkeypatch.setattr(fd,"fetch_day",lambda d:(_ for _ in ()).throw(AssertionError("no weekend fetch")))
+    with pytest.raises(PreflightWait,match="APPROVED_SESSION_SEQUENCE_INVALID"):
+        _exact_trading_sessions(DAY,"2026-10-11",set(SYMS))
