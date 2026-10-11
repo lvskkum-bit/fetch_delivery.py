@@ -197,3 +197,61 @@ def test_fail_count_blocks_publication_even_if_50_rows():
     artifact["rows"][0]["status"] = "FAIL"
     with pytest.raises(ValueError, match="FAIL|ROW"):
         contract.validate_delivery_artifact(artifact, proof, expected_date=DATE)
+
+
+def test_full_generator_uses_current_bse_roster_and_keeps_wipro_out(monkeypatch, tmp_path):
+    from datetime import date
+    monkeypatch.chdir(tmp_path)
+    fetched = datetime.now(timezone.utc).isoformat()
+    (tmp_path / "nifty50_latest.json").write_text(
+        json.dumps(membership(fetched=fetched)), encoding="utf-8"
+    )
+    current_csv = csv_payload(CURRENT + ["WIPRO"], quantity=150)
+    previous_csv = csv_payload(CURRENT + ["WIPRO"], quantity=100)
+    monkeypatch.setattr(fetch_delivery, "find_latest_two_sessions",
+        lambda: ((date(2026, 10, 9), current_csv),
+                 (date(2026, 10, 8), previous_csv)))
+    monkeypatch.setenv("EXPECTED_COMPLETED_TRADING_DATE", DATE)
+    fetch_delivery.main()
+    output = json.loads((tmp_path / "delivery_latest.json").read_text(encoding="utf-8"))
+    proof = contract.load_membership(tmp_path / "nifty50_latest.json")
+    assert contract.validate_delivery_artifact(output, proof, expected_date=DATE)["status"] == "PASS"
+    assert {r["symbol"] for r in output["rows"]} == set(CURRENT)
+    assert "BSE" in {r["symbol"] for r in output["rows"]}
+    assert "WIPRO" not in {r["symbol"] for r in output["rows"]}
+
+
+def test_full_generator_preserves_old_cache_on_partial_nse_data(monkeypatch, tmp_path):
+    from datetime import date
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "nifty50_latest.json").write_text(
+        json.dumps(membership(fetched=datetime.now(timezone.utc).isoformat())),
+        encoding="utf-8"
+    )
+    old_path = tmp_path / "delivery_latest.json"
+    old_path.write_bytes(b'{"old_signed_cache":true}')
+    monkeypatch.setenv("EXPECTED_COMPLETED_TRADING_DATE", DATE)
+    monkeypatch.setattr(fetch_delivery, "find_latest_two_sessions",
+        lambda: ((date(2026,10,9), csv_payload(CURRENT[:-1], quantity=150)),
+                 (date(2026,10,8), csv_payload(CURRENT, quantity=100))))
+    with pytest.raises(ValueError, match="DELIVERY_FAIL|COVERAGE"):
+        fetch_delivery.main()
+    assert old_path.read_bytes() == b'{"old_signed_cache":true}'
+
+
+def test_full_generator_blocks_wrong_completed_session_before_cache_change(monkeypatch, tmp_path):
+    from datetime import date
+    monkeypatch.chdir(tmp_path)
+    (tmp_path / "nifty50_latest.json").write_text(
+        json.dumps(membership(fetched=datetime.now(timezone.utc).isoformat())),
+        encoding="utf-8"
+    )
+    old_path = tmp_path / "delivery_latest.json"
+    old_path.write_text('{"old":true}', encoding="utf-8")
+    monkeypatch.setenv("EXPECTED_COMPLETED_TRADING_DATE", "2026-10-08")
+    monkeypatch.setattr(fetch_delivery, "find_latest_two_sessions",
+        lambda: ((date(2026,10,9), csv_payload(CURRENT, quantity=150)),
+                 (date(2026,10,8), csv_payload(CURRENT, quantity=100))))
+    with pytest.raises(ValueError, match="DELIVERY_DATE_MISMATCH"):
+        fetch_delivery.main()
+    assert old_path.read_text(encoding="utf-8") == '{"old":true}'
