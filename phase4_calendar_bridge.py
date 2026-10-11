@@ -165,6 +165,9 @@ def _download_zip(run_artifact_id: int, token: str) -> bytes:
             "results-receiver.actions.githubusercontent.com",
             "pipelines.actions.githubusercontent.com",
             "productionresultssa0.blob.core.windows.net",
+            # Authenticated github.com artifact download redirected here
+            # on 2026-10-11; only the observed exact Azure host is added.
+            "productionresultssa19.blob.core.windows.net",
         ):
             raise _wait("ARTIFACT_REDIRECT_UNTRUSTED")
         second = requests.get(location, headers={"Accept":"application/zip"},

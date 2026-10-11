@@ -1,0 +1,33 @@
+name: Task 4S-4 Artifact Redirect Offline Security Regression
+
+on:
+  push:
+    branches:
+      - correction/phase4-task4s4-auth-readonly-smoke
+    paths:
+      - .github/workflows/phase4s4_artifact_security_ci.yml
+      - phase4_calendar_bridge.py
+      - tests/test_phase4_calendar_bridge.py
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-security:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Offline dependencies
+        run: python -m pip install -q pytest requests
+      - name: Verify syntax and no regressions in 4S-2 + 4S-3 + 4S-4
+        run: |
+          python -m compileall -q phase4_calendar_bridge.py phase4_calendar_bridge_cli.py delivery_source_contract.py fetch_delivery.py
+          python -m pytest -q tests/test_phase4_dynamic_delivery.py tests/test_phase4_calendar_bridge.py
+      - name: No production writes
+        if: always()
+        run: echo "Offline-only tests. No token, market cache mutation, Sheet or broker action."

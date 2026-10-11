@@ -208,3 +208,31 @@ def test_redirect_to_lookalike_domain_is_never_followed(monkeypatch):
         headers={"Location":"https://pipelines.actions.githubusercontent.com.evil.example/"}
     monkeypatch.setattr(cb.requests,"get",lambda *args,**kw:Bad())
     refuses(lambda:cb._download_zip(22,"private-test-token"),"ARTIFACT_REDIRECT_UNTRUSTED")
+
+
+def test_authentic_artifact_redirect_to_github_azure_host_19_is_accepted(monkeypatch):
+    class First:
+        status_code = 302
+        url = f"{cb.API_ROOT}/actions/artifacts/22/zip"
+        headers = {"Location": "https://productionresultssa19.blob.core.windows.net/artifacts/approved?sig=SECRET"}
+    class Second:
+        status_code = 200
+        url = First.headers["Location"]
+        def iter_content(self, chunk_size):
+            yield b"ZIP"
+    seen = []
+    def fake_get(url, headers, **kwargs):
+        seen.append((url, headers))
+        return First() if len(seen) == 1 else Second()
+    monkeypatch.setattr(cb.requests, "get", fake_get)
+    assert cb._download_zip(22, "test-secret-should-never-leak") == b"ZIP"
+    assert "Authorization" not in seen[1][1]
+
+
+def test_azure_redirect_lookalike_remains_rejected(monkeypatch):
+    class First:
+        status_code = 302
+        url = f"{cb.API_ROOT}/actions/artifacts/22/zip"
+        headers = {"Location": "https://productionresultssa19.blob.core.windows.net.evil.example/a"}
+    monkeypatch.setattr(cb.requests, "get", lambda *args, **kwargs: First())
+    refuses(lambda: cb._download_zip(22, "test-secret"), "ARTIFACT_REDIRECT_UNTRUSTED")
