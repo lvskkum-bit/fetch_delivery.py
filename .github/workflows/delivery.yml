@@ -35,20 +35,23 @@ jobs:
       - name: Install requests
         run: python -m pip install requests
 
-      - name: Require approved completed NSE trading session date
+      - name: Require authenticated Stock Master calendar artifact proof
+        id: calendar
         env:
-          EXPECTED_COMPLETED_TRADING_DATE: ${{ vars.PHASE4_APPROVED_COMPLETED_SESSION_DATE }}
+          STOCK_MASTER_CALENDAR_READ_TOKEN: ${{ secrets.STOCK_MASTER_CALENDAR_READ_TOKEN }}
+          PHASE4_CALENDAR_APPROVED_RUN_ID: ${{ vars.PHASE4_CALENDAR_APPROVED_RUN_ID }}
+          PHASE4_CALENDAR_APPROVED_HEAD_SHA: ${{ vars.PHASE4_CALENDAR_APPROVED_HEAD_SHA }}
+          PHASE4_APPROVED_COMPLETED_SESSION_DATE: ${{ vars.PHASE4_APPROVED_COMPLETED_SESSION_DATE }}
+        run: python phase4_calendar_bridge_cli.py
+
+      - name: Confirm approved date was produced by trusted calendar bridge
+        env:
+          EXPECTED_COMPLETED_TRADING_DATE: ${{ steps.calendar.outputs.verified_session_date }}
+          EXPECTED_CALENDAR_CHECKSUM: ${{ steps.calendar.outputs.calendar_evidence_sha256 }}
         run: |
-          python - <<'PY'
-          import os
-          from datetime import date
-          value = os.environ.get("EXPECTED_COMPLETED_TRADING_DATE", "")
-          if not value:
-              raise SystemExit("WAIT: PHASE4_APPROVED_COMPLETED_SESSION_DATE unavailable; no cache publication")
-          if date.fromisoformat(value).isoformat() != value:
-              raise SystemExit("WAIT: invalid completed market date")
-          print("Completed-session date input available; source authentication still independently required")
-          PY
+          test -n "$EXPECTED_COMPLETED_TRADING_DATE"
+          test -n "$EXPECTED_CALENDAR_CHECKSUM"
+          echo "Bound calendar date received from authenticated upstream workflow"
 
       - name: Fetch current NIFTY50 constituents FIRST
         run: python fetch_nifty50_constituents.py
@@ -64,7 +67,7 @@ jobs:
 
       - name: Fetch NSE delivery using the SAME validated membership
         env:
-          EXPECTED_COMPLETED_TRADING_DATE: ${{ vars.PHASE4_APPROVED_COMPLETED_SESSION_DATE }}
+          EXPECTED_COMPLETED_TRADING_DATE: ${{ steps.calendar.outputs.verified_session_date }}
         run: python fetch_delivery.py
 
       - name: Final exact-set, date and checksum verification BEFORE publish
