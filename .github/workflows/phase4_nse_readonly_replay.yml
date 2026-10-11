@@ -1,0 +1,32 @@
+name: Phase 4S-3 NSE Read-only Replay (No Publish)
+
+on:
+  push:
+    branches:
+      - correction/phase4-task4s3-trusted-bridge
+    paths:
+      - phase4_nse_readonly_replay.py
+      - .github/workflows/phase4_nse_readonly_replay.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  replay-2026-10-09:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install HTTP
+        run: python -m pip install requests
+      - name: Live official NSE source & 09 Oct delivery observation only
+        run: python phase4_nse_readonly_replay.py
+      - name: Explicit release status
+        if: always()
+        run: |
+          echo "Read-only replay is NOT approval for delivery cache publication."
+          echo "No source git push, no Sheet writes, no execution of any broker action."
