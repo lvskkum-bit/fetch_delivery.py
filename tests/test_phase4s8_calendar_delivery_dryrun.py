@@ -171,16 +171,16 @@ def test_real_csv_internal_date_must_equal_file_date():
 
 def test_no_DATE1_header_does_not_qualify():
     from phase4s8_calendar_bound_delivery_dryrun import _exact_equity_archive_date
-    body="SYMBOL,SERIES,DELIV_QTY\\nBSE,EQ,200\\n"
+    body="SYMBOL,SERIES,DELIV_QTY\nBSE,EQ,200\n"
     with pytest.raises(PreflightWait,match="ARCHIVE_DATE_OR_SYMBOL_HEADER_MISSING"):
         _exact_equity_archive_date(body,DAY,set(SYMS))
 
 
 def test_duplicate_eq_stock_or_partial_50_csv_is_rejected():
     from phase4s8_calendar_bound_delivery_dryrun import _exact_equity_archive_date
-    body="SYMBOL,SERIES,DATE1\\n"+ "".join(f"{s},EQ,09-Oct-2026\\n" for s in SYMS)
+    body="SYMBOL,SERIES,DATE1\n"+ "".join(f"{s},EQ,09-Oct-2026\n" for s in SYMS)
     with pytest.raises(PreflightWait,match="DUPLICATE_EXACT_CASH_SYMBOL"):
-        _exact_equity_archive_date(body+"BSE,EQ,09-Oct-2026\\n",DAY,set(SYMS))
+        _exact_equity_archive_date(body+"BSE,EQ,09-Oct-2026\n",DAY,set(SYMS))
     with pytest.raises(PreflightWait,match="ARCHIVE_EXACT_50_CASH_ROWS_UNVERIFIED"):
         _exact_equity_archive_date(body.splitlines(True)[0]+ "".join(body.splitlines(True)[1:-1]),DAY,set(SYMS))
 
