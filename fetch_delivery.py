@@ -2,26 +2,17 @@ import csv
 import io
 import json
 import requests
+import os
+from delivery_source_contract import (
+    load_membership, validate_delivery_artifact, write_atomic_json
+)
 from datetime import datetime, timedelta
 from zoneinfo import ZoneInfo
 
 
-# ============================================================
-# NIFTY 50 — CURRENT WORKING UNIVERSE
-# ============================================================
-
-NIFTY50 = {
-    "ADANIENT", "ADANIPORTS", "APOLLOHOSP", "ASIANPAINT", "AXISBANK",
-    "BAJAJ-AUTO", "BAJFINANCE", "BAJAJFINSV", "BEL", "BHARTIARTL",
-    "CIPLA", "COALINDIA", "DRREDDY", "EICHERMOT", "ETERNAL",
-    "GRASIM", "HCLTECH", "HDFCBANK", "HDFCLIFE", "HINDALCO",
-    "HINDUNILVR", "ICICIBANK", "INDIGO", "INFY", "ITC",
-    "JIOFIN", "JSWSTEEL", "KOTAKBANK", "LT", "M&M",
-    "MARUTI", "MAXHEALTH", "NESTLEIND", "NTPC", "ONGC",
-    "POWERGRID", "RELIANCE", "SBILIFE", "SBIN", "SHRIRAMFIN",
-    "SUNPHARMA", "TATACONSUM", "TMPV", "TATASTEEL", "TCS",
-    "TECHM", "TITAN", "TRENT", "ULTRACEMCO", "WIPRO"
-}
+# Task 4S-2: no frozen stock universe. Only a recently validated
+# same-run official constituent artifact can authorize delivery symbols.
+# Membership date and market session date are distinct authorities.
 
 
 HEADERS = {
@@ -149,7 +140,11 @@ def normalize_header(value):
 # PARSE DELIVERY FILE
 # ============================================================
 
-def parse_delivery(text):
+def parse_delivery(text, symbols):
+
+    if not isinstance(symbols, set) or len(symbols) != 50:
+        raise ValueError('CURRENT_MEMBERSHIP_UNAVAILABLE')
+
 
     reader = csv.DictReader(
         io.StringIO(text)
@@ -203,7 +198,7 @@ def parse_delivery(text):
 
         symbol = str(symbol).strip().upper()
 
-        if symbol not in NIFTY50:
+        if symbol not in symbols:
             continue
 
         if (
@@ -258,6 +253,9 @@ def parse_delivery(text):
 
             delivery_percent = None
 
+        if symbol in output:
+            raise ValueError("DUPLICATE_EQUITY_DELIVERY_ROW: " + symbol)
+
         output[symbol] = {
             "deliveryQty": delivery_qty,
             "deliveryPercent": delivery_percent
@@ -276,6 +274,14 @@ def parse_delivery(text):
 # ============================================================
 
 def main():
+
+    # An expected date must come from an independently validated calendar
+    # approval step, not from today's weekday, an HTTP receipt, or a guess.
+    expected_completed_date = os.environ.get("EXPECTED_COMPLETED_TRADING_DATE", "")
+    if not expected_completed_date:
+        raise ValueError("EXPECTED_DATE_REQUIRED: verified NSE session unavailable")
+    proof = load_membership("nifty50_latest.json")
+    symbols = proof["symbols"]
 
     print("-----------------------------------")
     print("NIFTY50 DELIVERY CACHE — START")
@@ -304,18 +310,18 @@ def main():
     )
 
     current_data = parse_delivery(
-        current_text
+        current_text, symbols
     )
 
     previous_data = parse_delivery(
-        previous_text
+        previous_text, symbols
     )
 
     rows = []
 
     pass_count = 0
 
-    for symbol in sorted(NIFTY50):
+    for symbol in sorted(symbols):
 
         current_row = current_data.get(
             symbol,
@@ -383,6 +389,8 @@ def main():
         })
 
     result = {
+        "constituent_sha256": proof["source_sha256"],
+        "constituent_fetched_at_utc": proof["fetched_at_utc"],
         "generatedAt":
             datetime.now(
                 ZoneInfo("Asia/Kolkata")
@@ -407,84 +415,24 @@ def main():
             rows
     }
 
-    # --------------------------------------------------------
-    # WRITE CACHE
-    # --------------------------------------------------------
+    # Fail closed: validate all 50 exact current membership rows, source
+    # checksum, quantities and VERIFIED expected session date BEFORE write.
+    validate_delivery_artifact(
+        result, proof, expected_date=expected_completed_date
+    )
 
-    with open(
-        "delivery_latest.json",
-        "w",
-        encoding="utf-8"
-    ) as file:
-
-        json.dump(
-            result,
-            file,
-            indent=2,
-            ensure_ascii=False
-        )
+    # Atomic local replacement only after validation succeeds. GitHub
+    # publication is a separate workflow step requiring its own approval.
+    write_atomic_json("delivery_latest.json", result)
 
     print("-----------------------------------")
     print("NIFTY50 DELIVERY CACHE")
+    print("CURRENT :", result["currentTradingDate"])
+    print("TOTAL   :", result["total"])
+    print("PASS    :", result["pass"])
+    print("FAIL    :", result["fail"])
+    print("STATUS  : PASS — validated exact current 50/50 + session")
     print("-----------------------------------")
-    print(
-        "PREVIOUS:",
-        previous_date.isoformat()
-    )
-    print(
-        "CURRENT :",
-        current_date.isoformat()
-    )
-    print(
-        "TOTAL   :",
-        len(rows)
-    )
-    print(
-        "PASS    :",
-        pass_count
-    )
-    print(
-        "FAIL    :",
-        len(rows) - pass_count
-    )
-    print(
-        "JSON    : delivery_latest.json"
-    )
-    print("-----------------------------------")
-
-    # --------------------------------------------------------
-    # STRICT AUDIT
-    # --------------------------------------------------------
-
-    if len(rows) != 50:
-
-        raise RuntimeError(
-            "Expected 50 NIFTY50 stocks, found "
-            + str(len(rows))
-        )
-
-    if pass_count != 50:
-
-        failed = [
-            row["symbol"]
-            for row in rows
-            if row["status"] != "PASS"
-        ]
-
-        print(
-            "FAILED SYMBOLS:",
-            failed
-        )
-
-        raise RuntimeError(
-            "Delivery audit failed: "
-            + str(pass_count)
-            + "/50 PASS"
-        )
-
-    print(
-        "FINAL STATUS: PASS — 50/50"
-    )
 
 
 if __name__ == "__main__":

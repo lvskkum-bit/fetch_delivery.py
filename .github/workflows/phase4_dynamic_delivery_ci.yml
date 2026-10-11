@@ -1,0 +1,30 @@
+name: Phase 4S-2 Dynamic Delivery Contract (No Publish)
+
+on:
+  push:
+    branches:
+      - correction/phase4-task4s2-dynamic-delivery-tdd
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install test dependencies
+        run: python -m pip install pytest requests
+      - name: Production-source contract regression (OFFLINE)
+        run: python -m pytest -q tests/test_phase4_dynamic_delivery.py
+      - name: Compile source files (OFFLINE)
+        run: python -m compileall -q fetch_delivery.py fetch_nifty50_constituents.py delivery_source_contract.py
+      - name: Confirm test-only scope
+        if: always()
+        run: |
+          echo "No producer execution, no cache publication, no main push, no Apps Script calls"
