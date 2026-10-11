@@ -408,8 +408,11 @@ def main():
 
         if (
             previous_qty is None
+            or previous_qty <= 0
             or current_qty is None
             or delivery_percent is None
+            or ratio is None
+            or not math.isfinite(ratio)
         ):
             status = "FAIL"
 
