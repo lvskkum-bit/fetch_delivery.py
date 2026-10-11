@@ -110,6 +110,26 @@ class ProducerParityTest(unittest.TestCase):
             fetch_delivery.main()
         self.assertFalse(Path("delivery_latest.json").exists())
 
+    def test_duplicate_equity_rows_are_rejected(self):
+        self.write_roster()
+        (day1, text1), (day2, text2) = self.sessions()
+        text1 += "BSE,EQ,300,65\n"
+        with patch.object(fetch_delivery, "find_latest_two_sessions",
+                          return_value=((day1, text1), (day2, text2))):
+            with self.assertRaises(RuntimeError):
+                fetch_delivery.main()
+        self.assertFalse(Path("delivery_latest.json").exists())
+
+    def test_zero_previous_quantity_does_not_publish_unusable_ratio(self):
+        self.write_roster()
+        (day1, text1), (day2, text2) = self.sessions()
+        text2 = text2.replace("BSE,EQ,200,60.0", "BSE,EQ,0,60.0")
+        with patch.object(fetch_delivery, "find_latest_two_sessions",
+                          return_value=((day1, text1), (day2, text2))):
+            with self.assertRaises(RuntimeError):
+                fetch_delivery.main()
+        self.assertFalse(Path("delivery_latest.json").exists())
+
     def test_workflow_first_fetches_roster_then_delivery_then_commit(self):
         root = Path(__file__).resolve().parents[1]
         workflow = (root / ".github/workflows/delivery.yml").read_text()
