@@ -1,0 +1,27 @@
+name: Phase 4S-3 Calendar Bridge — Offline Only
+
+on:
+  push:
+    branches:
+      - correction/phase4-task4s3-trusted-bridge
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q pytest requests
+      - name: Source syntax
+        run: python -m compileall -q phase4_calendar_bridge.py delivery_source_contract.py fetch_delivery.py
+      - name: Task 4S-2 and 4S-3 contract tests (no network)
+        run: python -m pytest -q tests/test_phase4_dynamic_delivery.py tests/test_phase4_calendar_bridge.py
+      - name: Scope
+        run: echo "No live NSE requests, no GitHub token use, no cache push, no Sheet/broker mutations."
