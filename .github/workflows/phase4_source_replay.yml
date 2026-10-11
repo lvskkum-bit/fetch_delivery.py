@@ -6,6 +6,8 @@ on:
       - correction/phase4-live-delivery-source-parity
     paths:
       - .github/workflows/phase4_source_replay.yml
+      - fetch_delivery.py
+      - fetch_nifty50_constituents.py
 permissions:
   contents: read
 jobs:
