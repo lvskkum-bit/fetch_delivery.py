@@ -72,7 +72,9 @@ jobs:
 
       - name: Final exact-set, date and checksum verification BEFORE publish
         env:
-          EXPECTED_COMPLETED_TRADING_DATE: ${{ vars.PHASE4_APPROVED_COMPLETED_SESSION_DATE }}
+          # Always use the VERIFIED artifact output from the calendar bridge,
+          # never a standalone mutable repository date variable.
+          EXPECTED_COMPLETED_TRADING_DATE: ${{ steps.calendar.outputs.verified_session_date }}
         run: |
           python - <<'PY'
           import json, os

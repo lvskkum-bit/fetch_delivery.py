@@ -1,0 +1,64 @@
+name: Task 4S-8 — Calendar-bound BSE Delivery DRY RUN (NO PUBLISH)
+
+on:
+  push:
+    branches:
+      - correction/phase4-task4s8-calendar-bound-bse-dryrun
+  workflow_dispatch:
+
+# READ-ONLY even if manually dispatched.
+permissions:
+  contents: read
+
+concurrency:
+  group: phase4s8-readonly-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  offline-contract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -q pytest requests
+      - name: Source syntax and offline tests
+        run: |
+          python -m compileall -q phase4s8_calendar_bound_delivery_dryrun.py phase4_calendar_bridge.py phase4_calendar_bridge_cli.py
+          python -m pytest -q tests/test_phase4_dynamic_delivery.py tests/test_phase4_calendar_bridge.py tests/test_phase4s8_calendar_delivery_dryrun.py
+      - name: No writes
+        if: always()
+        run: echo "All offline tests; no production caches, no Sheet, no broker."
+
+  actual-authenticated-bse-dryrun:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    needs: offline-contract
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install public API dependency
+        run: python -m pip install -q requests
+      - name: Verify historical calendar + fetch actual NSE delivery in TEMP dir
+        env:
+          STOCK_MASTER_CALENDAR_READ_TOKEN: ${{ secrets.STOCK_MASTER_CALENDAR_READ_TOKEN }}
+          # One-time historical approval for 2026-10-09 ONLY.
+          # Current/future live publication must obtain newly approved proof.
+          PHASE4_CALENDAR_APPROVED_RUN_ID: '38078845264'
+          PHASE4_CALENDAR_APPROVED_HEAD_SHA: '2420429da437de93c7f37263cbb07bbce52a3efe'
+          PHASE4_APPROVED_COMPLETED_SESSION_DATE: '2026-10-09'
+          PHASE4_APPROVED_PREVIOUS_SESSION_DATE: '2026-10-08'
+        run: python phase4s8_calendar_bound_delivery_dryrun.py
+      - name: Fail-closed release marker
+        if: always()
+        run: |
+          echo "NO git push/commit, NO producer cache publication."
+          echo "NO Google Sheet/Apps Script changes, NO broker actions."
