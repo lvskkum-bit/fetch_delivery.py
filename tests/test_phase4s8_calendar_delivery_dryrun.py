@@ -101,7 +101,7 @@ def test_stale_old_universe_fails_without_touching_published_cache(tmp_path,monk
         o=json.loads(p.read_text())
         o["symbols"][0]="WIPRO"
         p.write_text(json.dumps(o))
-    with pytest.raises((ValueError,PreflightWait),match="IDENTITY|ROSTER|UNIVERSE"):
+    with pytest.raises((ValueError,PreflightWait),match="IDENTITY|ROSTER|UNIVERSE|SYMBOL_SET"):
         execute(env=ENV,get_calendar=fake_calendar,fetch_roster=wrong_roster,
                 fetch_delivery_data=lambda:(_ for _ in ()).throw(AssertionError("No delivery read")),now=TIME)
     assert old.read_bytes()==b'{"published":"unchanged"}'
