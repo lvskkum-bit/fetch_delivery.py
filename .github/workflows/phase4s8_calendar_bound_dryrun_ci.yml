@@ -55,6 +55,7 @@ jobs:
           PHASE4_CALENDAR_APPROVED_RUN_ID: '38078845264'
           PHASE4_CALENDAR_APPROVED_HEAD_SHA: '2420429da437de93c7f37263cbb07bbce52a3efe'
           PHASE4_APPROVED_COMPLETED_SESSION_DATE: '2026-10-09'
+          PHASE4_APPROVED_PREVIOUS_SESSION_DATE: '2026-10-08'
         run: python phase4s8_calendar_bound_delivery_dryrun.py
       - name: Fail-closed release marker
         if: always()
