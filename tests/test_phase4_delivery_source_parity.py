@@ -130,6 +130,32 @@ class ProducerParityTest(unittest.TestCase):
                 fetch_delivery.main()
         self.assertFalse(Path("delivery_latest.json").exists())
 
+    def test_embedded_date_must_match_requested_nse_file_date(self):
+        good = "SYMBOL, SERIES, DATE1, DELIV_QTY\nBSE,EQ,09-Oct-2026,200\n"
+        # The guard needs >=50 actual source rows, not just an NSE-looking header.
+        real = ("SYMBOL, SERIES, DATE1, DELIV_QTY\n" +
+                "".join(f"{s},EQ,09-Oct-2026,200\n" for s in self.roster["symbols"]))
+        self.assertFalse(fetch_delivery.p4_valid_bhavdata_embedded_date_(
+            good, date(2026, 10, 9)))
+        self.assertTrue(fetch_delivery.p4_valid_bhavdata_embedded_date_(
+            real, date(2026, 10, 9)))
+        self.assertFalse(fetch_delivery.p4_valid_bhavdata_embedded_date_(
+            real, date(2026, 10, 11)))
+
+    def test_sunday_nse_200_is_never_a_regular_trading_session(self):
+        with patch.object(fetch_delivery.requests, "get") as get:
+            self.assertIsNone(fetch_delivery.fetch_day(date(2026, 10, 11)))
+            get.assert_not_called()
+
+    def test_wrong_date_mirror_never_qualifies_on_weekday(self):
+        fake = ("SYMBOL, SERIES, DATE1, DELIV_QTY\n" +
+                "".join(f"{s},EQ,09-Oct-2026,200\n" for s in self.roster["symbols"]))
+        response = type("Response", (), {
+            "status_code": 200, "text": fake, "content": fake.encode("utf8")
+        })()
+        with patch.object(fetch_delivery.requests, "get", return_value=response):
+            self.assertIsNone(fetch_delivery.fetch_day(date(2026, 10, 8)))
+
     def test_workflow_first_fetches_roster_then_delivery_then_commit(self):
         root = Path(__file__).resolve().parents[1]
         workflow = (root / ".github/workflows/delivery.yml").read_text()
