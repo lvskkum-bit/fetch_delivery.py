@@ -134,10 +134,12 @@ def test_delivery_rejects_stale_complete_session_even_if_valid_50():
 def test_delivery_rejects_mixed_row_dates_and_invalid_quantity_ratio():
     proof = contract.validate_membership(membership(), now=NOW)
     broken = delivery()
+    broken["constituent_sha256"] = proof["source_sha256"]
     broken["rows"][0]["currentDate"] = "2026-10-08"
     with pytest.raises(ValueError, match="ROW_DATE"):
         contract.validate_delivery_artifact(broken, proof, expected_date=DATE)
     broken = delivery()
+    broken["constituent_sha256"] = proof["source_sha256"]
     broken["rows"][0]["deliveryRatio"] = -2
     with pytest.raises(ValueError, match="RATIO"):
         contract.validate_delivery_artifact(broken, proof, expected_date=DATE)
