@@ -84,7 +84,38 @@ HEADERS = {
 # DOWNLOAD ONE NSE DELIVERY FILE
 # ============================================================
 
+def p4_valid_bhavdata_embedded_date_(csv_text, requested_date):
+    """NSE 200 is not an exchange-session attestation. Require DATE1 parity."""
+    reader = csv.DictReader(io.StringIO(csv_text))
+    if not reader.fieldnames:
+        return False
+    keys = {normalize_header(h):h for h in reader.fieldnames}
+    if "SYMBOL" not in keys or "DATE1" not in keys:
+        return False
+    found = 0
+    for row in reader:
+        raw = str(row.get(keys["DATE1"], "")).strip()
+        embedded = None
+        for fmt in ("%d-%b-%Y", "%d-%m-%Y", "%d/%m/%Y",
+                    "%Y-%m-%d", "%d %b %Y", "%d%m%Y"):
+            try:
+                embedded = datetime.strptime(raw, fmt).date()
+                break
+            except ValueError:
+                continue
+        if embedded != requested_date:
+            return False
+        found += 1
+    return found >= 50
+
+
 def fetch_day(day):
+
+    # A Sunday/Saturday archive HTTP 200 must never qualify as a new session.
+    # Exceptional weekend sessions need separately reviewed calendar support.
+    if day.weekday() >= 5:
+        print("SKIP WEEKEND WITHOUT AUTHORITATIVE SPECIAL-SESSION PROOF:", day.isoformat())
+        return None
 
     date_text = day.strftime("%d%m%Y")
 
@@ -116,6 +147,11 @@ def fetch_day(day):
             return None
 
         if "SYMBOL" not in text.upper():
+            return None
+
+        if not p4_valid_bhavdata_embedded_date_(text, day):
+            print("REJECT NSE CSV: embedded DATE1 does not equal requested session:",
+                  day.isoformat())
             return None
 
         print(
