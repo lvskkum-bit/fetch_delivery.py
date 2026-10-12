@@ -1,0 +1,52 @@
+name: Phase 4 NSE Source Live Replay — Correction Branch Only
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - correction/phase4-live-delivery-source-parity
+    paths:
+      - .github/workflows/phase4_source_replay.yml
+      - fetch_delivery.py
+      - fetch_nifty50_constituents.py
+permissions:
+  contents: read
+jobs:
+  nse-readonly-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install requests
+      - name: Fetch actual current NSE Indices constituent CSV
+        run: python fetch_nifty50_constituents.py
+      - name: Fetch actual NSE delivery and strict exact-universe cache locally
+        run: python fetch_delivery.py
+      - name: Independently compare produced cache date and roster membership
+        run: |
+          python - <<'PY'
+          import json, hashlib
+          from pathlib import Path
+          roster=json.loads(Path('nifty50_latest.json').read_text())
+          delivery=json.loads(Path('delivery_latest.json').read_text())
+          a=set(roster['symbols'])
+          b={row['symbol'] for row in delivery['rows']}
+          expected='2026-10-09'
+          if roster['status']!='PASS' or roster['count']!=50 or len(a)!=50:
+              raise SystemExit('WAIT: current official constituent validation incomplete')
+          if a!=b or len(delivery['rows'])!=50 or delivery['pass']!=50:
+              raise SystemExit('WAIT: NSE delivery and official constituents differ')
+          if 'BSE' not in a or 'WIPRO' in a:
+              raise SystemExit('WAIT: BSE/WIPRO source mismatch')
+          if delivery['currentTradingDate']!=expected:
+              raise SystemExit('WAIT: replay candle date differs from 2026-10-09 audited calendar')
+          if delivery['constituent_symbols']!=sorted(a):
+              raise SystemExit('WAIT: bound constituent symbol metadata mismatch')
+          print(json.dumps({'status':'PASS','date':expected,'stocks':50,
+              'BSE_included':True,'WIPRO_excluded':True,
+              'membership_digest':delivery['constituent_sha256'],
+              'main_write':False,'sheet_write':False},sort_keys=True))
+          PY
+      - run: echo "Replay produced temporary runner files only; no git push, no Sheet updates, no broker actions."
