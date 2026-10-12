@@ -1,0 +1,78 @@
+name: Phase 4 One-Time Delivery Receipt (Correction Branch Only)
+on:
+  push:
+    branches:
+      - correction/phase4-delivery-publish-validated-cache-20261012
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify-and-stage:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests
+      - name: Fetch current OFFICIAL NIFTY50 roster and exact delivery
+        run: |
+          python fetch_nifty50_constituents.py
+          python fetch_delivery.py
+      - name: Independently attest complete same-run provenance before commit
+        run: |
+          python - <<'PY'
+          import json
+          import math
+          from pathlib import Path
+          from datetime import datetime, date
+          from zoneinfo import ZoneInfo
+          from fetch_delivery import load_verified_membership, SOURCE_URL
+          roster=json.loads(Path('nifty50_latest.json').read_text(encoding='utf-8'))
+          delivery=json.loads(Path('delivery_latest.json').read_text(encoding='utf-8'))
+          members,digest,fetched=load_verified_membership()
+          expected=sorted(members)
+          rows=delivery['rows']
+          day=date.fromisoformat(delivery['currentTradingDate'])
+          previous=date.fromisoformat(delivery['previousTradingDate'])
+          now=datetime.now(ZoneInfo('Asia/Kolkata'))
+          if now.hour < 17 and day >= now.date():
+              raise RuntimeError('INTRADAY_NOT_COMPLETED_SESSION')
+          if not (previous < day <= now.date() and day >= date(2026,10,9)):
+              raise RuntimeError('SESSION_COMPLETED_DATE_MISMATCH')
+          if not (len(members)==50 and 'BSE' in members and 'WIPRO' not in members
+                  and delivery['total']==50 and delivery['pass']==50 and delivery['fail']==0
+                  and len(rows)==50 and len({r['symbol'] for r in rows})==50
+                  and sorted(r['symbol'] for r in rows)==expected
+                  and delivery['constituent_symbols']==expected
+                  and delivery['constituent_sha256']==digest
+                  and delivery['constituent_source_url']==SOURCE_URL
+                  and delivery['constituent_fetched_at_utc']==fetched):
+              raise RuntimeError('NOT_FULL_ROSTER_DATE_DIGEST_50_50')
+          for r in rows:
+              if not (r['status']=='PASS'
+                  and r['currentDate']==day.isoformat()
+                  and r['previousDate']==previous.isoformat()
+                  and isinstance(r['currentDeliveryQty'],(int,float))
+                  and isinstance(r['previousDeliveryQty'],(int,float))
+                  and r['previousDeliveryQty']>0
+                  and math.isfinite(r['deliveryRatio'])
+                  and math.isclose(r['deliveryRatio'],
+                      r['currentDeliveryQty']/r['previousDeliveryQty'], rel_tol=1e-8)):
+                  raise RuntimeError('DELIVERY_ROW_INVALID_'+str(r.get('symbol')))
+          print(json.dumps({'status':'PASS','date':day.isoformat(),'previous':previous.isoformat(),
+             'members':len(members),'BSE':True,'WIPRO':False,'digest':digest,
+             'source':SOURCE_URL,'publish_to_main':False},sort_keys=True))
+          PY
+      - name: Stage only the two verified caches on this correction branch
+        run: |
+          git config user.name "phase4-delivery-audit[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add delivery_latest.json nifty50_latest.json
+          git diff --cached --quiet && exit 1
+          git commit -m "Phase 4: stage verified exact BSE 50/50 NSE delivery receipt"
+          git push origin HEAD:correction/phase4-delivery-publish-validated-cache-20261012
+      - run: echo "Verified correction BRANCH only; main/Apps Script/Sheet/broker unchanged."
