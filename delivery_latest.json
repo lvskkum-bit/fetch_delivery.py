@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-20T00:19:50.114935+05:30",
+  "generatedAt": "2026-10-20T23:01:14.551651+05:30",
   "previousTradingDate": "2026-10-16",
   "currentTradingDate": "2026-10-19",
   "total": 50,
@@ -507,7 +507,7 @@
       "status": "PASS"
     }
   ],
-  "constituent_sha256": "21ad130071cd02251e579bcb0cf94fd6bbd32acccd952f5ef4875f5e61aaf618",
+  "constituent_sha256": "581c218e5c9a71870ff9677a9abfdcad2fd8e50ac83ab968bd336d93ef5ca7e5",
   "constituent_symbols": [
     "ADANIENT",
     "ADANIPORTS",
@@ -561,5 +561,5 @@
     "ULTRACEMCO"
   ],
   "constituent_source_url": "https://www.niftyindices.com/IndexConstituent/ind_nifty50list.csv",
-  "constituent_fetched_at_utc": "2026-10-19T18:49:48.190958+00:00"
+  "constituent_fetched_at_utc": "2026-10-20T17:31:13.476488+00:00"
 }
